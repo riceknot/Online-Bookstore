@@ -54,17 +54,17 @@ tabHome.addEventListener('click', () => {
             labels: ["2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023"],
             datasets: [{
                     label: "Ho Chi Minh",
-                    data: [15, 30, 55, 65, 60, 80, 95],
+                    data: [15, 30, 55, 65, 60, 80, 95, 115],
                     backgroundColor: "rgb(188, 163, 127, .7)"
                 },
                 {
                     label: "Da Nang",
-                    data: [8, 35, 40, 60, 70, 55, 75],
+                    data: [8, 35, 40, 60, 70, 55, 75, 55],
                     backgroundColor: "rgb(188, 163, 127, .5)"
                 },
                 {
                     label: "Ha Noi",
-                    data: [12, 25, 45, 55, 65, 70, 60],
+                    data: [12, 25, 45, 55, 65, 70, 60, 65],
                     backgroundColor: "rgb(188, 163, 127, .3)"
                 }
             ]

@@ -3,9 +3,13 @@
 }
 
 .card:hover {
-    color: white;
-    box-shadow: 0 0px 10px orangered;
-    transform: scale(1.1);
+    box-shadow: 0 0px 7px orangered;
+    transform: scale(1.05);
     transition: 0.3s;
     
     }
+
+a, a:link, a:visited, a:hover, a:active {
+    text-decoration: none;
+    color: #16161d;
+}
