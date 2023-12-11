@@ -32,6 +32,10 @@ const inventorySchema = new Schema({
     },
     quantity: {
         type: Number,
+    },
+    image: {
+        data: Buffer,
+        mimeType: String,
     }
 }, {
     timestamps: true
