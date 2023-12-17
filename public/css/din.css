@@ -25,7 +25,7 @@ a:hover, a:active {
 }
 
 #login-background {
-    background-image: url("../asset/image/bookshelf-background.jpg ");
+    background-image: url("/public/asset/image/bookshelf-background.jpg ");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;

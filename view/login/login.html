@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Login</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/x-icon" href="/public/asset/image/falvicon_official-removebg-new.png">
+        <link rel="stylesheet" href="/public/css/reset.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="/public/css/style.css" type="text/css">
+
+
+
+        <!-- Google Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@400;500;600;700&family=Roboto+Serif:opsz,wght@8144,400;8144,500;8144,600&display=swap"
+            rel="stylesheet"
+        />
+
+        <!-- Font Awesome 5 -->
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+            integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
+    </head>
+    <body id ="login-background">
+        <div class = "container">
+            <div id = "login-container">
+                <div id = "welcome">
+                    <img id = "full-logo" src="/public/asset/image/logo_with_text.jpg">
+                    <br><h1><strong>Sign in</strong></h1>
+                    <p>Welcome Back to Our Bookshop</p>
+                </div>
+
+                <div class ="login-form">
+                    <form>
+                        <div class="input username">
+                            <label>Email or Username:</label>
+                            <input 
+                                type="text"
+                                name="username"
+                                id="username"
+                                placeholder="Example123@gmail.com"
+                                title="Please enter your username"
+                                autofocus
+                                required
+                            />
+                        </div>
+                        <div class="input password">
+                            <label>Password:</label>
+                            <div class="password">
+                                <input
+                                    id="password"
+                                    type="password"
+                                    name="password"
+                                    placeholder="Example123"
+                                    title="Enter your password"
+                                    value=""
+                                    required
+                                />
+                                <i class="fa fa-eye-slash" id="togglePassword"></i>
+                            </div>
+                        </div>
+                        <br><input type="submit" class="btn1" value="Login" /><br><br>
+                    </form>
+                    <br><p id = "create-account">Don't have an account? <a href="/view/register-customer.html">Sign up</a></p>
+                </div>
+            </div>
+        </div>
+
+        <script src="/public/js/index.js"></script>
+    </body>
+</html>

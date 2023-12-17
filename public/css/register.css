@@ -17,7 +17,7 @@ h1 {
   }
   
   #main_index{
-      background-image: url("../asset/image/lib_background.jpg");
+      background-image: url("/public/asset/image/lib_background.jpg");
       background-repeat: no-repeat;
       background-size: cover;
       background-position: center;
@@ -25,7 +25,7 @@ h1 {
   }
 
   #owner_index {
-      background-image: url("../asset/image/Seller_Venue_Bookstore.jpg");
+      background-image: url("/public/asset/image/Seller_Venue_Bookstore.jpg");
       background-repeat: no-repeat;
       background-size: cover;
       background-position: center;
