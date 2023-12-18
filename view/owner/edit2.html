@@ -120,7 +120,7 @@
                         <div class="modal-body">             
                             <div class="container d-flex justify-content-between align-items-center modal-form-container">
 
-                                <form action="" class="d-flex flex-column" style="width: 80% !important;">
+                                <form action="" method="post" class="d-flex flex-column" style="width: 80% !important;">
                                     <div class="row py-4">
                                         <div class="col-lg-6 mx-auto">
                                 
@@ -158,18 +158,18 @@
                                     <br>
                                     <label class="fs-4 mb-2" for="description">Description</label>
                                     <input  class = "form-input" type="text" name="Description" id="description" value='abcxyz' required>
-                                    <br> 
-                                    <label class="fs-4 mb-2" for="Publisher">Publisher</label>
-                                    <input  class = "form-input" type="text" name="Publisher" id="Publisher" required>
+                                   
+                                    
                                     <br>
                                     <label class="fs-4 mb-2" for="amount">Quantity</label>
                                     <input  class = "form-input" type="number" name="Amount" id="amount" value='999' required>
 
                                     <div class="modal-footer" id="button-edit">
                                         <button type="submit" class="btn btn-primary modal-btn" data-bs-dismiss="modal"><strong>Save changes</strong></button>
-                                        
+                                        <button type="submit" class="delete-btn"><span class="delete-btn_text">Delete</span><span class="delete-btn_icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"></path></svg></span></button>
                                     </div>
-                                    <button style="position: relative; left: 250px; bottom: 62px;" class="delete-btn"><span class="delete-btn_text">Delete</span><span class="delete-btn_icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"></path></svg></span></button>
+                                    
+                                    
                                 </form>
                             </div>
                         </div>

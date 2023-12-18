@@ -183,10 +183,10 @@
                                     <th scope="col" class="fs-5"><strong>#</strong></th>
                                     <th scope="col" class="fs-5"><strong>Title</strong></th>
                                     <th scope="col" class="fs-5"><strong>Image</strong></th>
+                                    <th scope="col" class="fs-5"><strong>Author</strong></th>
                                     <th scope="col" class="fs-5"><strong>Price</strong></th>
                                     <th scope="col" class="fs-5"><strong>Description</strong></th>
-                                    <th scope="col" class="fs-5"><strong>Category</strong></th>
-                                    <th scope="col" class="fs-5"><strong>Added Date</strong></th>
+                                    <th scope="col" class="fs-5"><strong>Genre</strong></th>                                    
                                     <th scope="col" class="fs-5"><strong>Amount</strong></th>
                                     <th scope="col" class="fs-5"><strong>Action</strong></th>
                                     </tr>
@@ -196,10 +196,10 @@
                                     <th scope="row" class="align-middle">16161d</th>
                                     <td>The Age of Alexander</td>
                                     <td><img src="/public/asset/book/covers/Alexander.jpg" alt="" height="200px"></td>
+                                    <td>Alan Benette</td>
                                     <td>$9.99</td>
                                     <td>Description </td>
-                                    <td>Book</td>
-                                    <td>DD/MM/YYYY</td>
+                                    <td>Book</td>                                    
                                     <td>999</td>
                                     <td>
                                         <button class="edit-button mx-auto btn btn-primary" data-bs-toggle="modal" onclick="location.href='/view/owner/edit2.html';"  type="button">
@@ -212,10 +212,10 @@
                                         <th scope="row" class="align-middle">21e3aa</th>
                                         <td>Assyria</td>
                                         <td><img src="/public/asset/book/covers/assyria.jpg" alt=""  height="200px"></td>
+                                        <td>James I</td>
                                         <td>$9.99</td>
                                         <td> Descripion</td>
-                                        <td>Book</td>
-                                        <td>DD/MM/YYYY</td>
+                                        <td>Book</td>                                        
                                         <td>999</td>
                                         <td>
                                             <button class="edit-button mx-auto btn btn-primary" data-bs-toggle="modal" onclick="location.href='/view/owner/edit2.html';" type="button">
@@ -228,10 +228,10 @@
                                         <th scope="row" class="align-middle">420d69</th>
                                         <td>Cats of Ulthar</td>
                                         <td><img src="/public/asset/book/covers/Cats_of_Ulthar.jpg" alt=""height="200px"></td>
+                                        <td>Omherotent Ishtar</td>
                                         <td>$9.99</td>
                                         <td> Description</td>
                                         <td>Book</td>
-                                        <td>DD/MM/YYYY</td>
                                         <td>999</td>
                                         <td>
                                             <button class="edit-button mx-auto btn btn-primary" data-bs-toggle="modal" onclick="location.href='/view/owner/edit2.html';" type="button">
@@ -273,6 +273,9 @@
                         <label class="fs-4 mb-2" for="name">Name</label>
                         <input  class = "form-input" type="text" name='Name' id="name" required>
                         <br>
+                        <label class="fs-4 mb-2" for="description">Author</label>
+                        <input  class = "form-input" type="text" name="Description" id="description" required>
+                        <br>
                         <label class="fs-4 mb-2" for="price">Price</label>
                         <input  class = "form-input" type="number" name='Price' id="price" required>
                         <br>
@@ -287,9 +290,6 @@
                         <br>
                         <label class="fs-4 mb-2" for="description">Description</label>
                         <input  class = "form-input" type="text" name="Description" id="description" required>
-                        <br> 
-                        <label class="fs-4 mb-2" for="added-date">Date</label>
-                        <input  class = "form-input" type="date" name="Added Date" id="added-date" autocomplete="bday"> 
                         <br>
                         <label class="fs-4 mb-2" for="amount">Amount</label>
                         <input  class = "form-input" type="number" name="Amount" id="amount" required>
