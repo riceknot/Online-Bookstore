@@ -7,7 +7,7 @@ let Account = require('../models/account_model');
 router.route('/').get((req, res) => {
     Announcement.find()
         .then((announcement) => {
-            res.render('Announcement_Owner', { announcement });
+            res.render('owner/announcement', { announcement });
         })
         .catch((error) => {
             console.log(error.message);
