@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Manage your store</title>
+       
+        <!-- CSS -->
+        <link rel="stylesheet" href="/public/css/reset.css" />
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
+            crossorigin="anonymous"
+        />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+        <link rel="stylesheet" href="/public/css/inventory-management.css" />
+
+        <!-- Favicon -->
+        <link rel="icon" type="image/x-icon" href="/public/asset/image/falvicon_official-removebg-new.png">
+
+
+        <!-- Google Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@400;500;600;700&family=Roboto+Serif:opsz,wght@8144,400;8144,500;8144,600&display=swap"
+            rel="stylesheet"
+        />
+
+        <!-- Font Awesome 5 -->
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+            integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
+    </head>
+    <body>
+        <div class="d-flex main-vp">
+            <!-- Side menu start-->
+            <div class="sidebar d-flex flex-column flex-shrink-0 p-3 bg-light fixed-top" style="width: 280px;">
+                <div class="d-flex justify-content-between align-items-center">
+                    <a href="#" class="d-flex align-items-center link-dark text-decoration-none">
+                    <img src="/public/asset/image/foxy.jpg" alt="" width="45" height="45" class="rounded-circle me-2">
+                    <div>
+                        <span class="text-secondary">Hello,</span>
+                        <br>
+                        <strong class="fs-5">User Name</strong>
+                    </div>
+                    </a>
+                    <a href="" class="bi bi-box-arrow-right text-secondary fs-5"></a>
+                </div>
+                <br>
+                <br>
+                <div class="earning">
+                    <span class="text-secondary">Earning</span>
+                    <br>
+                    <span class="fs-2"><strong>$12,560.55</strong></span>
+                </div>
+                <br>
+                <hr>
+                <ul class="nav nav-pills flex-column mb-auto">
+                <li class="nav-item home">
+                    <a href="/view/owner/dashboard.html#home-page" class="nav-link text-black fs-5">
+                        <i class="bi bi-reception-4 me-2 fs-4"></i>
+                        <strong>Dashboard</strong>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/view/owner/order.html#order-page" class="nav-link text-black fs-5">
+                        <i class="bi bi-list-check me-2 fs-4"></i>
+                        <strong>Orders <span class="noti ms-2">3</span></strong>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#product-page" class="nav-link selected text-black fs-5">
+                        <i class="bi bi-box-seam me-2 fs-4"></i>
+                        <strong>Products</strong>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/view/owner/announcement.html#announcement-page" class="nav-link text-black fs-5">
+                        <i class="bi bi-megaphone me-2 fs-4"></i>
+                        <strong>Announcements </strong>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/view/owner/inquiry.html#inquiry-page" class="nav-link text-black fs-5">
+                        <i class="bi bi-envelope me-2 fs-4"></i>
+                        <strong>Inquiries</strong>
+                    </a>
+                </li>
+                </ul>
+                <div class="logo-container ">
+                    <a href="/view/owner/dashboard.html#home-page" class="d-flex justify-content-between align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none" style="width: 250px;">
+                        <img src="/public/asset/image/logo-strong-text.svg" alt="brand-logo">
+                    </a>
+                </div>
+            </div>
+            <div class="sidebar-toggler">
+                <i class="bi bi-caret-right-fill"></i>
+            </div>
+            <!-- Side menu end-->
+
+            
+
+            <!-- Product Page start-->
+            <div class="container-fluid rounded-page product-page-content"  id="product-page">
+                <nav class="d-flex justify-content-between align-items-center" style="padding: 2.5% 5% 0;">
+                    <a class="navbar-brand"><strong class="fs-1">Products</strong>
+                        <br>
+                        <p class="text-secondary">Manage your products here</p>
+                    </a>
+                    <form class="search-form mt-1">
+                        <a class="bi bi-search fs-6 text-black me-2" type="submit"></a>
+                        <input class="search-bar" type="search" placeholder="Search anything." aria-label="Search">
+                    </form>
+                    <a href="#" class="nav-link text-black fs-6">
+                        <strong>View Your Store</strong>
+                        <i class="bi bi-box-arrow-in-right ms-2 fs-5"></i>
+                    </a>
+                </nav>
+                <br>
+                <div class="text-decoration-none">
+                    <button type="button" class="add-button" onclick="location.href='#form-page';">
+                        <span class="add-button__text"> &emsp; Add</span>
+                        <span class="add-button__icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke="currentColor" height="24" fill="none" class="svg">
+                                <line y2="19" y1="5" x2="12" x1="12"></line>
+                                <line y2="12" y1="12" x2="19" x1="5"></line>
+                            </svg>
+                        </span>
+                    </button>
+                </div>
+                <br>
+                <!-- TEST FILTER TEST FILTER TEST FILTER TEST FILTER TEST FILTER TEST FILTER TEST FILTER TEST FILTER TEST FILTER TEST FILTER TEST FILTER TEST FILTER TEST FILTER TEST FILTER TEST FILTER TEST FILTER TEST FILTER TEST FILTER TEST FILTER TEST FILTER TEST FILTER TEST FILTER TEST FILTER TEST FILTER TEST FILTER TEST FILTER TEST FILTER   -->
+              
+                
+                <div class="container my-5">
+                    <form action="#" method="get" class="d-flex justify-content-center align-items-center">
+                        <div class="form-group mx-2">
+                            <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+                                <option selected>Author</option>
+                                <option value="1">Plato</option>
+                                <option value="2">Pierre Pasquier</option>
+                                <option value="3">Peter Wohlleben</option>
+                            </select>
+                        </div>
+            
+                        <div class="form-group mx-2">
+                            <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+                                <option selected>Genre</option>
+                                <option value="1">Horror</option>
+                                <option value="2">Sci-Fi</option>
+                                <option value="3">Mystery</option>
+                            </select>
+                        </div>
+            
+                        <div class="form-group mx-2">
+                            <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+                                <option selected>Publisher</option>
+                                <option value="1">Amazon</option>
+                                <option value="2">eBay</option>
+                                <option value="3">Shopee</option>
+                            </select>
+                        </div>
+
+                        <button type="submit" id="submit" class="btn btn-primary mx-2">Search</button>
+                    </form>
+                </div>
+                
+                
+<!--TEST FILTER TEST FILTER TEST FILTER TEST FILTER TEST FILTER TEST FILTER TEST FILTER TEST FILTER TEST FILTER TEST FILTER TEST FILTER TEST FILTER TEST FILTER TEST FILTER TEST FILTER TEST FILTER TEST FILTER TEST FILTER TEST FILTER TEST FILTER TEST FILTER TEST FILTER TEST FILTER TEST FILTER TEST FILTER  -->
+                <div class="container-fluid">
+                    <div class="rounded h-100 p-4">
+                        <div class="table-responsive">
+                            <table class="table table-bordered border-black table-hover">
+                                <thead>
+                                    <tr>
+                                    <th scope="col" class="fs-5"><strong>#</strong></th>
+                                    <th scope="col" class="fs-5"><strong>Title</strong></th>
+                                    <th scope="col" class="fs-5"><strong>Image</strong></th>
+                                    <th scope="col" class="fs-5"><strong>Author</strong></th>
+                                    <th scope="col" class="fs-5"><strong>Price</strong></th>
+                                    <th scope="col" class="fs-5"><strong>Description</strong></th>
+                                    <th scope="col" class="fs-5"><strong>Genre</strong></th>                                    
+                                    <th scope="col" class="fs-5"><strong>Amount</strong></th>
+                                    <th scope="col" class="fs-5"><strong>Action</strong></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                    <th scope="row" class="align-middle">16161d</th>
+                                    <td>The Age of Alexander</td>
+                                    <td><img src="/public/asset/book/covers/Alexander.jpg" alt="" height="200px"></td>
+                                    <td>Alan Benette</td>
+                                    <td>$9.99</td>
+                                    <td>Description </td>
+                                    <td>Book</td>                                    
+                                    <td>999</td>
+                                    <td>
+                                        <button class="edit-button mx-auto btn btn-primary" data-bs-toggle="modal" onclick="location.href='/view/owner/edit2.html';"  type="button">
+                                            <svg class="svg-icon" fill="none" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><g stroke="#8E806A" stroke-linecap="round" stroke-width="2"><path d="m20 20h-16"></path><path clip-rule="evenodd" d="m14.5858 4.41422c.781-.78105 2.0474-.78105 2.8284 0 .7811.78105.7811 2.04738 0 2.82843l-8.28322 8.28325-3.03046.202.20203-3.0304z" fill-rule="evenodd"></path></g></svg>
+                                            <span class="lable">Edit</span>
+                                        </button>
+                                    </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="align-middle">21e3aa</th>
+                                        <td>Assyria</td>
+                                        <td><img src="/public/asset/book/covers/assyria.jpg" alt=""  height="200px"></td>
+                                        <td>James I</td>
+                                        <td>$9.99</td>
+                                        <td> Descripion</td>
+                                        <td>Book</td>                                        
+                                        <td>999</td>
+                                        <td>
+                                            <button class="edit-button mx-auto btn btn-primary" data-bs-toggle="modal" onclick="location.href='/view/owner/edit2.html';" type="button">
+                                                <svg class="svg-icon" fill="none" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><g stroke="#8E806A" stroke-linecap="round" stroke-width="2"><path d="m20 20h-16"></path><path clip-rule="evenodd" d="m14.5858 4.41422c.781-.78105 2.0474-.78105 2.8284 0 .7811.78105.7811 2.04738 0 2.82843l-8.28322 8.28325-3.03046.202.20203-3.0304z" fill-rule="evenodd"></path></g></svg>
+                                                <span class="lable">Edit</span>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="align-middle">420d69</th>
+                                        <td>Cats of Ulthar</td>
+                                        <td><img src="/public/asset/book/covers/Cats_of_Ulthar.jpg" alt=""height="200px"></td>
+                                        <td>Omherotent Ishtar</td>
+                                        <td>$9.99</td>
+                                        <td> Description</td>
+                                        <td>Book</td>
+                                        <td>999</td>
+                                        <td>
+                                            <button class="edit-button mx-auto btn btn-primary" data-bs-toggle="modal" onclick="location.href='/view/owner/edit2.html';" type="button">
+                                                <svg class="svg-icon" fill="none" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><g stroke="#8E806A" stroke-linecap="round" stroke-width="2"><path d="m20 20h-16"></path><path clip-rule="evenodd" d="m14.5858 4.41422c.781-.78105 2.0474-.78105 2.8284 0 .7811.78105.7811 2.04738 0 2.82843l-8.28322 8.28325-3.03046.202.20203-3.0304z" fill-rule="evenodd"></path></g></svg>
+                                                <span class="lable">Edit</span>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Product Page end-->
+
+            <!-- Form to add product start-->
+            <div class="container-fluid rounded-page form-page-content" id="form-page">
+                <nav class="d-flex justify-content-between align-items-center" style="padding: 2.5% 5% 0;">
+                    <a class="navbar-brand"><strong class="fs-1">Product Form</strong>
+                        <br>
+                        <p class="text-secondary">Add your products here</p>
+                    </a>
+                    <form class="search-form mt-1">
+                        <a class="bi bi-search fs-6 text-black me-2" type="submit"></a>
+                        <input class="search-bar" type="search" placeholder="Search anything." aria-label="Search">
+                    </form>
+                    <a href="#" class="nav-link text-black fs-6">
+                        <strong>View Your Store</strong>
+                        <i class="bi bi-box-arrow-in-right ms-2 fs-5"></i>
+                    </a>
+                </nav>
+                <br>
+                <div class="container d-flex justify-content-between form-container">
+                    <img src="/public/asset/image/book-falling-banner.svg" alt="">
+                    <form action="" class="d-flex flex-column">
+                        <h2 class="text-secondary">Fill in the product information</h2>
+                        <br>
+                        <label class="fs-4 mb-2" for="name">Name</label>
+                        <input  class = "form-input" type="text" name='Name' id="name" required>
+                        <br>
+                        <label class="fs-4 mb-2" for="description">Author</label>
+                        <input  class = "form-input" type="text" name="Description" id="description" required>
+                        <br>
+                        <label class="fs-4 mb-2" for="price">Price</label>
+                        <input  class = "form-input" type="number" name='Price' id="price" required>
+                        <br>
+                        <label class="fs-4 mb-2" for="category">Select Category</label>
+                        <select class="form-input" name="category" id="category" required>
+                            <option value="category1">category1</option>
+                            <option value="category1">category1</option>
+                            <option value="category1">category1</option>
+                            <option value="category1">category1</option>
+                            <option value="category1">category1</option>
+                        </select>
+                        <br>
+                        <label class="fs-4 mb-2" for="description">Description</label>
+                        <input  class = "form-input" type="text" name="Description" id="description" required>
+                        <br>
+                        <label class="fs-4 mb-2" for="amount">Amount</label>
+                        <input  class = "form-input" type="number" name="Amount" id="amount" required>
+                        <br>
+                        <label class="fs-4 mb-2" for="image">Upload Your Product's Image</label>
+                        <input accept=".jpg, .jpeg, .png, .gif, .pdf" type="file" name="Image" id="image" required>
+                        <br>
+                        <div class="d-flex justify-content-between">
+                            <button class="form-btn" type="submit"><a href="#product-page" class="text-decoration-none">Submit</a></button>
+                            <button class="reset-form-btn" type="reset">Reset</button>
+                        </div>
+                        <a href="#product-page" class="nav-link text-black fs-6">
+                            <i class="bi bi-arrow-left-square me-2 fs-5"></i>
+                            <strong>Back to Product Page</strong>
+                        </a>
+                    </form>
+                </div>
+            </div>
+            <!-- Form to add product end-->
+            
+            
+
+           
+        </div>
+        <!-- JavaScript -->
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+            crossorigin="anonymous"
+        ></script>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
+    </body>
+</html>

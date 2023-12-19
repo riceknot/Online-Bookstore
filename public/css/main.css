@@ -1,0 +1,15 @@
+.card {
+    width: 70%;
+}
+
+.card:hover {
+    box-shadow: 0 0px 7px orangered;
+    transform: scale(1.05);
+    transition: 0.3s;
+    
+    }
+
+a, a:link, a:visited, a:hover, a:active {
+    text-decoration: none;
+    color: #16161d;
+}
