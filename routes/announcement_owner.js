@@ -4,14 +4,14 @@ let Account = require('../models/account_model');
 
 
 //Render the Announcement (Owner) Page with all announcement data.
-router.route('/').get((req, res) => {
-    Announcement.find()
-        .then((announcement) => {
-            res.render('owner/announcement', { announcement });
-        })
-        .catch((error) => {
-            console.log(error.message);
-        });
+router.route('/').get(async(req, res) => {
+    try {
+        const owner = await Account.findById(req.userID);
+        const announcement = await Announcement.find();
+        res.render("owner/announcement",{owner,announcement});
+    } catch (err) {
+        console.log(err.message);
+    }
 });
 
 
