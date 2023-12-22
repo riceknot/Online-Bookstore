@@ -176,23 +176,7 @@ function toggleStatus(button) {
 
 */
 
-    
-
-// Reply box popup JS
-$(document).ready(function () {
-    // Show/hide reply box on clicking the reply button
-    $(".reply-popup").click(function () {
-        var parentCard = $(this).closest('.card');
-        $(".reply-box", parentCard).first().toggle();
-    });
-
-    // Hide reply box on clicking the cancel button
-    $(".cancel-reply").click(function () {
-        var parentCard = $(this).closest('.card');
-        $(".reply-box", parentCard).first().hide();
-    });
-});
-
+  
 
     function toggleStatus(button) {
         // Get the parent message card of the clicked button
