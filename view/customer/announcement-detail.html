@@ -54,13 +54,6 @@
                     <a href="" class="bi bi-box-arrow-right text-secondary fs-5"></a>
                 </div>
                 <br>
-                <br>
-                <div class="earning">
-                    <span class="text-secondary">Earning</span>
-                    <br>
-                    <span class="fs-2"><strong>$12,560.55</strong></span>
-                </div>
-                <br>
                 <hr>
                 <ul class="nav nav-pills flex-column mb-auto">
                 
@@ -97,7 +90,7 @@
                 <div class="modal-dialog modal-lg">  
                     <div class="modal-content" id="width-content-edit">
                         <div style="width: 80%;" class="py-5 text-center">
-                            <img class="d-block mx-auto mb-4" src="/public/asset/image/foxy.jpg" alt="" width="72" height="72">
+                            <img class="d-block mx-auto mb-4 rounded-circle shadow-1-strong" src="/public/asset/image/foxy.jpg" alt="" width="72" height="72">
                             <h2>ThienMinh123</h2>
                             <p class="lead">You're in control! Feel free to edit your announcement to make any updates or changes. Simply locate your announcement and use the provided editing options to refine your message. 
                             </p>
@@ -112,12 +105,12 @@
                         <form action="#" method="post" >
                             <div style="width: 75%;" class="mb-3" style="position: relative;">
                                 <label for="exampleFormControlInput1" class="form-label">Title</label>
-                                <input type="title" class="form-control editable" id="exampleFormControlInput1" readonly placeholder="Title" disabled>
+                                <input type="title" class="form-control editable bg-white" id="exampleFormControlInput1" readonly placeholder="Title" disabled>
                             </div>
                         
                             <div style="width: 75%;" class="mb-3">
                                 <label for="exampleFormControlTextarea1" class="form-label">Content</label>
-                                <textarea class="form-control editable" disabled id="exampleFormControlTextarea1" readonly rows="7"></textarea>
+                                <textarea class="form-control editable bg-white" disabled id="exampleFormControlTextarea1" readonly rows="7"></textarea>
                             </div>
                             <br>
                         <div class="col-md-6">
@@ -132,50 +125,223 @@
                             </div>
                         </div>
                         <br>
-                        <div style="width: 75%;" class= "card mb-2" >
+                        <!--First comment-->
+                        <div style="width: 75%; margin: 0.5rem!important; display: flex; align-items: flex-end;" class= "card mb-2">
+                            <div class="row g-0" style=" flex-direction: row; ">
+                                <div class="col-md-1 ">
+                                <img class="rounded-circle shadow-1-strong" src="/public/asset/image/foxy.jpg" height="65px" width="65px" style="margin:10px" class=" " alt=".">
+                                </div>
+                                <div class="col-md-11" >
+                                    <div class="card-body">
+                                        <h5 class="card-title">Mary123</h5>
+                                        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic praesentium cumque vel perferendis facere modi ullam distinctio reiciendis, dolorem aliquam sunt commodi numquam odio esse fugiat accusantium nisi autem suscipit.</p>
+                                        
+                                        <!-- Reply button -->
+                                        <div style="display: flex; justify-content:space-between; ">
+                                            <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+                                            <button type="button" class="btn btn-link text-decoration-none comment-reply reply-popup">
+                                                <i class="bi bi-reply">Reply</i>
+                                                
+                                            </button>
+                                        </div>
+                                        <!--End reply button -->
+                                    </div>
+                                    <!--reply form-->
+                                    <form method="post" action="#">
+                                        <div class="comments">
+                                            <div class="comment-box add-comment reply-box">
+                                                <span class="commenter-pic">
+                                                    <img src="/public/asset/image/foxy.jpg" class="img-fluid">
+                                                </span>
+                                                <span class="commenter-name" style="display: flex; align-items: stretch; flex-direction: column;">
+                                                    <input type="text" placeholder="Add a public reply" name="Add Comment" style="width: 75% !important;">
+                                                    <div>
+                                                        <button type="submit" style="margin-right: 20px;" class="btn btn-primary">Reply</button>
+                                                        <button type="button" class="btn btn-default reply-popup">Cancel</button>
+                                                    </div>                                            
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </form>
+                                    <!--End reply form-->
+                                </div>
+                            </div>
+
+                            <!--Subcomment-->
+                            <div style="width: 95%; margin: 0.5rem!important; display: flex; align-items: flex-end;" class= "card mb-2 replied" >
+                                <div class="row g-0" style=" flex-direction: row;">
+                                    <div class="col-md-1">
+                                    <img class="rounded-circle shadow-1-strong" src="/public/asset/image/foxy.jpg" height="65px" width="65px" style="margin:10px" class=" " alt=".">
+                                    </div>
+                                    <div class="col-md-11">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Mary123</h5>
+                                            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic praesentium cumque vel perferendis facere modi ullam distinctio reiciendis, dolorem aliquam sunt commodi numquam odio esse fugiat accusantium nisi autem suscipit.</p>
+                                            <!-- Reply button -->
+                                            <div style="display: flex; justify-content:space-between; ">
+                                                <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+                                                <button type="button" class="btn btn-link text-decoration-none comment-reply reply-popup">
+                                                    <i class="bi bi-reply"></i>
+                                                    Reply
+                                                </button>
+                                            </div>
+                                            <!-- Reply button -->
+                                        </div>
+                                        <!--Reply form-->
+                                        <form method="post" action="#">
+                                            <div class="comments">
+                                                <div class="comment-box add-comment reply-box">
+                                                    <span class="commenter-pic">
+                                                        <img src="/public/asset/image/foxy.jpg" class="img-fluid">
+                                                    </span>
+                                                    <span class="commenter-name" style="display: flex; align-items: stretch; flex-direction: column;">
+                                                        <input type="text" placeholder="Add a public reply" name="Add Comment" style="width: 75% !important;">
+                                                        <div>
+                                                            <button type="submit" style="margin-right: 20px;" class="btn btn-primary">Reply</button>
+                                                            <button type="button" class="btn btn-default reply-popup">Cancel</button>
+                                                        </div>                                            
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </form>
+                                        <!--End reply form-->
+                                    </div>
+                                </div>
+                                <!--Sub-Subcomment-->
+                                <div style="width: 95%; margin: 0.5rem!important; display: flex; align-items: flex-end;" class= "card mb-2 replied" >
+                                    <div class="row g-0" style=" flex-direction: row;">
+                                        <div class="col-md-1">
+                                        <img class="rounded-circle shadow-1-strong" src="/public/asset/image/foxy.jpg" height="65px" width="65px" style="margin:10px" class=" " alt=".">
+                                        </div>
+                                        <div class="col-md-11">
+                                            <div class="card-body">
+                                                <h5 class="card-title">Mary123</h5>
+                                                <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic praesentium cumque vel perferendis facere modi ullam distinctio reiciendis, dolorem aliquam sunt commodi numquam odio esse fugiat accusantium nisi autem suscipit.</p>
+                                                <!-- Reply button -->
+                                                <div style="display: flex; justify-content:space-between; ">
+                                                    <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+                                                    <button type="button" class="btn btn-link text-decoration-none comment-reply reply-popup">
+                                                        <i class="bi bi-reply"></i>
+                                                        Reply
+                                                    </button>
+                                                </div>
+                                                <!-- Reply button -->
+                                            </div>
+                                            <!--Reply form-->
+                                            <form method="post" action="#">
+                                                <div class="comments">
+                                                    <div class="comment-box add-comment reply-box">
+                                                        <span class="commenter-pic">
+                                                            <img src="/public/asset/image/foxy.jpg" class="img-fluid">
+                                                        </span>
+                                                        <span class="commenter-name" style="display: flex; align-items: stretch; flex-direction: column;">
+                                                            <input type="text" placeholder="Add a public reply" name="Add Comment" style="width: 75% !important;">
+                                                            <div>
+                                                                <button type="submit" style="margin-right: 20px;" class="btn btn-primary">Reply</button>
+                                                                <button type="button" class="btn btn-default reply-popup">Cancel</button>
+                                                            </div>                                            
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                            <!--End reply form-->
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--End Sub-subcomment-->
+                            </div>
+                            <!--End subcomment-->
+                        </div>
+                        <!--End comment-->
+
+
+
+                        <!--Second comment-->
+                        <div style="width: 75%; margin: 0.5rem!important; display: flex; align-items: flex-end;" class= "card mb-2 replied" >
                             <div class="row g-0" style=" flex-direction: row;">
                                 <div class="col-md-1">
-                                <img src="/public/asset/image/foxy.jpg" height="50px" width="50px" style="margin:20px" class=" " alt=".">
+                                <img class="rounded-circle shadow-1-strong" src="/public/asset/image/foxy.jpg" height="65px" width="65px" style="margin:10px" class=" " alt=".">
                                 </div>
                                 <div class="col-md-11">
                                     <div class="card-body">
                                         <h5 class="card-title">Mary123</h5>
                                         <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic praesentium cumque vel perferendis facere modi ullam distinctio reiciendis, dolorem aliquam sunt commodi numquam odio esse fugiat accusantium nisi autem suscipit.</p>
-                                        <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+                                        <!-- Reply button -->
+                                        <div style="display: flex; justify-content:space-between; ">
+                                            <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+                                            <button type="button" class="btn btn-link text-decoration-none comment-reply reply-popup">
+                                                <i class="bi bi-reply"></i>
+                                                Reply
+                                            </button>
+                                        </div>
+                                        <!-- Reply button -->
                                     </div>
+                                    <!--Reply form-->
+                                    <form method="post" action="#">
+                                        <div class="comments">
+                                            <div class="comment-box add-comment reply-box">
+                                                <span class="commenter-pic">
+                                                    <img src="/public/asset/image/foxy.jpg" class="img-fluid">
+                                                </span>
+                                                <span class="commenter-name" style="display: flex; align-items: stretch; flex-direction: column;">
+                                                    <input type="text" placeholder="Add a public reply" name="Add Comment" style="width: 75% !important;">
+                                                    <div>
+                                                        <button type="submit" style="margin-right: 20px;" class="btn btn-primary">Reply</button>
+                                                        <button type="button" class="btn btn-default reply-popup">Cancel</button>
+                                                    </div>                                            
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </form>
+                                    <!--End reply form-->
                                 </div>
                             </div>
                         </div>
-                        <div style="width: 75%;" class= "card mb-2" >
+                        <!--End second comment-->
+
+                        <!--Third comment-->
+                        <div style="width: 75%; margin: 0.5rem!important; display: flex; align-items: flex-end;" class= "card mb-2 replied" >
                             <div class="row g-0" style=" flex-direction: row;">
                                 <div class="col-md-1">
-                                <img src="/public/asset/image/foxy.jpg" height="50px" width="50px" style="margin:20px" class=" " alt=".">
+                                <img class="rounded-circle shadow-1-strong" src="/public/asset/image/foxy.jpg" height="65px" width="65px" style="margin:10px" class=" " alt=".">
                                 </div>
                                 <div class="col-md-11">
                                     <div class="card-body">
                                         <h5 class="card-title">Mary123</h5>
                                         <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic praesentium cumque vel perferendis facere modi ullam distinctio reiciendis, dolorem aliquam sunt commodi numquam odio esse fugiat accusantium nisi autem suscipit.</p>
-                                        <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+                                        <!-- Reply button -->
+                                        <div style="display: flex; justify-content:space-between; ">
+                                            <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+                                            <button type="button" class="btn btn-link text-decoration-none comment-reply reply-popup">
+                                                <i class="bi bi-reply"></i>
+                                                Reply
+                                            </button>
+                                        </div>
+                                        <!-- Reply button -->
                                     </div>
+                                    <!--Reply form-->
+                                    <form method="post" action="#">
+                                        <div class="comments">
+                                            <div class="comment-box add-comment reply-box">
+                                                <span class="commenter-pic">
+                                                    <img src="/public/asset/image/foxy.jpg" class="img-fluid">
+                                                </span>
+                                                <span class="commenter-name" style="display: flex; align-items: stretch; flex-direction: column;">
+                                                    <input type="text" placeholder="Add a public reply" name="Add Comment" style="width: 75% !important;">
+                                                    <div>
+                                                        <button type="submit" style="margin-right: 20px;" class="btn btn-primary">Reply</button>
+                                                        <button type="button" class="btn btn-default reply-popup">Cancel</button>
+                                                    </div>                                            
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </form>
+                                    <!--End reply form-->
                                 </div>
                             </div>
                         </div>
-                        <div style="width: 75%;" class= "card mb-2" >
-                            <div class="row g-0" style=" flex-direction: row;">
-                                <div class="col-md-1">
-                                <img src="/public/asset/image/foxy.jpg" height="50px" width="50px" style="margin:20px" class=" " alt=".">
-                                </div>
-                                <div class="col-md-11">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Mary123</h5>
-                                        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic praesentium cumque vel perferendis facere modi ullam distinctio reiciendis, dolorem aliquam sunt commodi numquam odio esse fugiat accusantium nisi autem suscipit.</p>
-                                        <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                        <!--End third comment-->
+                        <br><br>
                
             
             <!-- Form to edit product end-->
@@ -189,5 +355,21 @@
         <script src="/public/js/index.js" defer></script>
         <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
+        <script>
+            // Reply box popup JS
+            $(document).ready(function () {
+                // Show/hide reply box on clicking the reply button
+                $(".reply-popup").click(function () {
+                    var parentCard = $(this).closest('.card');
+                    $(".reply-box", parentCard).first().toggle();
+                });
+        
+                // Hide reply box on clicking the cancel button
+                $(".cancel-reply").click(function () {
+                    var parentCard = $(this).closest('.card');
+                    $(".reply-box", parentCard).first().hide();
+                });
+            });
+        </script>
     </body>
 </html>

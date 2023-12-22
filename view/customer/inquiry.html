@@ -54,13 +54,6 @@
                     <a href="" class="bi bi-box-arrow-right text-secondary fs-5"></a>
                 </div>
                 <br>
-                <br>
-                <div class="earning">
-                    <span class="text-secondary">Earning</span>
-                    <br>
-                    <span class="fs-2"><strong>$12,560.55</strong></span>
-                </div>
-                <br>
                 <hr>
                 <ul class="nav nav-pills flex-column mb-auto">
                 
@@ -99,17 +92,33 @@
                         <input class="search-bar" type="search" placeholder="Search anything." aria-label="Search">
                     </form>
                     <a href="#" class="nav-link text-black fs-6">
-                        <strong>View Your Store</strong>
+                        <strong>Main page</strong>
                         <i class="bi bi-box-arrow-in-right ms-2 fs-5"></i>
                     </a>
                 </nav>
                 <br>
               
-                <a href="/view/customer/inquiry-details.html">
+                <!--add inquiry button-->
+                <div class="text-decoration-none">
+                    <button type="button" class="add-button" onclick="location.href='/view/customer/new-inquiry.html';">
+                        <span class="add-button__text"> &emsp; New </span>
+                        <span class="add-button__icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke="currentColor" height="24" fill="none" class="svg">
+                                <line y2="19" y1="5" x2="12" x1="12"></line>
+                                <line y2="12" y1="12" x2="19" x1="5"></line>
+                            </svg>
+                        </span>
+                    </button>
+                </div>
+                <br>
+                <br>
+
+
+                <a href="/view/customer/inquiry-detail.html">
                     <div class="card mb-3" >
                         <div class="row g-0" style="align-items: top; flex-direction: row;">
                             <div class="col-md-1">
-                            <img src="/public/asset/image/foxy.jpg" width="100px" style="margin:10px" class="img-fluid rounded" alt=".">
+                            <img src="/public/asset/image/foxy.jpg" width="85px" style="margin:10px" class="img-fluid rounded-circle shadow-1-strong" alt=".">
                             </div>
                             <div class="col-md-11" style="display: flex; justify-content: end; align-items: flex-end; ">
                                 <div class="card-body">
@@ -117,9 +126,8 @@
                                     <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                                     <p class="card-text"><small class="text-body-secondary">16/12/2023</small></p>                                    
                                 </div>
-                                <div class="form-check form-switch" style="margin: 0px 10px 10px;">
-                                    <input class="form-check-input" type="checkbox" role="switch" style="margin-right: 5px;" id="flexSwitchCheckDefault" disabled>
-                                    <label class="form-check-label" for="flexSwitchCheckDefault">Close/Open</label>
+                                <div id="statusForm" action="#" method="post" style="margin-right: 15px;">
+                                    <p>Status: on</p>                                    
                                 </div>
                             </div>
                         </div>
@@ -131,7 +139,7 @@
                     <div class="card mb-3" >
                         <div class="row g-0" style="align-items: top; flex-direction: row;">
                             <div class="col-md-1">
-                            <img src="/public/asset/image/foxy.jpg" width="100px" style="margin:10px" class="img-fluid rounded" alt=".">
+                            <img src="/public/asset/image/foxy.jpg" width="85px" style="margin:10px" class="img-fluid rounded-circle shadow-1-strong" alt=".">
                             </div>
                             <div class="col-md-11" style="display: flex; justify-content: end; align-items: flex-end; ">
                                 <div class="card-body">
@@ -139,9 +147,8 @@
                                     <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                                     <p class="card-text"><small class="text-body-secondary">16/12/2023</small></p>                                    
                                 </div>
-                                <div class="form-check form-switch" style="margin: 0px 10px 10px;">
-                                    <input class="form-check-input" type="checkbox" role="switch" style="margin-right: 5px;" id="flexSwitchCheckDefault"  disabled>
-                                    <label class="form-check-label" for="flexSwitchCheckDefault">Close/Open</label>
+                                <div id="statusForm" action="#" method="post" style="margin-right: 15px;">
+                                    <p>Status: on</p>                                    
                                 </div>
                             </div>
                         </div>
@@ -150,7 +157,7 @@
                         <div class="card mb-3" >
                             <div class="row g-0" style="align-items: top; flex-direction: row;">
                                 <div class="col-md-1">
-                                <img src="/public/asset/image/foxy.jpg" width="100px" style="margin:10px" class="img-fluid rounded" alt=".">
+                                <img src="/public/asset/image/foxy.jpg" width="85px" style="margin:10px" class="img-fluid rounded-circle shadow-1-strong" alt=".">
                                 </div>
                                 <div class="col-md-11" style="display: flex; justify-content: end; align-items: flex-end; ">
                                     <div class="card-body">
@@ -158,9 +165,8 @@
                                         <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                                         <p class="card-text"><small class="text-body-secondary">16/12/2023</small></p>                                    
                                     </div>
-                                    <div class="form-check form-switch" style="margin: 0px 10px 10px;">
-                                        <input class="form-check-input" type="checkbox" role="switch" style="margin-right: 5px;" id="flexSwitchCheckDefault" disabled>
-                                        <label class="form-check-label" for="flexSwitchCheckDefault">Close/Open</label>
+                                    <div id="statusForm" action="#" method="post" style="margin-right: 15px;">
+                                        <p>Status: on</p>                                    
                                     </div>
                                 </div>
                             </div>
@@ -171,7 +177,7 @@
                             <div class="card mb-3" >
                                 <div class="row g-0" style="align-items: top; flex-direction: row;">
                                     <div class="col-md-1">
-                                    <img src="/public/asset/image/foxy.jpg" width="100px" style="margin:10px" class="img-fluid rounded" alt=".">
+                                    <img src="/public/asset/image/foxy.jpg" width="85px" style="margin:10px" class="img-fluid rounded-circle shadow-1-strong" alt=".">
                                     </div>
                                     <div class="col-md-11" style="display: flex; justify-content: end; align-items: flex-end; ">
                                         <div class="card-body">
@@ -179,9 +185,8 @@
                                             <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                                             <p class="card-text"><small class="text-body-secondary">16/12/2023</small></p>                                    
                                         </div>
-                                        <div class="form-check form-switch" style="margin: 0px 10px 10px;">
-                                            <input class="form-check-input" type="checkbox" role="switch" style="margin-right: 5px;" id="flexSwitchCheckDefault" disabled>
-                                            <label class="form-check-label" for="flexSwitchCheckDefault">Close/Open</label>
+                                        <div id="statusForm" action="#" method="post" style="margin-right: 15px;">
+                                            <p>Status: on</p>                                    
                                         </div>
                                     </div>
                                 </div>

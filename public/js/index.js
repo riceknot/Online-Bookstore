@@ -129,4 +129,88 @@ function toggleEdit() {
 
 
 
+/*
+document.addEventListener('DOMContentLoaded', function () {
+    // Default button states
+    var onButton = document.getElementById('onButton');
+    var offButton = document.getElementById('offButton');
+    var defaultColor = 'btn-secondary';
+    var onColor = 'btn-success';
+    var offColor = 'btn-danger';
 
+    // Set initial button state
+    onButton.classList.add(onColor);
+    offButton.classList.add(defaultColor);
+
+    // Button click event handlers
+    onButton.addEventListener('click', function () {
+        onButton.classList.remove(defaultColor);
+        onButton.classList.add(onColor);
+        offButton.classList.remove(offColor);
+        offButton.classList.add(defaultColor);
+    });
+
+    offButton.addEventListener('click', function () {
+        offButton.classList.remove(defaultColor);
+        offButton.classList.add(offColor);
+        onButton.classList.remove(onColor);
+        onButton.classList.add(defaultColor);
+    });
+});
+// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+function toggleStatus(button) {
+    var buttons = document.getElementsByClassName('status-button');
+
+    // Reset colors for all buttons
+    for (var i = 0; i < buttons.length; i++) {
+        buttons[i].classList.remove('btn-success', 'btn-danger', 'btn-light');
+    }
+
+    // Toggle colors based on the clicked button
+    if (button.dataset.status === 'on') {
+        button.classList.add('btn-success');
+    } else {
+        button.classList.add('btn-danger');
+    }
+}
+
+*/
+
+    
+
+// Reply box popup JS
+$(document).ready(function () {
+    // Show/hide reply box on clicking the reply button
+    $(".reply-popup").click(function () {
+        var parentCard = $(this).closest('.card');
+        $(".reply-box", parentCard).first().toggle();
+    });
+
+    // Hide reply box on clicking the cancel button
+    $(".cancel-reply").click(function () {
+        var parentCard = $(this).closest('.card');
+        $(".reply-box", parentCard).first().hide();
+    });
+});
+
+
+    function toggleStatus(button) {
+        // Get the parent message card of the clicked button
+        var messageCard = button.closest('.card');
+    
+        // Get the status buttons within the same message card
+        var buttons = messageCard.getElementsByClassName('status-button');
+    
+        // Reset colors for all buttons within the same message card
+        for (var i = 0; i < buttons.length; i++) {
+            buttons[i].classList.remove('btn-success', 'btn-danger', 'btn-light');
+        }
+    
+        // Toggle colors based on the clicked button
+        if (button.dataset.status === 'on') {
+            button.classList.add('btn-success');
+        } else {
+            button.classList.add('btn-danger');
+        }
+    }
+    
