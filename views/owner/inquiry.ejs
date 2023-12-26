@@ -55,12 +55,7 @@
                 </div>
                 <br>
                 <br>
-                <div class="earning">
-                    <span class="text-secondary">Earning</span>
-                    <br>
-                    <span class="fs-2"><strong>$12,560.55</strong></span>
-                </div>
-                <br>
+                
                 <hr>
                 <ul class="nav nav-pills flex-column mb-auto">
                 <li class="nav-item home">
@@ -70,25 +65,25 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="/owner/<%= owner.id %>/order-page" class="nav-link text-black fs-5">
+                    <a href="/view/owner/order.html#order-page" class="nav-link text-black fs-5">
                         <i class="bi bi-list-check me-2 fs-4"></i>
                         <strong>Orders <span class="noti ms-2">3</span></strong>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="/owner/<%= owner.id %>/inventory#product-page" class="nav-link text-black fs-5">
+                    <a href="/view/owner/Product.html#product-page" class="nav-link text-black fs-5">
                         <i class="bi bi-box-seam me-2 fs-4"></i>
                         <strong>Products</strong>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="/owner/<%= owner.id %>/announcement" class="nav-link text-black fs-5">
+                    <a href="/view/owner/announcement.html#announcement-page" class="nav-link text-black fs-5">
                         <i class="bi bi-megaphone me-2 fs-4"></i>
                         <strong>Announcements </strong>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="/owner/<%= owner.id %>/inquiry" class="nav-link selected text-black fs-5">
+                    <a href="/view/owner/inquiry.html#inquiry-page" class="nav-link selected text-black fs-5">
                         <i class="bi bi-envelope me-2 fs-4"></i>
                         <strong>Inquiries</strong>
                     </a>
@@ -115,96 +110,113 @@
                         <a class="bi bi-search fs-6 text-black me-2" type="submit"></a>
                         <input class="search-bar" type="search" placeholder="Search anything." aria-label="Search">
                     </form>
-                    <a href="#" class="nav-link text-black fs-6">
-                        <strong>View Your Store</strong>
-                        <i class="bi bi-box-arrow-in-right ms-2 fs-5"></i>
-                    </a>
+                    
                 </nav>
                 <br>
               
-                <a href="/view/owner/inquiry-details.html">
-                    <div class="card mb-3" >
-                        <div class="row g-0" style="align-items: top; flex-direction: row;">
-                            <div class="col-md-1">
-                            <img src="/asset/image/foxy.jpg" width="100px" style="margin:10px" class="img-fluid rounded" alt=".">
-                            </div>
-                            <div class="col-md-11" style="display: flex; justify-content: end; align-items: flex-end; ">
-                                <div class="card-body">
-                                    <h5 class="card-title">Tuonghao456</h5>
-                                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                    <p class="card-text"><small class="text-body-secondary">16/12/2023</small></p>                                    
-                                </div>
-                                <div class="form-check form-switch" style="margin: 0px 10px 10px;">
-                                    <input class="form-check-input" type="checkbox" role="switch" style="margin-right: 5px;" id="flexSwitchCheckDefault">
-                                    <label class="form-check-label" for="flexSwitchCheckDefault">Close/Open</label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                <a href="#">
                 
-                <a href="#">
-                    <div class="card mb-3" >
-                        <div class="row g-0" style="align-items: top; flex-direction: row;">
-                            <div class="col-md-1">
-                            <img src="/asset/image/foxy.jpg" width="100px" style="margin:10px" class="img-fluid rounded" alt=".">
-                            </div>
-                            <div class="col-md-11" style="display: flex; justify-content: end; align-items: flex-end; ">
-                                <div class="card-body">
-                                    <h5 class="card-title">Tuonghao456</h5>
-                                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                    <p class="card-text"><small class="text-body-secondary">16/12/2023</small></p>                                    
-                                </div>
-                                <div class="form-check form-switch" style="margin: 0px 10px 10px;">
-                                    <input class="form-check-input" type="checkbox" role="switch" style="margin-right: 5px;" id="flexSwitchCheckDefault">
-                                    <label class="form-check-label" for="flexSwitchCheckDefault">Close/Open</label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <a href="#">
-                        <div class="card mb-3" >
+                    <div class="card mb-3" style="position: relative;">
+                        <a href="/view/owner/inquiry-details.html">
                             <div class="row g-0" style="align-items: top; flex-direction: row;">
                                 <div class="col-md-1">
-                                <img src="/asset/image/foxy.jpg" width="100px" style="margin:10px" class="img-fluid rounded" alt=".">
+                                    <img src="/asset/image/foxy.jpg" width="85px" style="margin:10px" class="img-fluid rounded-circle shadow-1-strong" alt=".">
                                 </div>
-                                <div class="col-md-11" style="display: flex; justify-content: end; align-items: flex-end; ">
+                                <div class="col-md-11" style="display: flex; flex-direction: column; justify-content: space-between;">
                                     <div class="card-body">
                                         <h5 class="card-title">Tuonghao456</h5>
                                         <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                        <p class="card-text"><small class="text-body-secondary">16/12/2023</small></p>                                    
-                                    </div>
-                                    <div class="form-check form-switch" style="margin: 0px 10px 10px;">
-                                        <input class="form-check-input" type="checkbox" role="switch" style="margin-right: 5px;" id="flexSwitchCheckDefault">
-                                        <label class="form-check-label" for="flexSwitchCheckDefault">Close/Open</label>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="#">
-                        <a href="#">
-                            <div class="card mb-3" >
-                                <div class="row g-0" style="align-items: top; flex-direction: row;">
-                                    <div class="col-md-1">
-                                    <img src="/asset/image/foxy.jpg" width="100px" style="margin:10px" class="img-fluid rounded" alt=".">
-                                    </div>
-                                    <div class="col-md-11" style="display: flex; justify-content: end; align-items: flex-end; ">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Tuonghao456</h5>
-                                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                            <p class="card-text"><small class="text-body-secondary">16/12/2023</small></p>                                    
-                                        </div>
-                                        <div class="form-check form-switch" style="margin: 0px 10px 10px;">
-                                            <input class="form-check-input" type="checkbox" role="switch" style="margin-right: 5px;" id="flexSwitchCheckDefault">
-                                            <label class="form-check-label" for="flexSwitchCheckDefault">Close/Open</label>
-                                        </div>
+                                        <p class="card-text"><small class="text-body-secondary">16/12/2023</small></p>
                                     </div>
                                 </div>
                             </div>
                         </a>
-                        <a href="#">
+                    
+                        <form class="statusForm" action="#" method="post" style="position: absolute; bottom: 10px; right: 10px; display: flex; align-items: flex-end;">
+                            <p style="margin-right: 7px; margin-bottom: 5px;">Status:</p>
+                            <div class="btn-group btn-group-sm" role="group" aria-label="Small button group">
+                                <button type="button" class="btn btn-success status-button" data-status="on" onclick="toggleStatus(this)">On</button>
+                                <button type="button" class="btn btn-light status-button" data-status="off" onclick="toggleStatus(this)">Off</button>
+                            </div>
+                        </form>
+                    </div>
+                
+                    
+                
+                
+                                    
+                    <div class="card mb-3" style="position: relative;">
+                        <a href="/view/owner/inquiry-details.html">
+                            <div class="row g-0" style="align-items: top; flex-direction: row;">
+                                <div class="col-md-1">
+                                    <img src="/asset/image/foxy.jpg" width="85px" style="margin:10px" class="img-fluid rounded-circle shadow-1-strong" alt=".">
+                                </div>
+                                <div class="col-md-11" style="display: flex; flex-direction: column; justify-content: space-between;">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Tuonghao456</h5>
+                                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                        <p class="card-text"><small class="text-body-secondary">16/12/2023</small></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    
+                        <form class="statusForm" action="#" method="post" style="position: absolute; bottom: 10px; right: 10px; display: flex; align-items: flex-end;">
+                            <p style="margin-right: 7px; margin-bottom: 5px;">Status:</p>
+                            <div class="btn-group btn-group-sm" role="group" aria-label="Small button group">
+                                <button type="button" class="btn btn-success status-button" data-status="on" onclick="toggleStatus(this)">On</button>
+                                <button type="button" class="btn btn-light status-button" data-status="off" onclick="toggleStatus(this)">Off</button>
+                            </div>
+                        </form>
+                    </div>
+                
+                    <div class="card mb-3" style="position: relative;">
+                        <a href="/view/owner/inquiry-details.html">
+                            <div class="row g-0" style="align-items: top; flex-direction: row;">
+                                <div class="col-md-1">
+                                    <img src="/asset/image/foxy.jpg" width="85px" style="margin:10px" class="img-fluid rounded-circle shadow-1-strong" alt=".">
+                                </div>
+                                <div class="col-md-11" style="display: flex; flex-direction: column; justify-content: space-between;">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Tuonghao456</h5>
+                                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                        <p class="card-text"><small class="text-body-secondary">16/12/2023</small></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    
+                        <form class="statusForm" action="#" method="post" style="position: absolute; bottom: 10px; right: 10px; display: flex; align-items: flex-end;">
+                            <p style="margin-right: 7px; margin-bottom: 5px;">Status:</p>
+                            <div class="btn-group btn-group-sm" role="group" aria-label="Small button group">
+                                <button type="button" class="btn btn-success status-button" data-status="on" onclick="toggleStatus(this)">On</button>
+                                <button type="button" class="btn btn-light status-button" data-status="off" onclick="toggleStatus(this)">Off</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="card mb-3" style="position: relative;">
+                        <a href="/view/owner/inquiry-details.html">
+                            <div class="row g-0" style="align-items: top; flex-direction: row;">
+                                <div class="col-md-1">
+                                    <img src="/asset/image/foxy.jpg" width="85px" style="margin:10px" class="img-fluid rounded-circle shadow-1-strong" alt=".">
+                                </div>
+                                <div class="col-md-11" style="display: flex; flex-direction: column; justify-content: space-between;">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Tuonghao456</h5>
+                                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                        <p class="card-text"><small class="text-body-secondary">16/12/2023</small></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    
+                        <form class="statusForm" action="#" method="post" style="position: absolute; bottom: 10px; right: 10px; display: flex; align-items: flex-end;">
+                            <p style="margin-right: 7px; margin-bottom: 5px;">Status:</p>
+                            <div class="btn-group btn-group-sm" role="group" aria-label="Small button group">
+                                <button type="button" class="btn btn-success status-button" data-status="on" onclick="toggleStatus(this)">On</button>
+                                <button type="button" class="btn btn-light status-button" data-status="off" onclick="toggleStatus(this)">Off</button>
+                            </div>
+                        </form>
+                    </div>
                         <small class="d-block text-right mt-3">
                             <a href="#">All announcements</a>
                         </small>
@@ -222,5 +234,6 @@
         ></script>
         <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
+        <script src="/js/index.js"></script>
     </body>
 </html> 
