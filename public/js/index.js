@@ -198,3 +198,20 @@ function toggleStatus(button) {
         }
     }
     
+
+// -------------------------------------------------------------------------------------------------------------
+
+function toggleCardInfo() {
+    var cardInfoContainer = document.getElementById('cardInfoContainer');
+    var codRadio = document.getElementById('paypal');
+
+    // Check if the container exists before attempting to modify its style
+    if (cardInfoContainer) {
+        // If COD is selected, hide the card info; otherwise, show it
+        if (codRadio.checked) {
+            cardInfoContainer.style.display = 'none';
+        } else {
+            cardInfoContainer.style.display = 'flex';
+        }
+    }
+}

@@ -54,40 +54,28 @@
                     <a href="" class="bi bi-box-arrow-right text-secondary fs-5"></a>
                 </div>
                 <br>
-                
+              
                 
                 <hr>
                 <ul class="nav nav-pills flex-column mb-auto">
-                <li class="nav-item home">
-                    <a href="/view/owner/dashboard.html#home-page" class="nav-link text-black fs-5">
-                        <i class="bi bi-reception-4 me-2 fs-4"></i>
-                        <strong>Dashboard</strong>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#order-page" class="nav-link selected text-black fs-5">
-                        <i class="bi bi-list-check me-2 fs-4"></i>
-                        <strong>Orders <span class="noti ms-2">3</span></strong>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="/view/owner/Product.html#product-page" class="nav-link text-black fs-5">
-                        <i class="bi bi-box-seam me-2 fs-4"></i>
-                        <strong>Products</strong>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="/view/owner/announcement.html#announcement-page" class="nav-link text-black fs-5">
-                        <i class="bi bi-megaphone me-2 fs-4"></i>
-                        <strong>Announcements </strong>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="/view/owner/inquiry.html#inquiry-page" class="nav-link text-black fs-5">
-                        <i class="bi bi-envelope me-2 fs-4"></i>
-                        <strong>Inquiries</strong>
-                    </a>
-                </li>
+                    <li class="nav-item">
+                        <a href="/view/customer/announcement.html" class="nav-link text-black fs-5">
+                            <i class="bi bi-megaphone me-2 fs-4"></i>
+                            <strong>Announcements</strong>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/view/customer/inquiry.html" class="nav-link text-black fs-5">
+                            <i class="bi bi-envelope me-2 fs-4"></i>
+                            <strong>Inquiries</strong>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/view/customer/order.html" class="nav-link selected text-black fs-5">
+                            <i class="bi bi-list-check me-2 fs-4"></i>
+                            <strong>Orders</strong>
+                        </a>
+                    </li>
                 </ul>
                 <div class="logo-container ">
                     <a href="/view/owner/dashboard.html#home-page" class="d-flex justify-content-between align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none" style="width: 250px;">
@@ -104,9 +92,9 @@
             <!-- Order page start-->
             <div class="container-fluid rounded-page home-page-content" id="order-page">
                 <nav class="d-flex justify-content-between align-items-center" style="padding: 2.5% 5% 0;">
-                    <a class="navbar-brand"><strong class="fs-1">Orders</strong>
+                    <a class="navbar-brand"><strong class="fs-1">Order history</strong>
                         <br>
-                        <p class="text-secondary">View your orders here</p>
+                        <p class="text-secondary">View your past orders here</p>
                     </a>
                     <form class="search-form mt-1">
                         <a class="bi bi-search fs-6 text-black me-2" type="submit"></a>
@@ -136,26 +124,27 @@
                                     <tr>
                                         <th class="order-id "scope="row">#A580</th>
                                         <td>Hehe123</td>
-                                        <td>The Extraordinary Cases Of Sherlock Holmes</td>
-                                        <td>1</td>
-                                        <td><strong>$9.99</strong></td>
-                                        <td>DD/MM/YYYY</td>                               
-                                        <td class="d-flex justify-content-start align-items-center"><i class="bi bi-dot fs-1 text-warning"></i>Pending</td>
-                                        <td>
-                                            <a href="/view/owner/order-detail.html" class="text-secondary">
-                                            <button type="button" class="btn btn-info btn-sm">Details</button>
-                                            </a></td>
-                                    </tr>
-                                    <tr>
-                                        <th class="order-id "scope="row">#A580</th>
-                                        <td>Hehe123</td>
                                         <td>Murder on Black Swan Lane</td>
                                         <td>1</td>
                                         <td><strong>$9.99</strong></td>
                                         <td>DD/MM/YYYY</td>                               
-                                        <td class="d-flex justify-content-start align-items-center"><i class="bi bi-dot fs-1 text-warning"></i>Pending</td>
+                                        <td class="d-flex justify-content-start align-items-center"><i class="bi bi-dot fs-1 text-success"></i>Accepted</td>
                                         <td>
-                                            <a href="#" class="text-secondary">
+                                            <a href="/view/customer/order-detail-accepted.html" class="text-secondary">
+                                            <button type="button" class="btn btn-info btn-sm">Details</button>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th class="order-id "scope="row">#A580</th>
+                                        <td>Hehe123</td>
+                                        <td>The Extraordinary Cases Of Sherlock Holmes</td>
+                                        <td>1</td>
+                                        <td><strong>$9.99</strong></td>
+                                        <td>DD/MM/YYYY</td>                               
+                                        <td class="d-flex justify-content-start align-items-center"><i class="bi bi-dot fs-1 text-danger"></i>Cancel</td>
+                                        <td>
+                                            <a href="/view/customer/order-detail-cancel.html" class="text-secondary">
                                             <button type="button" class="btn btn-info btn-sm">Details</button>
                                             </a>
                                         </td>
@@ -167,7 +156,7 @@
                                         <td>1</td>
                                         <td><strong>$9.99</strong></td>
                                         <td>DD/MM/YYYY</td>                               
-                                        <td class="d-flex justify-content-start align-items-center"><i class="bi bi-dot fs-1 text-warning"></i>Pending</td>
+                                        <td class="d-flex justify-content-start align-items-center"><i class="bi bi-dot fs-1 text-success"></i>Accepted</td>
                                         <td>
                                             <a href="#" class="text-secondary">
                                             <button type="button" class="btn btn-info btn-sm">Details</button>
@@ -178,27 +167,29 @@
                                         <th class="order-id "scope="row">#A580</th>
                                         <td>Hehe123</td>
                                         <td>The Republic</td>
-                                        <td>420</td>
-                                        <td><strong>$9981.99</strong></td>
-                                        <td>DD/MM/YYYY</td>                               
-                                        <td class="d-flex justify-content-start align-items-center"><i class="bi bi-dot fs-1 text-warning"></i>Pending</td>
-                                        <td>
-                                            <a href="#" class="text-secondary">
-                                            <button type="button" class="btn btn-info btn-sm">Details</button>
-                                            </a></td>
-                                    </tr>
-                                    <tr>
-                                        <th class="order-id "scope="row">#A580</th>
-                                        <td>Hehe123</td>
-                                        <td>To Kill a Mockingbird</td>
                                         <td>1</td>
                                         <td><strong>$9.99</strong></td>
                                         <td>DD/MM/YYYY</td>                               
-                                        <td class="d-flex justify-content-start align-items-center"><i class="bi bi-dot fs-1 text-warning"></i>Pending</td>
+                                        <td class="d-flex justify-content-start align-items-center"><i class="bi bi-dot fs-1 text-success"></i>Accepted</td>
                                         <td>
                                             <a href="#" class="text-secondary">
                                             <button type="button" class="btn btn-info btn-sm">Details</button>
-                                            </a></td>
+                                            </a>
+                                        </td>
+                                    </tr>                                    
+                                    <tr>
+                                        <th class="order-id "scope="row">#A580</th>
+                                        <td>Hehe123</td>
+                                        <td>To Kill a Mockingb</td>
+                                        <td>1</td>
+                                        <td><strong>$9.99</strong></td>
+                                        <td>DD/MM/YYYY</td>                               
+                                        <td class="d-flex justify-content-start align-items-center"><i class="bi bi-dot fs-1 text-success"></i>Accepted</td>
+                                        <td>
+                                            <a href="#" class="text-secondary">
+                                            <button type="button" class="btn btn-info btn-sm">Details</button>
+                                            </a>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <th class="order-id "scope="row">#A580</th>
@@ -207,7 +198,7 @@
                                         <td>1</td>
                                         <td><strong>$9.99</strong></td>
                                         <td>DD/MM/YYYY</td>                               
-                                        <td class="d-flex justify-content-start align-items-center"><i class="bi bi-dot fs-1 text-warning"></i>Pending</td>
+                                        <td class="d-flex justify-content-start align-items-center"><i class="bi bi-dot fs-1 text-success"></i>Accepted</td>
                                         <td>
                                             <a href="#" class="text-secondary">
                                             <button type="button" class="btn btn-info btn-sm">Details</button>
@@ -217,12 +208,11 @@
                                 </tbody>
                             </table>
                             <div>
-                                <a href="/view/owner/order-history.html">
-                                    <button type="button" style="padding: 0%;" class="btn btn-link text-decoration-none">History</button>
-                                </a>
+                                <A href="/view/customer/order.html">
+                                    <button type="button" style="padding: 0%;" class=" bi bi-caret-left btn btn-link text-decoration-none">Go back</button>
+                                </A>
                                 
                             </div>
-                           
                         </div>
                     </div>
                 </div>
