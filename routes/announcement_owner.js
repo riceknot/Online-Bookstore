@@ -18,9 +18,9 @@ router.route('/').get(async(req, res) => {
 //Render the Announcement Edit/Reply Page with announcment data and all replies.
 router.route('/:announcement_ID').get(async (req, res) => {
     try {
-
+        const owner = await Account.findById(req.userID);
         const announcement = await Announcement.findById(req.params.announcement_ID);
-        res.render('Announcement_Edit', { announcement });
+        res.render("owner/announcement-detail", { announcement,owner });
 
     } catch (err) {
         console.log(err.message);
@@ -72,14 +72,13 @@ router.route('/add').post((req, res) => {
 //Edit announcement function
 router.route('/:announcement_ID/edit').post(async (req, res) => {
     try {
-
         await Announcement.findByIdAndUpdate(req.params.announcement_ID, {
             title: req.body.title,
             text: req.body.text
         }, { new: true });
 
         console.log('Announcement edited!')
-        res.redirect(`/owner/${req.params.user_ID}/announcement`);
+        res.redirect(`/owner/${req.user_ID}/announcement`);
 
     } catch (err) {
         console.log(err.message);
@@ -93,7 +92,7 @@ router.route('/:announcement_ID/delete').post(async (req, res) => {
         await Announcement.findByIdAndDelete(req.params.announcement_ID)
 
         console.log('Announcement deleted!')
-        res.redirect(`/owner/${req.params.user_ID}/announcement`);
+        res.redirect(`/owner/${req.user_ID}/announcement`);
 
     } catch (err) {
         console.log(err.message);

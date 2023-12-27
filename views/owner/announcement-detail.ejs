@@ -116,15 +116,15 @@
                             </p>
                         </div>
                
-                        <form action="#" method="post">
+                        <form action="/owner/<%= owner._id %>/announcement/<%= announcement.id %>/edit" method="post">
                             <div style="width: 75%;" class="mb-3" style="position: relative;">
                                 <label for="exampleFormControlInput1" class="form-label">Title</label>
-                                <input type="title" class="form-control editable" id="exampleFormControlInput1" readonly placeholder="Title">
+                                <input type="title" name="title" class="form-control editable" id="exampleFormControlInput1" value='<%= announcement.title %>' required>
                             </div>
                         
                             <div style="width: 75%;" class="mb-3">
                                 <label for="exampleFormControlTextarea1" class="form-label">Content</label>
-                                <textarea class="form-control editable" id="exampleFormControlTextarea1" readonly rows="7"></textarea>
+                                <textarea class="form-control editable" id="exampleFormControlTextarea1" name="text" rows="7" required><%= announcement.text %></textarea>
                             </div>
                             <br>
                             <div id ="button-announcement">
