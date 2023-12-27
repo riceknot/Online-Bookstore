@@ -13,7 +13,15 @@ router.route('/').get(async(req, res) => {
         console.log(err.message);
     }
 });
-
+router.route('/add').get(async (req, res) => {
+    try {
+        const owner = await Account.findById(req.userID);
+        const announcement = await Announcement.find();
+        res.render("owner/add-annoucement", { owner, announcement });
+    } catch (err) {
+        console.log(err.message);
+    }
+});
 
 //Render the Announcement Edit/Reply Page with announcment data and all replies.
 router.route('/:announcement_ID').get(async (req, res) => {
@@ -55,19 +63,28 @@ router.route('/:announcement_ID/reply').post(async (req, res) => {
 
 
 //Adding an announcement
-router.route('/add').post((req, res) => {
-    const announcement = new Announcement({
-        title: req.body.title,
-        text: req.body.text,
-        replies: []
-    });
-    announcement.save()
-        .then(() => {
-            console.log('New announcement added!');
-            res.redirect(`/owner/${req.params.user_ID}/announcement`)
-        })
-        .catch(err => console.log(err.message));
+// Adding an announcement
+router.route('/add').post(async (req, res) => {
+    try {
+        const owner = await Account.findById(req.userID);
+        const announcement = new Announcement({
+            owner_username: owner.username,
+            title: req.body.title,
+            text: req.body.text,
+            replies: []
+        });
+
+        announcement.save()
+            .then(() => {
+                console.log('New announcement added!');
+                res.redirect(`/owner/${req.userID}/announcement`);
+            })
+            .catch(err => console.log(err.message));
+    } catch (err) {
+        console.log(err.message);
+    }
 });
+
 
 //Edit announcement function
 router.route('/:announcement_ID/edit').post(async (req, res) => {

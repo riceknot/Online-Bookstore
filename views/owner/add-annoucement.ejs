@@ -117,27 +117,23 @@
                           
                        
                         
-                        <form action="#" method="post">
+                        <form action="/owner/<%= owner.id %>/announcement/add" method="post">
                             <div style="width: 75%;" class="mb-3" style="position: relative;">
                                 <label for="exampleFormControlInput1" class="form-label">Title</label>
-                                <input type="title" class="form-control editable" id="exampleFormControlInput1" placeholder="Title">
+                                <input type="title" class="form-control editable"id="exampleFormControlInput1" required placeholder="Title" name="title">
                             </div>
                         
                             <div style="width: 75%;" class="mb-3">
                                 <label for="exampleFormControlTextarea1" class="form-label">Content</label>
-                                <textarea class="form-control editable" id="exampleFormControlTextarea1" rows="7"></textarea>
+                                <textarea class="form-control editable" id="exampleFormControlTextarea1" rows="7" required name="text"></textarea>
                             </div>
                             <br>
                             <div id ="button-announcement">
                                 
-                            <button type="submit" style="width: 10%;" class="btn btn-success">Save</button> 
+                            <button type="submit" style="width: 10%;" class="btn btn-success">Add</button> 
                             </div>
                             
                         </form><br>
-                        <form action="" method="post">
-                            <input type="hidden">
-                            <button id="delete-button" type="submit" style="width: 10%; left: 150px !important; bottom: 62px !important;" class="btn btn-danger">Delete</button> 
-                        </form>
                         
                         
                         
