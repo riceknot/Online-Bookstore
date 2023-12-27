@@ -6,7 +6,6 @@ let Account = require('../models/account_model');
 router.route('/').get(async (req, res) => {
     try {
         const inquiries = await Inquiry.find();
-
         const openInquiry = inquiries.filter(inquiry => inquiry.status === 'open');
         const closedInquiry = inquiries.filter(inquiry => inquiry.status === 'closed');
         const owner = await Account.findById(req.userID);
@@ -20,10 +19,9 @@ router.route('/').get(async (req, res) => {
 //Render the Inquiry Edit Page with inquiry data and all replies.
 router.route('/:inquiry_ID').get(async (req, res) => {
     try {
-
+        const owner = await Account.findById(req.userID);
         const inquiry = await Inquiry.findById(req.params.inquiry_ID);
-        res.render('owner/inquiry-details', { inquiry });
-
+        res.render('owner/inquiry-details', { inquiry, owner });
     } catch (err) {
         console.log(err.message);
     }
@@ -60,20 +58,18 @@ router.route('/:inquiry_ID/change_status').post(async (req, res) => {
     try {
         const inquiry = await Inquiry.findById(req.params.inquiry_ID);
 
-        if (inquiry.status === 'open') {
+        const newStatus = req.body['status-button'];
 
-            console.log('Changing status to closed!');
-            inquiry.status = 'closed';
-
-        } else if (inquiry.status === 'closed') {
-
+        if (newStatus === 'on') {
             console.log('Changing status to open!');
-            inquiry.status = 'open';
-
+            inquiry.status = 'Open';
+        } else if (newStatus === 'off') {
+            console.log('Changing status to closed!');
+            inquiry.status = 'Closed';
         }
 
         await inquiry.save();
-        res.redirect(`/inquiry/${req.params.inquiry_ID}`); // Redirect to inquiry detail page.
+        res.redirect(`/owner/${req.userID}/inquiry/${req.params.inquiry_ID}`); // Redirect to inquiry detail page.
 
 
     } catch (err) {

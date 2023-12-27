@@ -48,7 +48,7 @@
                     <div>
                         <span class="text-secondary">Hello,</span>
                         <br>
-                        <strong class="fs-5">User Name</strong>
+                        <strong class="fs-5"><%= owner.username %></strong>
                     </div>
                     </a>
                     <a href="" class="bi bi-box-arrow-right text-secondary fs-5"></a>
@@ -104,49 +104,42 @@
             
 
 
-            <!-- Form to edit product start-->
-           
                 <div class="modal-dialog modal-lg">  
                     <div class="modal-content" id="width-content-edit">
                         <div style="width: 80%;" class="py-5 text-center">
                             <img class="d-block mx-auto mb-4 rounded-circle shadow-1-strong" src="/asset/image/foxy.jpg" alt="" width="72" height="72">
-                            <h2>ThienMinh123</h2>
+                            <h2><%= owner.username %></h2>
                             <p class="lead">You're in your inquiry! Please read every information and enjoy! 
                             </p>
-                            <h6>ID: E3979269</h6>                              
+                            <h6>ID: <%= inquiry.id%></h6>                              
                         </div>
                         
                 <!--Ststus btn-->
                 <div class="card" style="border: none; background: none;">
-                    <form class="statusForm " action="#" method="post" style="display: flex; align-items: flex-end;">
+                    <form class="statusForm" action="/owner/<%= owner._id %>/inquiry/<%= inquiry.id %>/change_status" method="post" style="display: flex; align-items: flex-end;">
                         <p style="margin-right: 7px; margin-bottom: 5px;">Status:</p>
-                        <div class="btn-group btn-group-sm " role="group" aria-label="Small button group">
-                            <button type="button" class="btn btn-success status-button" data-status="on" onclick="toggleStatus(this)">On</button>
-                            <button type="button" class="btn btn-light status-button" data-status="off" onclick="toggleStatus(this)">Off</button>
+                        <div class="btn-group btn-group-sm" role="group" aria-label="Small button group">
+                            <button type="submit" name="status-button" value="on" class="btn <%= inquiry.status === 'Open' ? 'btn-success' : 'btn-light' %> status-button" onclick="toggleStatus(this)" data-status="on">On</button>
+                            <button type="submit" name="status-button" value="off" class="btn <%= inquiry.status === 'Closed' ? 'btn-danger' : '' %> status-button" onclick="toggleStatus(this)" data-status="off">Off</button>
                         </div>
                     </form>
                 </div>
+                
                 <!--Ststus btn--> 
-                          
-
-                        
-                        
-                        
-                        
-                        
+                
                         <form action="#" method="post">
                             <div style="width: 75%;" class="mb-3" style="position: relative;">
                                 <label for="exampleFormControlInput1" class="form-label">Title</label>
-                                <input type="title" class="form-control" id="exampleFormControlInput1" readonly onfocus="this.blur();" placeholder="Title">
+                                <input type="title" class="form-control" id="exampleFormControlInput1" readonly onfocus="this.blur();" value='<%= inquiry.title %>'>
                             </div>
                             <div style="width: 75%;" class="mb-3" style="position: relative;">
                                 <label for="exampleFormControlInput1" class="form-label">Topic</label>
-                                <input type="topic" class="form-control" id="exampleFormControlInput1" readonly onfocus="this.blur();" placeholder="Topic">
+                                <input type="topic" class="form-control" id="exampleFormControlInput1" readonly onfocus="this.blur();" value='<%= inquiry.topic %>'>
                             </div>
                         
                             <div style="width: 75%;" class="mb-3">
                                 <label for="exampleFormControlTextarea1" class="form-label">Content</label>
-                                <textarea class="form-control" id="exampleFormControlTextarea1" readonly onfocus="this.blur();" rows="15">Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic praesentium cumque vel perferendis facere modi ullam distinctio reiciendis, dolorem aliquam sunt commodi numquam odio esse fugiat accusantium nisi autem suscipit.Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic praesentium cumque vel perferendis facere modi ullam distinctio reiciendis, dolorem aliquam sunt commodi numquam odio esse fugiat accusantium nisi autem suscipit.Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic praesentium cumque vel perferendis facere modi ullam distinctio reiciendis, dolorem aliquam sunt commodi numquam odio esse fugiat accusantium nisi autem suscipit.Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic praesentium cumque vel perferendis facere modi ullam distinctio reiciendis, dolorem aliquam sunt commodi numquam odio esse fugiat accusantium nisi autem suscipit.Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic praesentium cumque vel perferendis facere modi ullam distinctio reiciendis, dolorem aliquam sunt commodi numquam odio esse fugiat accusantium nisi autem suscipit.Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic praesentium cumque vel perferendis facere modi ullam distinctio reiciendis, dolorem aliquam sunt commodi numquam odio esse fugiat accusantium nisi autem suscipit.Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic praesentium cumque vel perferendis facere modi ullam distinctio reiciendis, dolorem aliquam sunt commodi numquam odio esse fugiat accusantium nisi autem suscipit.Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic praesentium cumque vel perferendis facere modi ullam distinctio reiciendis, dolorem aliquam sunt commodi numquam odio esse fugiat accusantium nisi autem suscipit.</textarea>
+                                <textarea class="form-control" id="exampleFormControlTextarea1" readonly onfocus="this.blur();" rows="15" ><%= inquiry.text %></textarea>
                             </div>
                         </form>
                         
