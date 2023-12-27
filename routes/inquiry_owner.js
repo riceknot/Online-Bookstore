@@ -22,7 +22,7 @@ router.route('/:inquiry_ID').get(async (req, res) => {
     try {
 
         const inquiry = await Inquiry.findById(req.params.inquiry_ID);
-        res.render('Announcement_Edit', { inquiry });
+        res.render('owner/inquiry-details', { inquiry });
 
     } catch (err) {
         console.log(err.message);

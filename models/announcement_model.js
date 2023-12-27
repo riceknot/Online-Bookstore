@@ -15,6 +15,14 @@ const AnnouceReplySchema = new Schema({
 });
 
 const announcementSchema = new Schema({
+    owner_pfp: {
+        data: Buffer,
+        mimeType: String,
+    },
+    owner_username: {
+        type: String,
+        required: true,
+    },
     title: {
         type: String,
         required: true,
