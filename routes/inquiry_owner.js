@@ -11,8 +11,7 @@ router.route('/').get(async (req, res) => {
         const closedInquiry = inquiries.filter(inquiry => inquiry.status === 'closed');
         const owner = await Account.findById(req.userID);
 
-        res.render('owner/inquiry', { openInquiry, closedInquiry, owner});
-
+        res.render('owner/inquiry', { inquiries, openInquiry, closedInquiry, owner});
     } catch (err) {
         console.log(err.message);
     }
