@@ -11,7 +11,7 @@ router.route('/').get(async (req, res) => {
         res.render('owner/inventory', { books, owner });
     } catch (err) {
         console.log(err.message);
-    }
+    } 
 });
 
 //Render Edit page.

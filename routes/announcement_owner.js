@@ -105,11 +105,10 @@ router.route('/:announcement_ID/edit').post(async (req, res) => {
 //Delete announcement function
 router.route('/:announcement_ID/delete').post(async (req, res) => {
     try {
-
         await Announcement.findByIdAndDelete(req.params.announcement_ID)
 
         console.log('Announcement deleted!')
-        res.redirect(`/owner/${req.user_ID}/announcement`);
+        res.redirect(`/owner/${req.userID}/announcement`);
 
     } catch (err) {
         console.log(err.message);
