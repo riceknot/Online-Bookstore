@@ -2,17 +2,65 @@ const router = require('express').Router();
 let Inventory = require('../models/inventory_model');
 let Account = require('../models/account_model');
 
-//Render the Inventory Page with all books data.
+//Render the Inventory Page with all book data.
 router.route('/').get(async (req, res) => {
     try {
-        const books = await Inventory.find({});
+        const books = await Inventory.find({})
         const owner = await Account.findById(req.userID);
 
         res.render('owner/inventory', { books, owner });
     } catch (err) {
         console.log(err.message);
-    } 
+    }
 });
+
+//Render the Inventory Page with filtered book data.
+router.route('/').post(async (req, res) => {
+    try {
+        const owner = await Account.findById(req.userID);
+
+        const getPriceRange = (option) => {
+            switch (option) {
+                case 'range1':
+                    return { $gte: 0, $lte: 10 };
+                case 'range2':
+                    return { $gt: 10, $lte: 20 };
+                case 'range3':
+                    return { $gt: 20, $lte: 30 };
+                default:
+                    return {}; // Default case or empty object if no specific range is selected
+            }
+        };
+
+        let query = {};
+
+        if (req.body.titleQuery) {
+            query.book_title = { $regex: new RegExp(req.body.titleQuery, 'i') };
+        }
+
+        if (req.body.authorQuery !== 'Author') {
+            query.author = req.body.authorQuery;
+        }
+
+        if (req.body.genreQuery !== 'Genre') {
+            query.genre = req.body.genreQuery;
+        }
+
+        if (req.body.priceQuery !== 'Price') {
+            const priceRangeQuery = getPriceRange(req.body.priceQuery);
+            if (Object.keys(priceRangeQuery).length !== 0) {
+                query.price = priceRangeQuery;
+            }
+        }
+
+        const books = await Inventory.find(query);
+
+        res.render('owner/inventory', { books, owner });
+    } catch (err) {
+        console.log(err.message);
+    }
+});
+
 
 //Render Edit page.
 router.route('/:bookID').get(async (req, res) => {
@@ -26,35 +74,6 @@ router.route('/:bookID').get(async (req, res) => {
     }
 });
 
-//Render the Inventory Page with books data based on the Search and Filter options.
-router.route('/').post(async (req, res) => {
-    try {
-        let bookQuery = {};  //An object used to store the search term and all the filter options found through the 'query'. 
-        const filterFields = ['genre', 'author', 'publisher', 'date'];
-
-        filterFields.forEach(field => {  //Function used to store each filter option with data from query.
-            if (req.query[`${field}Filter`]) {  //Check if query for filters are empty or not.
-                bookQuery[field] = req.query[`${field}Filter`];
-            }
-        });
-
-        if (req.query.searchTerm) { //If search query is not empty.
-            const searchTerm = new RegExp(req.query.search, 'i');  //Use RegExp to make the search term case-insensitive.
-            bookQuery.book_title = searchTerm;  // store the search term inside 'bookQuery' object.
-        }
-
-        const filteredBooks = await Inventory.find(bookQuery);  // Find specific books based on fields in 'bookQuery'.
-
-        if (filteredBooks.length === 0) { // If no books found based on the search criteria.
-            return res.render('inventoryPage', { message: 'No books found based on the search criteria.' }); //Render the Inventory Page with the error message.
-        }
-
-        res.render('inventoryPage', { filteredBooks }); // Render the Inventory Page with the specified books.
-    }
-    catch (error) {
-        console.log(error.message);
-    }
-});
 
 
 //Adding a new book.
@@ -81,7 +100,7 @@ router.route('/add').post((req, res) => {
 
 //Updating a book.
 router.route('/:bookID/update').post((req, res) => {
-    Inventory.findByIdAndUpdate(req.params.bookID, {
+    const updateBook = {
         book_title: req.body.book_title,
         genre: req.body.genre,
         author: req.body.author,
@@ -89,11 +108,16 @@ router.route('/:bookID/update').post((req, res) => {
         description: req.body.description,
         price: req.body.price,
         quantity: req.body.quantity,
-        image: {
+    };
+
+    if (req.files && req.files.image) {
+        updateBook.image = {
             data: req.files.image.data,
             mimeType: req.files.image.mimetype
         }
-    }, { new: true })
+    }
+
+    Inventory.findByIdAndUpdate(req.params.bookID, updateBook, { new: true })
         .then(() => {
             console.log('Update book successfully!');
             res.redirect(`/owner/${req.userID}/inventory#product-page`);
