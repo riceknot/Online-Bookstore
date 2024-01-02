@@ -32,10 +32,10 @@ router.route('/:inquiry_ID/reply').post(async (req, res) => {
     try {
 
         const inquiry = await Inquiry.findById(req.params.inquiry_ID);
-        const owner = await Account.findById(req.params.user_ID);
+        const owner = await Account.findById(req.userID);
 
         inquiry.replies.push({
-            user_ID: req.params.user_ID,
+            user_ID: req.userID,
             profile_picture: {
                 data: owner.profile_picture.data,
                 mimeType: owner.profile_picture.mimeType
@@ -46,7 +46,7 @@ router.route('/:inquiry_ID/reply').post(async (req, res) => {
 
         await inquiry.save();
 
-        res.redirect(`/owner/${req.params.user_ID}/inquiry/${req.params.inquiry_ID}`);
+        res.redirect(`/owner/${req.userID}/inquiry/${req.params.inquiry_ID}`);
 
     } catch (err) {
         console.log(err.message);
