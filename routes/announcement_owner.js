@@ -40,21 +40,17 @@ router.route('/:announcement_ID/reply').post(async (req, res) => {
     try {
 
         const announcement = await Announcement.findById(req.params.announcement_ID);
-        const owner = await Account.findById(req.params.user_ID);
+        const owner = await Account.findById(req.userID);
 
         announcement.replies.push({
-            user_ID: req.params.user_ID,
-            profile_picture: {
-                data: owner.profile_picture.data,
-                mimeType: owner.profile_picture.mimeType
-            },
-            username: owner.username,
+            user_ID: req.userID,
+            user: owner.username,
             text: req.body.text
         });
 
         await announcement.save();
 
-        res.redirect(`/owner/${req.params.user_ID}/announcement/${req.params.announcement_ID}`);
+        res.redirect(`/owner/${req.userID}/announcement/${req.params.announcement_ID}`);
 
     } catch (err) {
         console.log(err.message);
