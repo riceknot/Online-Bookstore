@@ -12,7 +12,16 @@ const orderSchema = new Schema({
         type: String,
         required: true,
     },
+    book_image: {
+        data: Buffer,
+        mimeType: String,
+    },
     book_name: {
+        type: String,
+        required: true,
+        trim: true
+    },
+    book_author: {
         type: String,
         required: true,
         trim: true
@@ -34,12 +43,29 @@ const orderSchema = new Schema({
             type: Number
         },
         expiration: {
-            type: Date
+            month: {
+                type: String,
+            },
+            year: {
+                type: String,
+            }
         }
+    },
+    quantity: {
+        type: Number,
+        required: true
     },
     price: {
         type: Number,
         required: true,
+    },
+    shipping_date: {
+        type: String,
+        required: true
+    },
+    shipping_address: {
+        type: String,
+        required: true
     },
     status: {
         type: String,
