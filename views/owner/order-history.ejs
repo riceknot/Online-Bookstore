@@ -101,11 +101,10 @@
         <!-- Order page start-->
         <div class="container-fluid rounded-page home-page-content" id="order-page">
             <nav class="d-flex justify-content-between align-items-center" style="padding: 2.5% 5% 0;">
-                <a class="navbar-brand"><strong class="fs-1">Orders</strong>
+                <a class="navbar-brand"><strong class="fs-1">Order history</strong>
                     <br>
-                    <p class="text-secondary">View your orders here</p>
+                    <p class="text-secondary">View your past orders here</p>
                 </a>
-                <!-- Search bar -->
                 <form class="search-form mt-1">
                     <a class="bi bi-search fs-6 text-black me-2" type="submit"></a>
                     <input class="search-bar" type="search" placeholder="Search anything." aria-label="Search">
@@ -145,32 +144,39 @@
                                         <td>
                                             <%= orders[i].quantity %>
                                         </td>
-                                        <td><strong>
+                                        <td>
+                                            <strong>
                                                 $ <%= orders[i].price %>
-                                            </strong></td>
+                                            </strong>
+                                        </td>
                                         <td>
                                             <%= orders[i].createdAt %>
                                         </td>
-                                        <td class="d-flex justify-content-start align-items-center"><i
-                                                class="bi bi-dot fs-1 text-warning"></i>Pending</td>
-                                        <td>
-                                            <a href="/owner/<%= owner.id %>/order/<%= orders[i].id %>"
-                                                class="text-secondary">
-                                                <button type="button" class="btn btn-info btn-sm">Details</button>
-                                            </a>
-                                        </td>
+                                        <% if (orders[i].status=='accepted' ) { %>
+                                            <td class="d-flex justify-content-start align-items-center"><i
+                                                    class="bi bi-dot fs-1 text-success"></i>Accepted</td>
+                                            <% } else if (orders[i].status=='cancelled' ) { %>
+                                                <td class="d-flex justify-content-start align-items-center"><i
+                                                        class="bi bi-dot fs-1 text-danger"></i>Cancelled</td>
+                                                <% } %>
+                                                    <td>
+                                                        <a href="/owner/<%= owner.id %>/order/<%= orders[i].id %>"
+                                                            class="text-secondary">
+                                                            <button type="button"
+                                                                class="btn btn-info btn-sm">Details</button>
+                                                        </a>
+                                                    </td>
                                     </tr>
                                     <% }; %>
                             </tbody>
                         </table>
                         <div>
-                            <a href="/owner/<%= owner.id %>/order/history">
+                            <A href="/owner/<%= owner.id %>/order">
                                 <button type="button" style="padding: 0%;"
-                                    class="btn btn-link text-decoration-none">History</button>
-                            </a>
+                                    class=" bi bi-caret-left btn btn-link text-decoration-none">Go back</button>
+                            </A>
 
                         </div>
-
                     </div>
                 </div>
             </div>
