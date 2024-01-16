@@ -45,7 +45,8 @@ router.route('/:announcement_ID/reply').post(async (req, res) => {
         announcement.replies.push({
             user_ID: req.userID,
             user: owner.username,
-            text: req.body.text
+            text: req.body.text,
+            user_role: 'owner'
         });
 
         await announcement.save();

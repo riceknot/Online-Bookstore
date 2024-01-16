@@ -4,24 +4,24 @@ let Account = require('../models/account_model');
 
 
 //Render the Announcement (Customer) Page with all announcement data.
-router.route('/').get((req, res) => {
-    Announcement.find()
-        .then((announcement) => {
-            res.render('Announcement_Customer', { announcement });
-        })
-        .catch((error) => {
-            console.log(error.message);
-        });
+router.route('/').get(async(req, res) => {
+    try {
+        const announcement = await Announcement.find({})
+        const customer = await Account.findById(req.userID);
+        res.render("customer/announcement",{customer,announcement});
+    } catch (err) {
+        console.log(err.message);
+    }
 });
 
 
 //Render the Announcement Detail Page with announcment data and all replies.
 router.route('/:announcement_ID').get(async (req, res) => {
     try {
-
+    
+        const customer = await Account.findById(req.userID);
         const announcement = await Announcement.findById(req.params.announcement_ID);
-        res.render('Announcement_Detail', { announcement });
-
+        res.render('customer/announcement-detail', { announcement,customer });
     } catch (err) {
         console.log(err.message);
     }
@@ -32,21 +32,18 @@ router.route('/:announcement_ID/reply').post(async (req, res) => {
     try {
 
         const announcement = await Announcement.findById(req.params.announcement_ID);
-        const customer = await Account.findById(req.params.user_ID);
+        const customer = await Account.findById(req.userID);
 
         announcement.replies.push({
-            user_ID: req.params.user_ID,
-            profile_picture: {
-                data: customer.profile_picture.data,
-                mimeType: customer.profile_picture.mimeType
-            },
-            username: customer.username,
+            user_ID: req.userID,
+            user: customer.username,
+            user_role: 'customer',
             text: req.body.text
         });
 
         await announcement.save();
 
-        res.redirect(`/customer/${req.params.user_ID}/announcement/${req.params.announcement_ID}`);
+        res.redirect(`/customer/${req.userID}/announcement/${req.params.announcement_ID}`);
 
     } catch (err) {
         console.log(err.message);

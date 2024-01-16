@@ -41,6 +41,7 @@ router.route('/:inquiry_ID/reply').post(async (req, res) => {
                 mimeType: owner.profile_picture.mimeType
             },
             username: owner.username,
+            user_role: 'owner',
             text: req.body.text
         });
 

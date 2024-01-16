@@ -9,6 +9,7 @@ const InquiryReplySchema = new Schema({
         mimeType: String,
     },
     username: String,
+    user_role: String,
     text: String,
 }, {
     timestamps: true

@@ -8,7 +8,8 @@ const AnnouceReplySchema = new Schema({
         data: Buffer,
         mimeType: String,
     },
-    username: String,
+    user: String,   
+    user_role: String,
     text: String,
 }, {
     timestamps: true

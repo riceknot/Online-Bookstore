@@ -1,15 +1,16 @@
 const router = require('express').Router();
 let Inventory = require('../models/inventory_model');
+let Account = require('../models/account_model');
 
 //Render the Book Search Page with all books data.
-router.route('/').get((req, res) => {
-    Inventory.find()
-        .then((books) => {
-            res.render('bookSearch', { books });
-        })
-        .catch((error) => {
-            console.log(error.message);
-        });
+router.route('/').get(async(req, res) => {
+    try {
+        const books = await Inventory.find({})
+        const customer = await Account.findById(req.userID);
+        res.render("customer/main",{customer,books});
+    } catch (err) {
+        console.log(err.message);
+    }
 });
 
 //Render the Book Search Page with books data based on the Search and Filter options.
@@ -41,5 +42,14 @@ router.route('/').post(async (req, res) => {
         console.log(error.message);
     }
 });
-
+//Render the Book Deatil Page with book data 
+router.route('/:book_ID').get(async (req, res) => {
+    try {
+        const customer = await Account.findById(req.userID);
+        const book = await Inventory.findById(req.params.book_ID);
+        res.render('customer/book-detail', { customer, book });
+    } catch (err) {
+        console.log(err.message);
+    }
+});
 module.exports = router;
