@@ -107,7 +107,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 function toggleEdit() {
-    // Select all elements with class 'editable'
+    // Select all elements with class 'editable'    
     var editables = document.querySelectorAll('.editable');
 
     // Toggle the 'readonly' attribute for each element
