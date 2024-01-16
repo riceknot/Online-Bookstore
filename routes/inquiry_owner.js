@@ -36,10 +36,6 @@ router.route('/:inquiry_ID/reply').post(async (req, res) => {
 
         inquiry.replies.push({
             user_ID: req.userID,
-            profile_picture: {
-                data: owner.profile_picture.data,
-                mimeType: owner.profile_picture.mimeType
-            },
             username: owner.username,
             user_role: 'owner',
             text: req.body.text
