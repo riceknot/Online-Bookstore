@@ -11,3 +11,26 @@ function selectItem(item, event) {
     // Update the button text with the selected item text
     document.getElementById('dropdownButton').innerText = item.innerText;
 }
+
+
+
+/*Change pfp in user profile*/
+document.addEventListener('DOMContentLoaded', function () {
+    var fileTag = document.getElementById("filetag");
+    var preview = document.getElementById("preview");
+
+    preview.addEventListener("click", function () {
+        fileTag.click();
+    });
+
+    fileTag.addEventListener("change", function () {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            console.log("Image loaded: ", e.target.result); // Debugging
+            preview.src = e.target.result;
+        }
+        console.log("File selected: ", this.files[0]); // Debugging
+        reader.readAsDataURL(this.files[0]);
+    });
+});
+

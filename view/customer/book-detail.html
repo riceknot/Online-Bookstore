@@ -57,13 +57,13 @@
                 <hr>
                 <ul class="nav nav-pills flex-column mb-auto">
                     <li class="nav-item">
-                        <a href="/view/customer/main.html" class="nav-link text-black fs-5">
+                        <a href="/view/customer/main.html" class="nav-link selected text-black fs-5">
                             <i class="bi bi-house-door-fill me-2 fs-4"></i>
                             <strong>Main page</strong>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="/view/customer/announcement.html" class="nav-link selected text-black fs-5">
+                        <a href="/view/customer/announcement.html" class="nav-link text-black fs-5">
                             <i class="bi bi-megaphone me-2 fs-4"></i>
                             <strong>Announcements</strong>
                         </a>
@@ -91,8 +91,8 @@
                 <i class="bi bi-caret-right-fill"></i>
             </div>
             <!-- Side menu end-->        
-            <!-- Messages page start -->
-            <div class="container-fluid rounded-page home-page-content" id="announcement-page">
+            <!-- Book detail page start -->
+            <div class="container-fluid rounded-page home-page-content align-items-center" id="announcement-page" style="padding-bottom: 50px;">
                 <nav class="d-flex justify-content-between align-items-center" style="padding: 2.5% 5% 0;">
                     <a class="navbar-brand"><strong class="fs-1">Announcements</strong>
                         <br>
@@ -109,86 +109,28 @@
                 </nav>
                 <br>
                
-
-
-                <br><br>
-                <a href="/view/customer/announcement-detail.html">
-                    <div class="card mb-3" >
-                        <div class="row g-0" style="align-items: flex-start; flex-direction: row;">
-                            <div class="col-md-1">
-                            <img src="/public/asset/image/foxy.jpg" width="85px" style="margin:10px" class="img-fluid rounded-circle shadow-1-strong" alt=".">
-                            </div>
-                            <div class="col-md-11">
-                                <div class="card-body">
-                                    <h5 class="card-title">New book!</h5>
-                                    <p class="card-text">@Tuonghao456</p>
-                                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                    <p class="card-text"><small class="text-body-secondary">16/12/2023</small></p>
-                                    
-                                </div>
-                            </div>
-                        </div>
+                <div class="d-flex" style="padding: 30px; max-width: 90%; ">
+                    <div>
+                        <img src="/public/asset/book/covers/children-of-time.jpg" height="450px" style="min-width: 100%; margin: 0px 12px 12px 15px; padding: 0px 25px 0px 50px;">
                     </div>
-                </a>
-                
-                <a href="#">
-                    <div class="card mb-3" >
-                        <div class="row g-0" style="align-items: flex-start; flex-direction: row;">
-                            <div class="col-md-1">
-                            <img src="/public/asset/image/foxy.jpg" width="85px" style="margin:10px" class="img-fluid rounded-circle shadow-1-strong" alt=".">
-                            </div>
-                            <div class="col-md-11">
-                                <div class="card-body">
-                                    <h5 class="card-title">New book!</h5>
-                                    <p class="card-text">@Tuonghao456</p>
-                                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                    <p class="card-text"><small class="text-body-secondary">16/12/2023</small></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                <a href="#">
-                    <div class="card mb-3" >
-                        <div class="row g-0" style="align-items: flex-start; flex-direction: row;">
-                            <div class="col-md-1">
-                            <img src="/public/asset/image/foxy.jpg" width="85px" style="margin:10px" class="img-fluid rounded-circle shadow-1-strong" alt=".">
-                            </div>
-                            <div class="col-md-11">
-                                <div class="card-body">
-                                    <h5 class="card-title">New book!</h5>
-                                    <p class="card-text">@Tuonghao456</p>
-                                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                    <p class="card-text"><small class="text-body-secondary">16/12/2023</small></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                <a href="#">
-                    <div class="card mb-3" >
-                        <div class="row g-0" style="align-items: flex-start; flex-direction: row;">
-                            <div class="col-md-1">
-                            <img src="/public/asset/image/foxy.jpg" width="85px" style="margin:10px" class="img-fluid rounded-circle shadow-1-strong" alt=".">
-                            </div>
-                            <div class="col-md-11">
-                                <div class="card-body">
-                                    <h5 class="card-title">New book!</h5>
-                                    <p class="card-text">@Tuonghao456</p>
-                                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                    <p class="card-text"><small class="text-body-secondary">16/12/2023</small></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                        <small class="d-block text-right mt-3">
-                            <a href="#">All announcements</a>
-                        </small>
+                    <div style=" margin-left: 10px;">
+                        <h2 class="">Children of Time</h2>
+                        <p class="author">By <span>Adrian Tchaikovsky</span></p>
+                        <p style="text-align: justify;">The last remnants of the human race left a dying Earth, desperate to find a new home among the stars. Following in the footsteps of their ancestors, they discover the greatest treasure of the past age--a world terraformed and prepared for human life. But all is not right in this new Eden. In the long years since the planet was abandoned, the work of its architects has borne disastrous fruit. The planet is not waiting for them, pristine and unoccupied. New masters have turned it from a refuge into mankind's worst nightmare. Now two civilizations are on a collision course, both testing the boundaries of what they will do to survive. As the fate of humanity hangs in the balance, who are the true heirs of this new Earth?</p>
+                        <h6>Gerne: Fiction</h6>
+                        <h3 style="font-size: 42px !important; color: crimson;">$12.99</h3>
+                        
+                        <form action="#" method="post">
+                            <button style="width: 120px;" type="button" class="btn btn-success">Order</button>
+                        </form>
                     </div>
                 </div>
+                
+
+                
+                
             </div>
-            <!-- Messages page end -->
+            <!-- Book detail page end -->
         </div>
             
         <!-- JavaScript -->

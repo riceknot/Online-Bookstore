@@ -69,7 +69,9 @@ tbody > tr:nth-child(odd) {
     word-break: break-all;
 }
 
-
+.author span {
+    color: chocolate;
+}
 /* Delete button */
 .delete-btn {
     width: 150px;
@@ -604,6 +606,16 @@ input[type="file"] {
 }
 
 /*End reply form*/
+
+
+
+
+  
+
+.input-profile {
+    padding-bottom: 15px;
+}
+
 
 /* Recent Orders table */
 tr:hover .order-id {

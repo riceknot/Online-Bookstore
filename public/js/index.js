@@ -101,30 +101,33 @@ function showFileName( event ) {
 
 
 document.addEventListener('DOMContentLoaded', function () {
-    toggleEdit();
+    // Attach the toggleEdit function to the Edit button
+    var editButton = document.querySelector('.btn-primary');
+    editButton.addEventListener('click', toggleEdit);
 });
 
 function toggleEdit() {
-    var titleInput = document.getElementById('exampleFormControlInput1');
-    var contentTextarea = document.getElementById('exampleFormControlTextarea1');
-    var editButton = document.querySelector('.btn-primary');
+    // Select all elements with class 'editable'
+    var editables = document.querySelectorAll('.editable');
 
-    if (titleInput.readOnly) {
-        // Enable editing
-        titleInput.readOnly = false;
-        contentTextarea.readOnly = false;
-        titleInput.classList.add('editable');
-        contentTextarea.classList.add('editable');
-        editButton.textContent = 'Edit';
+    // Toggle the 'readonly' attribute for each element
+    editables.forEach(function(element) {
+        if (element.readOnly || element.readOnly === true) {
+            element.readOnly = false;
+        } else {
+            element.readOnly = true;
+        }
+    });
+
+    // Change the button text based on the state
+    var editButton = document.querySelector('.btn-primary');
+    if (editButton.textContent.includes('Edit')) {
+        editButton.textContent = 'Save';
     } else {
-        // Disable editing
-        titleInput.readOnly = true;
-        contentTextarea.readOnly = true;
-        titleInput.classList.remove('editable');
-        contentTextarea.classList.remove('editable');
         editButton.textContent = 'Edit';
     }
 }
+
 
 
 
@@ -215,3 +218,5 @@ function toggleCardInfo() {
         }
     }
 }
+
+
