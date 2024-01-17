@@ -3,7 +3,7 @@ const bcrypt = require('bcrypt');
 let Account = require('../models/account_model');
 
 //Render the login page when the user access URL '/login'
-router.route('/login').get((req, res) => {
+router.route('/').get((req, res) => {
     res.render('login/login');
 });
 

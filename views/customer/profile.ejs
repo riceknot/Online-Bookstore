@@ -41,7 +41,9 @@
                     <div>
                         <span class="text-secondary">Hello,</span>
                         <br>
-                        <strong class="fs-5">User Name</strong>
+                        <strong class="fs-5">
+                            <%= customer.username %>
+                        </strong>
                     </div>
                 </a>
                 <a href="" class="bi bi-box-arrow-right text-secondary fs-5"></a>
@@ -52,24 +54,24 @@
 
                 <li class="nav-item">
                 <li class="nav-item">
-                    <a href="/view/customer/main.html" class="nav-link text-black fs-5">
+                    <a href="/customer/<%= customer.username %>/book_search" class="nav-link text-black fs-5">
                         <i class="bi bi-house-door-fill me-2 fs-4"></i>
                         <strong>Main page</strong>
                     </a>
                 </li>
-                <a href="/view/customer/announcement.html" class="nav-link text-black fs-5">
+                <a href="/customer/<%= customer.username %>/announcement" class="nav-link text-black fs-5">
                     <i class="bi bi-megaphone me-2 fs-4"></i>
                     <strong>Announcements</strong>
                 </a>
                 </li>
                 <li class="nav-item">
-                    <a href="/view/customer/inquiry.html" class="nav-link text-black fs-5">
+                    <a href="/customer/<%= customer.username %>/inquiry" class="nav-link text-black fs-5">
                         <i class="bi bi-envelope me-2 fs-4"></i>
                         <strong>Inquiries</strong>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="/view/customer/order.html" class="nav-link text-black fs-5">
+                    <a href="/customer/<%= customer.username %>/order" class="nav-link text-black fs-5">
                         <i class="bi bi-list-check me-2 fs-4"></i>
                         <strong>Orders</strong>
                     </a>
@@ -96,34 +98,37 @@
             <!--Profile pic-->
             <div class="p-4">
                 <div class="img-circle text-center mb-3">
-                    <img src="/asset/image/foxy.jpg" alt="Image" id="preview" width="170px" height="170px"
-                        class="rounded-circle shadow-1-strong">
+                    <img src="data:<%= customer.profile_picture.mimeType %>;base64,<%= customer.profile_picture.data.toString('base64') %>"
+                        alt="Image" id="preview" width="170px" height="170px" class="rounded-circle shadow-1-strong">
                     <input type="file" id="filetag" accept="image/*" class="d-none">
                 </div>
                 <h5 style="text-align: center; font-weight: 50;">Welcome back!</h5>
                 <div class="username">
-                    <h4 style="text-align: center;">Minh1234</h4>
+                    <h4 style="text-align: center;">
+                        <%= customer.username %>
+                    </h4>
                 </div>
             </div>
 
             <br><br>
 
 
-            <form action="#" method="post" class="tab-pane fade show active" id="account" role="tabpanel"
-                aria-labelledby="account-tab" style="padding: 12px;">
+            <form action="/customer/<%= customer.username %>/profile/edit" method="post" enctype="multipart/form-data"
+                class="tab-pane fade show active" id="account" role="tabpanel" aria-labelledby="account-tab"
+                style="padding: 12px;">
                 <div class="row">
                     <div class="col-md-6 input-profile">
                         <div class="form-group">
                             <label>Username</label>
-                            <input type="text" class="form-control editable" id="usernameInput" value="minh1234"
-                                readonly>
+                            <input type="text" class="form-control editable" id="usernameInput" name="username"
+                                value="<%= customer.username %>" readonly>
                         </div>
                     </div>
                     <div class="col-md-6 input-profile">
                         <div class="form-group">
                             <label>Full name</label>
-                            <input type="text" class="form-control editable" id="usernameInput" value="Minh Huynh"
-                                readonly>
+                            <input type="text" class="form-control editable" id="usernameInput" name="full_name"
+                                value="<%= customer.full_name %>" readonly>
                         </div>
                     </div>
                     <div class="col-md-6 input-profile">
@@ -131,7 +136,7 @@
                             <label>Email address</label>
                             <input type="text" class="form-control editable" id="exampleFormControlInput1"
                                 pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
-                                title="enter a valid email address" value="yeeyee@gmail.com" readonly>
+                                title="enter a valid email address" name="email" value="<%= customer.email %>" readonly>
                         </div>
                     </div>
 
@@ -139,15 +144,15 @@
                     <div class="col-md-6 input-profile">
                         <div class="form-group">
                             <label>Phone number</label>
-                            <input type="text" class="form-control editable" id="usernameInput" value="+0909887688"
-                                readonly>
+                            <input type="text" class="form-control editable" id="usernameInput" name="phone"
+                                value="<%= customer.phone %>" readonly>
                         </div>
                     </div>
                     <div class="col-md-6 input-profile">
                         <div class="form-group">
                             <label>Address</label>
-                            <input type="text" class="form-control editable" id="usernameInput" value="123 Le Loi"
-                                readonly>
+                            <input type="text" class="form-control editable" id="usernameInput" name="home_address"
+                                value="<%= customer.home_address %>" readonly>
                         </div>
                     </div>
                     <div class="col-md-6 input-profile">
@@ -158,15 +163,7 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="col-md-12">
-                    <div class="form-group">
-                        <label>Bio</label>
-                        <textarea class="form-control editable" id="exampleFormControlTextarea1" rows="4"
-                            readonly>Hi</textarea>
-
-                    </div>
-                </div><br>
+                <br>
 
                 <div id="button-announcement" class="col-md-6">
                     <button type="button" style="width: 20%;" class="btn btn-primary inactive" data-bs-toggle="button"
