@@ -75,6 +75,7 @@ const InventoryPage = require('./routes/inventory');
 const Announcement_Owner = require('./routes/announcement_owner');
 const Inquiry_Owner = require('./routes/inquiry_owner');
 const Order_Owner = require('./routes/order_owner');
+const Profile_Owner = require('./routes/profile_owner');
 
 app.use('/owner/:userID/inventory', (req, res, next) => {
     req.userID = req.params.userID;
@@ -92,3 +93,7 @@ app.use('/owner/:userID/order', (req, res, next) => {
     req.userID = req.params.userID;
     next();
 }, Order_Owner);
+app.use('/owner/:userID/profile', (req, res, next) => {
+    req.userID = req.params.userID;
+    next();
+}, Profile_Owner);
