@@ -46,6 +46,7 @@ const BookSearchPage = require('./routes/book_search');
 const Announcement_Cust = require('./routes/announcement_customer');
 const Inquiry_Cust = require('./routes/inquiry_customer');
 const Order_Cust = require('./routes/order_customer');
+const Profile_Cust = require('./routes/profile_customer');
 
 app.use('/customer/:userID/book_search', (req, res, next) => {
     req.userID = req.params.userID;
@@ -63,6 +64,11 @@ app.use('/customer/:userID/order', (req, res, next) => {
     req.userID = req.params.userID;
     next();
 }, Order_Cust);
+app.use('/customer/:userID/profile', (req, res, next) => {
+    req.userID = req.params.userID;
+    next();
+}, Profile_Cust);
+
 
 //Routes for Owner
 const InventoryPage = require('./routes/inventory');
