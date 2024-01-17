@@ -75,4 +75,17 @@ router.route('/:book_ID').get(async (req, res) => {
         console.log(err.message);
     }
 });
+
+//Render the Ordering Page with book data 
+router.route('/:book_ID/ordering').get(async (req, res) => {
+    try {
+        const customer = await Account.findById(req.userID);
+        const book = await Inventory.findById(req.params.book_ID);
+
+        res.render('customer/ordering', { customer, book });
+    } catch (err) {
+        console.log(err.message);
+    }
+});
+
 module.exports = router;
