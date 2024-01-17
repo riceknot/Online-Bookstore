@@ -59,7 +59,6 @@ router.route('/:announcement_ID/reply').post(async (req, res) => {
 });
 
 
-//Adding an announcement
 // Adding an announcement
 router.route('/add').post(async (req, res) => {
     try {

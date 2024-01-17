@@ -18,6 +18,16 @@ router.route('/').get(async (req, res) => {
     }
 });
 
+router.route('/add').get(async (req, res) => {
+    try {
+        const customer = await Account.findById(req.userID);
+        const inquiry = await Inquiry.find();
+        res.render("customer/new-inquiry", { customer, inquiry });
+    } catch (err) {
+        console.log(err.message);
+    }
+});
+
 //Render the Inquiry Detail Page with inquiry data and all replies.
 router.route('/:inquiry_ID').get(async (req, res) => {
     try {
@@ -25,6 +35,31 @@ router.route('/:inquiry_ID').get(async (req, res) => {
         const inquiry = await Inquiry.findById(req.params.inquiry_ID);
         res.render('customer/inquiry-detail', { inquiry,customer });
 
+    } catch (err) {
+        console.log(err.message);
+    }
+});
+
+// Adding an inquiry
+router.route('/add').post(async (req, res) => {
+    try {
+        const customer = await Account.findById(req.userID);
+        const inquiry = new Inquiry({
+            customer_ID: req.userID,
+            customer_username: customer.username,
+            title: req.body.title,
+            topic: req.body.topic,
+            text: req.body.text,
+            status: 'Open',
+            replies: []
+        });
+
+        inquiry.save()
+            .then(() => {
+                console.log('New inquiry added!');
+                res.redirect(`/customer/${req.userID}/inquiry`);
+            })
+            .catch(err => console.log(err.message));
     } catch (err) {
         console.log(err.message);
     }

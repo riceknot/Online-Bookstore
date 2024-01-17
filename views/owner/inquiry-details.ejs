@@ -128,7 +128,7 @@
                 <!--Ststus btn--> 
                 
                         <form action="#" method="post">
-                            <div style="width: 75%;" class="mb-3" style="position: relative;">
+                            <div style="width: 75%;" class="mb-3" style="position: relative;" >
                                 <label for="exampleFormControlInput1" class="form-label">Title</label>
                                 <input type="title" class="form-control" id="exampleFormControlInput1" readonly onfocus="this.blur();" value='<%= inquiry.title %>'>
                             </div>
@@ -149,7 +149,7 @@
                         <br>
                         <!--Reply form for owner  -->
                         <form method="post" action="/owner/<%= owner._id %>/inquiry/<%= inquiry.id %>/reply">
-                            <div class="col-md-6">
+                            <div class="col-md-6" style="width: 75%; margin: 0.5rem!important; display: flex; min-width: 760px; align-items: stretch" class= "card mb-2" >
                                 <div class="input-group">
                                     <span class="input-group-text" id="basic-addon1">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-reply" viewBox="0 0 16 16" >

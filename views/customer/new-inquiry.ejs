@@ -4,7 +4,7 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Inquiries</title>
+        <title>Details</title>
        
         <!-- CSS -->
         <link rel="stylesheet" href="/css/reset.css" />
@@ -82,7 +82,7 @@
                     </li>
                 </ul>
                 <div class="logo-container ">
-                    <a href="#" class="d-flex justify-content-between align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none" style="width: 250px;">
+                    <a href="/view/owner/dashboard.html#home-page" class="d-flex justify-content-between align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none" style="width: 250px;">
                         <img src="/asset/image/logo-strong-text.svg" alt="brand-logo">
                     </a>
                 </div>
@@ -90,72 +90,64 @@
             <div class="sidebar-toggler">
                 <i class="bi bi-caret-right-fill"></i>
             </div>
-            <!-- Side menu end-->        
-            <!-- Inquiry page start -->
-            <div class="container-fluid rounded-page home-page-content" id="inquiry-page">
-                <nav class="d-flex justify-content-between align-items-center" style="padding: 2.5% 5% 0;">
-                    <a class="navbar-brand"><strong class="fs-1">Inquiries</strong>
-                        <br>
-                        <p class="text-secondary">View message here</p>
-                    </a>
-                    <form class="search-form mt-1">
-                        <a class="bi bi-search fs-6 text-black me-2" type="submit"></a>
-                        <input class="search-bar" type="search" placeholder="Search anything." aria-label="Search">
-                    </form>
-                    <a href="#" class="nav-link text-black fs-6">
-                        <strong>Main page</strong>
-                        <i class="bi bi-box-arrow-in-right ms-2 fs-5"></i>
-                    </a>
-                </nav>
-                <br>
-              
-                <!--add inquiry button-->
-                <div class="text-decoration-none">
-                    <button type="button" class="add-button" onclick="location.href='/customer/<%= customer.id %>/inquiry/add';">
-                        <span class="add-button__text"> &emsp; New </span>
-                        <span class="add-button__icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke="currentColor" height="24" fill="none" class="svg">
-                                <line y2="19" y1="5" x2="12" x1="12"></line>
-                                <line y2="12" y1="12" x2="19" x1="5"></line>
-                            </svg>
-                        </span>
-                    </button>
-                </div>
-                <br>
-                <br>
-                <%for(let i=0; i < inquiries.length; i++){%>
-                    <%if(inquiries[i].customer_username===customer.username){%>
-                    <div class="card mb-3" style="position: relative;">
-                        <a onclick="location.href='/customer/<%= customer.id %>/inquiry/<%= inquiries[i].id %>';">
-                            <div class="row g-0" style="align-items: top; flex-direction: row;">
-                                <div class="col-md-1">
-                                    <img src="/asset/image/foxy.jpg" width="85px" style="margin:10px" class="img-fluid rounded-circle shadow-1-strong" alt=".">
-                                </div>
-                                <div class="col-md-11" style="display: flex; flex-direction: column; justify-content: space-between;">
-                                    <div class="card-body">
-                                        <h5 class="card-title"><%=inquiries[i].customer_username %></h5>
-                                        <p class="card-text"><%=inquiries[i].text %></p>
-                                        <p class="card-text"><small class="text-body-secondary"><%=inquiries[i].createdAt %></small></p>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
+            <!-- Side menu end-->
+
+
+            
+
+
+            <!-- Form to edit product start-->
+           
+            <div class="modal-dialog modal-lg">  
+                <div class="modal-content" id="width-content-edit">
+                    <div style="width: 80%;" class="py-5 text-center">
+                        <img class="d-block mx-auto mb-4" src="/asset/image/foxy.jpg" alt="" width="72" height="72">
+                        <h2><%= customer.username %></h2>
+                        <p class="lead">You're in control! Feel free to message us to make any updates or changes. We appreciate your feedback!
+                        </p>
+                    </div>
+                      
                     
-                        <form class="statusForm" action="#" method="post" style="position: absolute; bottom: 10px; right: 10px; display: flex; align-items: flex-end;">
-                            <p style="margin-right: 7px; margin-bottom: 5px;">Status:</p>
-                            <div class="btn-group btn-group-sm" role="group" aria-label="Small button group">
-                                <button type="button" class="btn <%= inquiries[i].status === 'Open' ? 'btn-success' : 'btn-light' %> status-button"  data-status="on" onclick="toggleStatus(this)" disabled>On</button>
-                                <button type="button" class="btn <%= inquiries[i].status === 'Closed' ? 'btn-danger' : '' %> status-button"  data-status="off" onclick="toggleStatus(this)" disabled>Off</button>
-                            </div>
-                        </form>
-                    </div>
-                     <% }; %>
-                <% }; %>
-                    </div>
+                    
+                    
+                    
+                    
+                    
+                    <form action="/customer/<%= customer.id %>/inquiry/add" method="post">
+                        <div style="width: 75%;" class="mb-3" style="position: relative;">
+                            <label for="exampleFormControlInput1" class="form-label">Title</label>
+                            <input type="title" class="form-control editable" id="exampleFormControlInput1" placeholder="Title" required  name="title">
+                        </div>
+
+                        <div style="width: 75%;" class="mb-3" style="position: relative;">
+                            <label for="exampleFormControlInput1" class="form-label">Topic</label>
+                            <input type="topic" class="form-control" id="exampleFormControlInput1" placeholder="Topic"  required  name="topic">
+                        </div>
+                    
+                        <div style="width: 75%;" class="mb-3">
+                            <label for="exampleFormControlTextarea1" class="form-label">Content</label>
+                            <textarea class="form-control editable" id="exampleFormControlTextarea1"  required  rows="7" name="text"></textarea>
+                        </div>
+                        <br>
+                        <div id ="button-announcement">
+                            
+                        <button type="submit" style="width: 10%;" class="btn btn-success">Save</button> 
+                        </div>
+                        
+                    </form><br>
+                    
+                    
+                    
+                    <br>
+                    <br>
+                    <br>
+                    
                 </div>
             </div>
-            <!-- Inquiry page end -->
-        </div>
+                      
+               
+            
+            <!-- Form to edit product end-->
             
         <!-- JavaScript -->
         <script
@@ -163,7 +155,8 @@
             integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
             crossorigin="anonymous"
         ></script>
+        <script src="/js/index.js" defer></script>
         <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
     </body>
-</html> 
+</html>
