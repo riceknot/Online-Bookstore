@@ -16,15 +16,18 @@ const orderSchema = new Schema({
         email: {
             type: String,
             required: true,
-            unique: true,
             trim: true,
         },
         phone: {
             type: String,
             required: true,
-            unique: true,
             trim: true
         },
+        address: {
+            type: String,
+            required: true,
+            trim: true
+        }
     },
     book: {
         ID: {
@@ -85,6 +88,7 @@ const orderSchema = new Schema({
     },
     status: {
         type: String,
+        required: true
     }
 }, {
     timestamps: true

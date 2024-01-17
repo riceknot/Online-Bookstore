@@ -1,6 +1,7 @@
 const router = require('express').Router();
 let Inventory = require('../models/inventory_model');
 let Account = require('../models/account_model');
+let Order = require('../models/order_model');
 
 //Render the Book Search Page with all books data.
 router.route('/').get(async (req, res) => {
@@ -65,7 +66,7 @@ router.route('/').post(async (req, res) => {
     }
 });
 
-//Render the Book Deatil Page with book data 
+//Render the Book Deatil Page with book data.
 router.route('/:book_ID').get(async (req, res) => {
     try {
         const customer = await Account.findById(req.userID);
@@ -76,13 +77,63 @@ router.route('/:book_ID').get(async (req, res) => {
     }
 });
 
-//Render the Ordering Page with book data 
+//Render the Ordering Page with book data.
 router.route('/:book_ID/ordering').get(async (req, res) => {
     try {
         const customer = await Account.findById(req.userID);
         const book = await Inventory.findById(req.params.book_ID);
 
         res.render('customer/ordering', { customer, book });
+    } catch (err) {
+        console.log(err.message);
+    }
+});
+
+//Add new order function.
+router.route('/:book_ID/ordering').post(async (req, res) => {
+    try {
+        const customer = await Account.findById(req.userID);
+        const book = await Inventory.findById(req.params.book_ID);
+
+        let totalPrice = book.price * req.body.quantity;
+
+        const newOrder = new Order({
+            customer: {
+                ID: customer.id,
+                username: customer.username,
+                email: customer.email,
+                phone: customer.phone,
+            },
+            book: {
+                ID: book.id,
+                image: {
+                    data: book.image.data,
+                    mimeType: book.image.mimeType,
+                },
+                title: book.book_title,
+                author: book.author,
+            },
+            payment_type: req.body.payment_type,
+            card_info: {
+                card_number: req.body.card_number,
+                CVV: req.body.CVV,
+                expiration: {
+                    month: req.body.expiration_month,
+                    year: req.body.expiration_year,
+                }
+            },
+            quantity: req.body.quantity,
+            price: totalPrice,
+            shipping_date: req.body.shipping_date,
+            shipping_address: req.body.shipping_address,
+            status: 'Pending',
+        });
+
+        const newOrderData = await newOrder.save();
+        console.log('Successfully added new order, ID:' + newOrderData.id);
+
+        res.redirect(`/customer/${req.userID}/book_search`);
+
     } catch (err) {
         console.log(err.message);
     }
