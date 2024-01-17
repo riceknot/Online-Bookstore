@@ -137,16 +137,16 @@
                                             <%= orders[i].id %>
                                         </th>
                                         <td>
-                                            <%= orders[i].customer_username %>
+                                            <%= orders[i].customer.username %>
                                         </td>
                                         <td>
-                                            <%= orders[i].book_name %>
+                                            <%= orders[i].book.title %>
                                         </td>
                                         <td>
                                             <%= orders[i].quantity %>
                                         </td>
                                         <td><strong>
-                                                $ <%= orders[i].price %>
+                                                $<%= orders[i].price %>
                                             </strong></td>
                                         <td>
                                             <%= orders[i].createdAt %>

@@ -32,25 +32,8 @@ router.route('/order_ID').get(async (req, res) => {
     try {
         const owner = await Account.findById(req.userID);
         const order = await Order.findById(req.params.order_ID);
-        const customer = await Account.findById(order.customer_ID);
 
-        let templateName = 'owner/order-detail'; //Default template name
-
-        // Change the EJS file to render based on the status of the order.
-        if (order.status === 'accepted') {
-            templateName += '-accepted';
-        } else if (order.status === 'cancelled') {
-            templateName += '-cancel';
-        }
-
-        // Change EJS file based on payment type.
-        if (order.payment_type != 'card') {
-            templateName += '2';
-        }
-
-        console.log(templateName);
-
-        res.render(templateName, { order, owner, customer });
+        res.render('owner/order-detail', { order, owner });
 
     } catch (err) {
         console.log(err.message);
@@ -60,7 +43,6 @@ router.route('/order_ID').get(async (req, res) => {
 //Function to accept orders.
 router.route('/order_ID/accept').post(async (req, res) => {
     try {
-        const owner = await Account.findById(req.userID);
 
         const updateOrder = await Order.findByIdAndUpdate(
             req.params.order_ID,
@@ -68,8 +50,8 @@ router.route('/order_ID/accept').post(async (req, res) => {
             { new: true }
         );
 
-        console.log(`Cancenlled order successfully, ID: ${updateOrder.id}`);
-        res.redirect(`/${owner.user_role}/${owner.id}/order/${updateOrder.id}`);
+        console.log(`Accepted order successfully, ID: ${updateOrder.id}`);
+        res.redirect(`/owner/${req.userID}/order/${updateOrder.id}`);
 
     } catch (err) {
         console.log(err.message);
@@ -79,7 +61,6 @@ router.route('/order_ID/accept').post(async (req, res) => {
 //Function to cancel orders.
 router.route('/order_ID/cancel').post(async (req, res) => {
     try {
-        const owner = await Account.findById(req.userID);
 
         const updateOrder = await Order.findByIdAndUpdate(
             req.params.order_ID,
@@ -88,7 +69,7 @@ router.route('/order_ID/cancel').post(async (req, res) => {
         );
 
         console.log(`Cancenlled order successfully, ID: ${updateOrder.id}`);
-        res.redirect(`/${owner.user_role}/${owner.id}/order/${updateOrder.id}`);
+        res.redirect(`/owner/${req.userID}/order/${updateOrder.id}`);
 
     } catch (err) {
         console.log(err.message);

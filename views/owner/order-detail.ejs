@@ -46,7 +46,7 @@
                         </strong>
                     </div>
                 </a>
-                <a href="" class="bi bi-box-arrow-right text-secondary fs-5"></a>
+                <a href="/owner/<%= owner.id %>/profile" class="bi bi-box-arrow-right text-secondary fs-5"></a>
             </div>
             <br>
 
@@ -85,7 +85,7 @@
                 </li>
             </ul>
             <div class="logo-container ">
-                <a href="/view/owner/dashboard.html#home-page"
+                <a href="/owner/<%= owner.id %>/profile"
                     class="d-flex justify-content-between align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none"
                     style="width: 250px;">
                     <img src="/asset/image/logo-strong-text.svg" alt="brand-logo">
@@ -124,10 +124,10 @@
 
                     <div id="order-detail-img-text" style="flex-grow: 1; max-width: 300px;">
                         <h4>
-                            <%= order.book_name %>
+                            <%= order.book.title %>
                         </h4>
                         <p>By <span>
-                                <%= order.book_author %>
+                                <%= order.book.author %>
                             </span></p>
                         <p>Quantity: <strong>
                                 <%= order.quantity %>
@@ -147,13 +147,21 @@
                             <div class="mb-3 order-detail-content">
                                 <strong>Book ID: </strong>
                                 <p>
-                                    <%= order.book_ID %>
+                                    <%= order.book.ID %>
                                 </p>
                             </div>
                         </div>
                         <div>
-                            <h4 class="d-flex justify-content-start align-items-center text-warning"><i
-                                    class="bi bi-dot fs-1 text-warning"></i>Pending</h4>
+                            <% if (order.status=='Pending' ) { %>
+                                <h4 class="d-flex justify-content-start align-items-center text-warning"><i
+                                        class="bi bi-dot fs-1 text-warning"></i>Pending</h4>
+                                <% } else if (order.status=='Cancelled' ) { %>
+                                    <h4 class="d-flex justify-content-start align-items-center text-danger"><i
+                                            class="bi bi-dot fs-1 text-danger"></i>Cancelled</h4>
+                                    <% } else if (order.status=='Accepted' ) { %>
+                                        <h4 class="d-flex justify-content-start align-items-center text-success"><i
+                                                class="bi bi-dot fs-1 text-success"></i>Accepted</h4>
+                                        <% }; %>
                         </div>
                     </div>
 
@@ -173,7 +181,7 @@
                                         </svg>
                                         <h6 class="mb-0">Customer</h6>
                                     </div><a class="fs--1 ms-4" href="#!">
-                                        <%= customer.username %>
+                                        <%= order.customer.username %>
                                     </a>
                                 </div>
                                 <div class="col-6 col-sm-12">
@@ -188,8 +196,8 @@
                                             <polyline points="22,6 12,13 2,6"></polyline>
                                         </svg>
                                         <h6 class="mb-0">Email</h6>
-                                    </div><a class="fs--1 ms-4" href="mailto:<%= customer.email %>">
-                                        <%= customer.email %>
+                                    </div><a class="fs--1 ms-4" href="mailto:<%= order.customer.email %>:">
+                                        <%= order.customer.email %>
                                     </a>
                                 </div>
                                 <div class="col-6 col-sm-12 order-sm-1 ">
@@ -205,7 +213,7 @@
                                     </div>
                                     <div class="ms-4 ">
                                         <p class="text-800 mb-0 fs--1" style="word-break: normal; max-width: 220px;">
-                                            <%= customer.home_address %>
+                                            <%= order.customer.address %>
                                         </p>
                                     </div>
                                 </div>
@@ -221,7 +229,7 @@
                                         <h6 class="mb-0">Customer ID</h6>
                                     </div>
                                     <p class="fs--1 ms-4 mb-0" style="word-break: break-all; max-width: 220px;">
-                                        <%= customer.id %>
+                                        <%= order.customer.ID %>
                                     </p>
                                 </div>
                             </div>
@@ -241,8 +249,8 @@
                                             <polyline points="22,6 12,13 2,6"></polyline>
                                         </svg>
                                         <h6 class="mb-0">Email</h6>
-                                    </div><a class="fs--1 ms-4" href="mailto:<%= customer.email %>">
-                                        <%= customer.email %>
+                                    </div><a class="fs--1 ms-4" href="mailto:<%= order.customer.email %>:">
+                                        <%= order.customer.email %>
                                     </a>
                                 </div>
                                 <div class="col-6 col-sm-12">
@@ -256,8 +264,8 @@
                                             </path>
                                         </svg>
                                         <h6 class="mb-0">Phone</h6>
-                                    </div><a class="fs--1 ms-4" href="tel:<%= customer.phone %>">
-                                        <%= customer.phone %>
+                                    </div><a class="fs--1 ms-4" href="tel:<%= order.customer.phone %>">
+                                        <%= order.customer.phone %>
                                     </a>
                                 </div>
                                 <div class="col-6 col-sm-12 order-sm-1 ">
@@ -306,42 +314,47 @@
                         <div class="row g-4 mb-7">
                             <div class="col-12">
                                 <div class="row gx-lg-1">
-                                    <p>Payment type: <strong>Credit card</strong></p>
+                                    <p>Payment type: <strong>
+                                            <%= order.payment_type %>
+                                        </strong></p>
                                 </div>
                             </div>
-                            <div class="mb-7 g-2 row" id="cardInfoContainer" style="padding: 0px;">
-                                <div class="col-md-6">
-                                    <label class="form-label fs-6 text-dark ps-0 text-none" for="inputCardNumber">Card
-                                        number</label>
-                                    <input class="form-control" id="inputCardNumber" type="text"
-                                        placeholder="Enter card number" readonly aria-label="Card number"
-                                        value="<%= order.card_info.card_number %>">
-                                </div>
-                                <div class="col-md-6">
-                                    <label class="form-label fs-6 text-dark ps-0 text-none">Expires on</label>
-                                    <div class="d-flex">
-                                        <select disabled class="form-select text-black me-3"
-                                            style="width: fit-content; background-color: white;">
-                                            <option selected="selected">
-                                                <%= order.card_info.expiration.month %>
-                                            </option>
-                                        </select>
-                                        <select disabled class="form-select text-black"
-                                            style=" background-color: white;">
-                                            <option selected="selected">
-                                                <%= order.card_info.expiration.year %>
-                                            </option>
-                                        </select>
+                            <% if (order.payment_type=='card' ) { %>
+                                <div class="mb-7 g-2 row" id="cardInfoContainer" style="padding: 0px;">
+                                    <div class="col-md-6">
+                                        <label class="form-label fs-6 text-dark ps-0 text-none"
+                                            for="inputCardNumber">Card
+                                            number</label>
+                                        <input class="form-control" id="inputCardNumber" type="text"
+                                            placeholder="Enter card number" readonly aria-label="Card number"
+                                            value="<%= order.card_info.card_number %>">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label fs-6 text-dark ps-0 text-none">Expires on</label>
+                                        <div class="d-flex">
+                                            <select disabled class="form-select text-black me-3"
+                                                style="width: fit-content; background-color: white;">
+                                                <option selected="selected">
+                                                    <%= order.card_info.expiration.month %>
+                                                </option>
+                                            </select>
+                                            <select disabled class="form-select text-black"
+                                                style=" background-color: white;">
+                                                <option selected="selected">
+                                                    <%= order.card_info.expiration.year %>
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label fs-6 text-dark ps-0 text-none"
+                                            for="inputCardCVC">CVV</label>
+                                        <input class="form-control" id="inputCardCVC" type="text"
+                                            placeholder="Enter a valid CVC" aria-label="CVV"
+                                            value="<%= order.card_info.CVV %>">
                                     </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <label class="form-label fs-6 text-dark ps-0 text-none"
-                                        for="inputCardCVC">CVV</label>
-                                    <input class="form-control" id="inputCardCVC" type="text"
-                                        placeholder="Enter a valid CVC" aria-label="CVV"
-                                        value="<%= order.card_info.CVV %>">
-                                </div>
-                            </div>
+                                <% } %>
 
 
                         </div>
@@ -349,19 +362,21 @@
                         <br>
                         <div class="d-flex justify-content-end">
                             <h2>Total: <span>
-                                    <%= order.price %>
+                                    $<%= order.price %>
                                 </span></h2>
                         </div>
                         <br>
                         <div class="d-flex justify-content-end">
-                            <form action="/owner/<%= owner.id %>/order/<%= order.id %>/accept" method="post"
-                                enctype="multipart/form-data">
-                                <button style="width: 120px;" type="submit" class="btn btn-success">Accept</button>
-                            </form>
-                            <form action="/owner/<%= owner.id %>/order/<%= order.id %>/cancel" method="post"
-                                enctype="multipart/form-data" class="ms-3">
-                                <button style="width: 120px;" type="submit" class="btn btn-danger ">Cancel</button>
-                            </form>
+                            <% if (order.status=='Pending' ) { %>
+                                <form action="/owner/<%= owner.id %>/order/<%= order.id %>/accept" method="post"
+                                    enctype="multipart/form-data">
+                                    <button style="width: 120px;" type="submit" class="btn btn-success">Accept</button>
+                                </form>
+                                <form action="/owner/<%= owner.id %>/order/<%= order.id %>/cancel" method="post"
+                                    enctype="multipart/form-data" class="ms-3">
+                                    <button style="width: 120px;" type="submit" class="btn btn-danger ">Cancel</button>
+                                </form>
+                                <% } %>
                         </div>
                     </div>
                 </div>

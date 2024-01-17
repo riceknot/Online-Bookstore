@@ -46,7 +46,7 @@
                         </strong>
                     </div>
                 </a>
-                <a href="" class="bi bi-box-arrow-right text-secondary fs-5"></a>
+                <a href="/owner/<%= owner.id %>/profile" class="bi bi-box-arrow-right text-secondary fs-5"></a>
             </div>
             <br>
 
@@ -85,7 +85,7 @@
                 </li>
             </ul>
             <div class="logo-container ">
-                <a href="/view/owner/dashboard.html#home-page"
+                <a href="/owner/<%= owner.id %>/profile"
                     class="d-flex justify-content-between align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none"
                     style="width: 250px;">
                     <img src="/asset/image/logo-strong-text.svg" alt="brand-logo">
@@ -136,26 +136,26 @@
                                             <%= orders[i].id %>
                                         </th>
                                         <td>
-                                            <%= orders[i].customer_username %>
+                                            <%= orders[i].customer.username %>
                                         </td>
                                         <td>
-                                            <%= orders[i].book_name %>
+                                            <%= orders[i].book.title %>
                                         </td>
                                         <td>
                                             <%= orders[i].quantity %>
                                         </td>
                                         <td>
                                             <strong>
-                                                $ <%= orders[i].price %>
+                                                $<%= orders[i].price %>
                                             </strong>
                                         </td>
                                         <td>
                                             <%= orders[i].createdAt %>
                                         </td>
-                                        <% if (orders[i].status=='accepted' ) { %>
+                                        <% if (orders[i].status=='Accepted' ) { %>
                                             <td class="d-flex justify-content-start align-items-center"><i
                                                     class="bi bi-dot fs-1 text-success"></i>Accepted</td>
-                                            <% } else if (orders[i].status=='cancelled' ) { %>
+                                            <% } else if (orders[i].status=='Cancelled' ) { %>
                                                 <td class="d-flex justify-content-start align-items-center"><i
                                                         class="bi bi-dot fs-1 text-danger"></i>Cancelled</td>
                                                 <% } %>
