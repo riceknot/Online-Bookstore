@@ -16,7 +16,6 @@ router.route('/').get(async (req, res) => {
 //Edit profile function.
 router.route('/edit').post(async (req, res) => {
     try {
-
         const newData = {
             full_name: req.body.full_name,
             username: req.body.username,
