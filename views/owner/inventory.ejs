@@ -119,29 +119,31 @@
                         <div class="form-group mx-2">
                             <select class="form-select form-select-sm" aria-label=".form-select-sm example"
                                 name="authorQuery">
-                                <option selected>Author</option>
-                                <option value="Stephen King">Stephen King</option>
-                                <option value="Pierre Pasquier">Pierre Pasquier</option>
-                                <option value="Peter Wohlleben">Peter Wohlleben</option>
+                                <option value="Author" selected>Author</option>
+                                <%for(let i=0; i < authors.length; i++){%>
+                                    <option value="<%= authors[i] %>">
+                                        <%= authors[i] %>
+                                    </option>
+                                    <% }; %>
                             </select>
                         </div>
 
                         <div class="form-group mx-2">
                             <select class="form-select form-select-sm" aria-label=".form-select-sm example"
                                 name="genreQuery">
-                                <option selected>Genre</option>
-                                <option value="Sci-Fi">Sci-Fi</option>
-                                <option value="Mystery">Mystery</option>
-                                <option value="Horror">Horror</option>
-                                <option value="Thriller">Thriller</option>
-                                <option value="Fantasy">Fantasy</option>
+                                <option value="Genre" selected>Genre</option>
+                                <%for(let i=0; i < genres.length; i++){%>
+                                    <option value="<%= genres[i] %>">
+                                        <%= genres[i] %>
+                                    </option>
+                                    <% }; %>
                             </select>
                         </div>
 
                         <div class="form-group mx-2">
                             <select class="form-select form-select-sm" aria-label=".form-select-sm example"
                                 name="priceQuery">
-                                <option selected>Price</option>
+                                <option value="Price" selected>Price</option>
                                 <option value="range1">0-10$</option>
                                 <option value="range2">10-20$</option>
                                 <option value="range3">20-30$</option>

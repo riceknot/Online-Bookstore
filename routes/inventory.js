@@ -5,10 +5,12 @@ let Account = require('../models/account_model');
 //Render the Inventory Page with all book data.
 router.route('/').get(async (req, res) => {
     try {
-        const books = await Inventory.find({})
+        const books = await Inventory.find({});
         const owner = await Account.findById(req.userID);
+        const genres = await Inventory.distinct('genre');
+        const authors = await Inventory.distinct('author');
 
-        res.render('owner/inventory', { books, owner });
+        res.render('owner/inventory', { books, owner, genres, authors });
     } catch (err) {
         console.log(err.message);
     }
@@ -18,6 +20,8 @@ router.route('/').get(async (req, res) => {
 router.route('/').post(async (req, res) => {
     try {
         const owner = await Account.findById(req.userID);
+        const genres = await Inventory.distinct('genre');
+        const authors = await Inventory.distinct('author');
 
         const getPriceRange = (option) => {
             switch (option) {
@@ -55,7 +59,7 @@ router.route('/').post(async (req, res) => {
 
         const books = await Inventory.find(query);
 
-        res.render('owner/inventory', { books, owner });
+        res.render('owner/inventory', { books, owner, genres, authors });
     } catch (err) {
         console.log(err.message);
     }

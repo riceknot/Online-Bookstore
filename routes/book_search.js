@@ -7,7 +7,10 @@ router.route('/').get(async (req, res) => {
     try {
         const books = await Inventory.find({})
         const customer = await Account.findById(req.userID);
-        res.render("customer/main", { customer, books });
+        const genres = await Inventory.distinct('genre');
+        const authors = await Inventory.distinct('author');
+
+        res.render("customer/main", { books, customer, genres, authors });
     } catch (err) {
         console.log(err.message);
     }
@@ -17,6 +20,8 @@ router.route('/').get(async (req, res) => {
 router.route('/').post(async (req, res) => {
     try {
         const customer = await Account.findById(req.userID);
+        const genres = await Inventory.distinct('genre');
+        const authors = await Inventory.distinct('author');
 
         const getPriceRange = (option) => {
             switch (option) {
@@ -54,7 +59,7 @@ router.route('/').post(async (req, res) => {
 
         const books = await Inventory.find(query);
 
-        res.render('customer/main', { customer, books });
+        res.render('customer/main', { books, customer, genres, authors });
     } catch (err) {
         console.log(err.message);
     }
