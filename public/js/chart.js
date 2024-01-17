@@ -26,26 +26,6 @@ tabHome.addEventListener('click', () => {
 // Using jQurey for making charts and reponsive side menu
 (function ($) {
     "use strict";
-    // Chart Global Color
-    Chart.defaults.color = "#6C7293";
-    Chart.defaults.borderColor = "#000000";
-    // Line Chart
-    var ctx3 = $("#line-chart").get(0).getContext("2d");
-    var myChart3 = new Chart(ctx3, {
-        type: "line",
-        data: {
-            labels: ['January', 'Febuary', "March", 'April', "May", 'June', "July", "August", 'September', 'October', 'November', 'December'],
-            datasets: [{
-                label: "Sales",
-                fill: false,
-                backgroundColor: "#BCA37F",
-                data: [7, 8, 8, 9, 9, 9, 10, 11, 14, 14, 15, 14]
-            }]
-        },
-        options: {
-            responsive: true
-        }
-    });
 
     // Sidebar Toggler
     $('.sidebar-toggler').click(function () {
@@ -82,4 +62,3 @@ tabHome.addEventListener('click', () => {
 
     });
 })(jQuery);
-
