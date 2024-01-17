@@ -71,12 +71,17 @@ app.use('/customer/:userID/profile', (req, res, next) => {
 
 
 //Routes for Owner
+const Dashboard = require('./routes/dashboard_owner');
 const InventoryPage = require('./routes/inventory');
 const Announcement_Owner = require('./routes/announcement_owner');
 const Inquiry_Owner = require('./routes/inquiry_owner');
 const Order_Owner = require('./routes/order_owner');
 const Profile_Owner = require('./routes/profile_owner');
 
+app.use('/owner/:userID/dashboard', (req, res, next) => {
+    req.userID = req.params.userID;
+    next();
+}, Dashboard);
 app.use('/owner/:userID/inventory', (req, res, next) => {
     req.userID = req.params.userID;
     next();
