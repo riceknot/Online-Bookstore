@@ -97,7 +97,7 @@ router.route('/login').post(async (req, res) => {
                     return res.redirect(`/${account.user_role}/${account.id}/inventory#product-page`); //Redirect user to URL based on their role and ID.
 
                 } else if (account.user_role == 'customer') {
-                    return res.redirect(`/${account.user_role}/${account.id}/product`); //Redirect user to URL based on their role and ID.
+                    return res.redirect(`/${account.user_role}/${account.id}/book_search`); //Redirect user to URL based on their role and ID.
                 }
             } else {
                 return console.log('Invalid credentials!');
