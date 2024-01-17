@@ -27,6 +27,7 @@ const accountSchema = new Schema({
     },
     email: {
         type: String,
+        unique: true,
         required: true,
         trim: true,
     },
