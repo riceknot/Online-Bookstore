@@ -12,6 +12,7 @@ router.route('/').get(async (req, res) => {
         res.render('owner/order', { orders, owner });
     } catch (err) {
         console.log(err.message);
+        res.status(500).send('Internal Server Error');
     }
 });
 
@@ -24,6 +25,7 @@ router.route('/history').get(async (req, res) => {
         res.render('owner/order-history', { orders, owner });
     } catch (err) {
         console.log(err.message);
+        res.status(500).send('Internal Server Error');
     }
 });
 
@@ -37,6 +39,7 @@ router.route('/:order_ID').get(async (req, res) => {
 
     } catch (err) {
         console.log(err.message);
+        res.status(500).send('Internal Server Error');
     }
 });
 
@@ -44,17 +47,27 @@ router.route('/:order_ID').get(async (req, res) => {
 router.route('/:order_ID/accept').post(async (req, res) => {
     try {
 
-        const updateOrder = await Order.findByIdAndUpdate(
-            req.params.order_ID,
-            { $set: { status: 'Accepted' } }, // Update the 'status' field
-            { new: true }
-        );
+        const order = await Order.findById(req.params.order_ID);
+        const book = await Inventory.findById(order.book.ID);
 
-        console.log(`Accepted order successfully, ID: ${updateOrder.id}`);
-        res.redirect(`/owner/${req.userID}/order/${updateOrder.id}`);
+        let deductedQuantity = book.quantity - order.quantity;
+
+        if (deductedQuantity < 0) {
+            console.log('Cannot accept order!');
+            return res.status(400).send('Quantity will be lower than 0 if accepted!');
+        } else {
+            book.quantity = deductedQuantity;
+            order.status = 'Accepted';
+
+            await book.save();
+            await order.save();
+            console.log(`Accepted order successfully, ID: ${updateOrder.id}`);
+            return res.redirect(`/owner/${req.userID}/order/${updateOrder.id}`);
+        }
 
     } catch (err) {
         console.log(err.message);
+        res.status(500).send('Internal Server Error');
     }
 });
 
@@ -73,6 +86,7 @@ router.route('/:order_ID/cancel').post(async (req, res) => {
 
     } catch (err) {
         console.log(err.message);
+        res.status(500).send('Internal Server Error');
     }
 });
 

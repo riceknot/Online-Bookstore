@@ -27,6 +27,7 @@ const inventorySchema = new Schema({
     },
     quantity: {
         type: Number,
+        min: 0,
     },
     image: {
         data: Buffer,
