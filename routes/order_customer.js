@@ -28,12 +28,29 @@ router.route('/history').get(async (req, res) => {
 });
 
 //Render the Order Detail (Customer) page.
-router.route('/order_ID').get(async (req, res) => {
+router.route('/:order_ID').get(async (req, res) => {
     try {
         const customer = await Account.findById(req.userID);
         const order = await Order.findById(req.params.order_ID);
 
         res.render('customer/order-detail', { order, customer });
+
+    } catch (err) {
+        console.log(err.message);
+    }
+});
+
+//Order cancel function.
+router.route('/:order_ID/cancel').post(async (req, res) => {
+    try {
+        const updateOrder = await Order.findByIdAndUpdate(
+            req.params.order_ID,
+            { $set: { status: 'Cancelled' } }, // Update the 'status' field
+            { new: true }
+        );
+
+        console.log(`Cancenlled order successfully, ID: ${updateOrder.id}`);
+        res.redirect(`/customer/${req.userID}/order/${updateOrder.id}`);
 
     } catch (err) {
         console.log(err.message);

@@ -64,10 +64,11 @@ router.route('/order_ID/accept').post(async (req, res) => {
 
         const updateOrder = await Order.findByIdAndUpdate(
             req.params.order_ID,
-            { $set: { status: 'accepted' } }, // Update the 'status' field
+            { $set: { status: 'Accepted' } }, // Update the 'status' field
             { new: true }
         );
 
+        console.log(`Cancenlled order successfully, ID: ${updateOrder.id}`);
         res.redirect(`/${owner.user_role}/${owner.id}/order/${updateOrder.id}`);
 
     } catch (err) {
@@ -82,10 +83,11 @@ router.route('/order_ID/cancel').post(async (req, res) => {
 
         const updateOrder = await Order.findByIdAndUpdate(
             req.params.order_ID,
-            { $set: { status: 'cancelled' } }, // Update the 'status' field
+            { $set: { status: 'Cancelled' } }, // Update the 'status' field
             { new: true }
         );
 
+        console.log(`Cancenlled order successfully, ID: ${updateOrder.id}`);
         res.redirect(`/${owner.user_role}/${owner.id}/order/${updateOrder.id}`);
 
     } catch (err) {
