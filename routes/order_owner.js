@@ -28,7 +28,7 @@ router.route('/history').get(async (req, res) => {
 });
 
 //Render the Order Detail (Owner) page.
-router.route('/order_ID').get(async (req, res) => {
+router.route('/:order_ID').get(async (req, res) => {
     try {
         const owner = await Account.findById(req.userID);
         const order = await Order.findById(req.params.order_ID);
@@ -41,7 +41,7 @@ router.route('/order_ID').get(async (req, res) => {
 });
 
 //Function to accept orders.
-router.route('/order_ID/accept').post(async (req, res) => {
+router.route('/:order_ID/accept').post(async (req, res) => {
     try {
 
         const updateOrder = await Order.findByIdAndUpdate(
@@ -59,7 +59,7 @@ router.route('/order_ID/accept').post(async (req, res) => {
 });
 
 //Function to cancel orders.
-router.route('/order_ID/cancel').post(async (req, res) => {
+router.route('/:order_ID/cancel').post(async (req, res) => {
     try {
 
         const updateOrder = await Order.findByIdAndUpdate(
