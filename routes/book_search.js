@@ -103,6 +103,7 @@ router.route('/:book_ID/ordering').post(async (req, res) => {
                 username: customer.username,
                 email: customer.email,
                 phone: customer.phone,
+                address: customer.home_address,
             },
             book: {
                 ID: book.id,

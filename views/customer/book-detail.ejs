@@ -123,11 +123,11 @@
                     <h6>Genre: <%= book.genre %>
                     </h6>
                     <h3 style="font-size: 42px !important; color: crimson;">
-                        <%= book.price %>
+                        $<%= book.price %>
                     </h3>
-
-                    <button style="width: 120px;" type="button" class="btn btn-success"
-                        href="/customer/<%= customer.id %>/book_search/<%= book.id %>/ordering">Order</button>
+                    <a href="/customer/<%= customer.id %>/book_search/<%= book.id %>/ordering">
+                        <button style="width: 120px;" type="button" class="btn btn-success">Order</button>
+                    </a>
                 </div>
             </div>
 
