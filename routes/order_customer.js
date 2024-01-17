@@ -33,23 +33,7 @@ router.route('/order_ID').get(async (req, res) => {
         const customer = await Account.findById(req.userID);
         const order = await Order.findById(req.params.order_ID);
 
-        let templateName = 'customer/order-detail'; //Default template name
-
-        // Change the EJS file to render based on the status of the order.
-        if (order.status === 'Accepted') {
-            templateName += '-accepted';
-        } else if (order.status === 'Cancelled') {
-            templateName += '-cancel';
-        }
-
-        // Change EJS file based on payment type.
-        if (order.payment_type != 'card') {
-            templateName += '2';
-        }
-
-        console.log(templateName);
-
-        res.render(templateName, { order, customer });
+        res.render('customer/order-detail', { order, customer });
 
     } catch (err) {
         console.log(err.message);
