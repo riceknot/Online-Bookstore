@@ -97,10 +97,6 @@
                 <a class="navbar-brand"><strong class="fs-1">Order Detail</strong>
                     <p class="text-secondary">View the detail here</p>
                 </a>
-                <form class="search-form mt-1">
-                    <a class="bi bi-search fs-6 text-black me-2" type="submit"></a>
-                    <input class="search-bar" type="search" placeholder="Search anything." aria-label="Search">
-                </form>
 
             </nav>
             <!-- -------------------------------------------BODY RIGHT BAR---------------------------------------------------- -->
@@ -355,15 +351,17 @@
                         <br>
                         <div class="d-flex justify-content-end">
                             <h2>Total: <span>
-                                    <%= order.price %>
+                                    $<%= order.price %>
                                 </span></h2>
                         </div>
                         <br>
                         <div class="d-flex justify-content-end">
-                            <form action="/customer/<%= customer.id %>/order/<%= order.id %>/cancel" method="post"
-                                enctype="multipart/form-data" class="ms-3">
-                                <button style="width: 120px;" type="submit" class="btn btn-danger ">Cancel</button>
-                            </form>
+                            <% if (order.status=='Pending' ) { %>
+                                <form action="/customer/<%= customer.id %>/order/<%= order.id %>/cancel" method="post"
+                                    enctype="multipart/form-data" class="ms-3">
+                                    <button style="width: 120px;" type="submit" class="btn btn-danger ">Cancel</button>
+                                </form>
+                                <% }; %>
                         </div>
                     </div>
                 </div>
