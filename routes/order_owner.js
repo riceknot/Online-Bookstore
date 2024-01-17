@@ -61,8 +61,8 @@ router.route('/:order_ID/accept').post(async (req, res) => {
 
             await book.save();
             await order.save();
-            console.log(`Accepted order successfully, ID: ${updateOrder.id}`);
-            return res.redirect(`/owner/${req.userID}/order/${updateOrder.id}`);
+            console.log(`Accepted order successfully, ID: ${order.id}`);
+            return res.redirect(`/owner/${req.userID}/order/${order.id}`);
         }
 
     } catch (err) {
