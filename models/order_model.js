@@ -3,33 +3,49 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const orderSchema = new Schema({
-    customer_username: {
-        type: String,
-        required: true,
-        trim: true
+    customer: {
+        ID: {
+            type: String,
+            required: true
+        },
+        username: {
+            type: String,
+            required: true,
+            trim: true
+        },
+        email: {
+            type: String,
+            required: true,
+            unique: true,
+            trim: true,
+        },
+        phone: {
+            type: String,
+            required: true,
+            unique: true,
+            trim: true
+        },
     },
-    customer_ID: {
-        type: String,
-        required: true,
-    },
-    book_image: {
-        data: Buffer,
-        mimeType: String,
-    },
-    book_name: {
-        type: String,
-        required: true,
-        trim: true
-    },
-    book_author: {
-        type: String,
-        required: true,
-        trim: true
-    },
-    book_ID: {
-        type: String,
-        required: true,
-        trim: true
+    book: {
+        ID: {
+            type: String,
+            required: true,
+            trim: true
+        },
+        image: {
+            data: Buffer,
+            mimeType: String,
+        },
+        title: {
+            type: String,
+            required: true,
+            trim: true
+        },
+        author: {
+            type: String,
+            required: true,
+            trim: true
+        },
     },
     payment_type: {
         type: String,
