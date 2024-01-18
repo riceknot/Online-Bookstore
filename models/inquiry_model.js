@@ -24,7 +24,7 @@ const inquirySchema = new Schema({
         type: String,
         required: true,
     },
-    profile_picture: {
+    customer_pfp: {
         data: Buffer,
         mimeType: String,
     },

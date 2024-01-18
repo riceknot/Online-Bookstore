@@ -50,6 +50,10 @@ router.route('/add').post(async (req, res) => {
         const inquiry = new Inquiry({
             customer_ID: req.userID,
             customer_username: customer.username,
+            customer_pfp: {
+                data: customer.profile_picture.data,
+                mimeType: customer.profile_picture.mimeType,
+            },
             title: req.body.title,
             topic: req.body.topic,
             text: req.body.text,

@@ -102,14 +102,14 @@
             <div class="modal-content" id="width-content-edit">
                 <div style="width: 80%;" class="py-5 text-center">
                     <img class="d-block mx-auto mb-4 rounded-circle shadow-1-strong"
-                        src="data:<%= customer.profile_picture.mimeType %>;base64,<%= customer.profile_picture.data.toString('base64') %>"
+                        src="data:<%= inquiry.customer_pfp.mimeType %>;base64,<%= inquiry.customer_pfp.data.toString('base64') %>"
                         alt="" width="72" height="72">
                     <h2>
-                        <%= customer.username %>
+                        <%= inquiry.customer_username %>
                     </h2>
                     <p class="lead">You can connect to the owner here!
                     </p>
-                    <h6>ID: <%= inquiry.id%>
+                    <h6>ID: <%= inquiry.id %>
                     </h6>
                 </div>
 
