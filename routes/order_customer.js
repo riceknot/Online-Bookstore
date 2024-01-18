@@ -17,7 +17,7 @@ router.route('/').get(async (req, res) => {
 //Render the Order History (Customer) page.
 router.route('/history').get(async (req, res) => {
     try {
-        const orders = await Order.find({ status: { $ne: 'Pending', 'customer.ID': req.userID } }).sort({ createdAt: -1 }); //Filter orders without the status 'Pending'
+        const orders = await Order.find({ status: { $ne: 'Pending' }, 'customer.ID': req.userID }).sort({ createdAt: -1 }); //Filter orders without the status 'Pending'
         const customer = await Account.findById(req.userID);
 
         res.render('customer/order-history', { orders, customer });
