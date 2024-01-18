@@ -8,7 +8,7 @@ router.route('/').get(async (req, res) => {
         const inquiries = await Inquiry.find();
         const owner = await Account.findById(req.userID);
 
-        res.render('owner/inquiry', { inquiries, openInquiry, closedInquiry, owner });
+        res.render('owner/inquiry', { inquiries, owner });
     } catch (err) {
         console.log(err.message);
         res.status(500).send('Internal Server Error');
