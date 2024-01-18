@@ -72,14 +72,14 @@ $(function () {
 /*  ==========================================
     SHOW UPLOADED IMAGE NAME
 * ========================================== */
-var input = document.getElementById( 'upload' );
-var infoArea = document.getElementById( 'upload-label' );
+var input = document.getElementById('upload');
+var infoArea = document.getElementById('upload-label');
 
-input.addEventListener( 'change', showFileName );
-function showFileName( event ) {
-  var input = event.srcElement;
-  var fileName = input.files[0].name;
-  infoArea.textContent = 'File name: ' + fileName;
+input.addEventListener('change', showFileName);
+function showFileName(event) {
+    var input = event.srcElement;
+    var fileName = input.files[0].name;
+    infoArea.textContent = 'File name: ' + fileName;
 }
 
 
@@ -111,7 +111,7 @@ function toggleEdit() {
     var editables = document.querySelectorAll('.editable');
 
     // Toggle the 'readonly' attribute for each element
-    editables.forEach(function(element) {
+    editables.forEach(function (element) {
         if (element.readOnly || element.readOnly === true) {
             element.readOnly = false;
         } else {
@@ -122,7 +122,7 @@ function toggleEdit() {
     // Change the button text based on the state
     var editButton = document.querySelector('.btn-primary');
     if (editButton.textContent.includes('Edit')) {
-        editButton.textContent = 'Save';
+        editButton.textContent = 'Done';
     } else {
         editButton.textContent = 'Edit';
     }
@@ -179,28 +179,28 @@ function toggleStatus(button) {
 
 */
 
-  
 
-    function toggleStatus(button) {
-        // Get the parent message card of the clicked button
-        var messageCard = button.closest('.card');
-    
-        // Get the status buttons within the same message card
-        var buttons = messageCard.getElementsByClassName('status-button');
-    
-        // Reset colors for all buttons within the same message card
-        for (var i = 0; i < buttons.length; i++) {
-            buttons[i].classList.remove('btn-success', 'btn-danger', 'btn-light');
-        }
-    
-        // Toggle colors based on the clicked button
-        if (button.dataset.status === 'on') {
-            button.classList.add('btn-success');
-        } else {
-            button.classList.add('btn-danger');
-        }
+
+function toggleStatus(button) {
+    // Get the parent message card of the clicked button
+    var messageCard = button.closest('.card');
+
+    // Get the status buttons within the same message card
+    var buttons = messageCard.getElementsByClassName('status-button');
+
+    // Reset colors for all buttons within the same message card
+    for (var i = 0; i < buttons.length; i++) {
+        buttons[i].classList.remove('btn-success', 'btn-danger', 'btn-light');
     }
-    
+
+    // Toggle colors based on the clicked button
+    if (button.dataset.status === 'on') {
+        button.classList.add('btn-success');
+    } else {
+        button.classList.add('btn-danger');
+    }
+}
+
 
 // -------------------------------------------------------------------------------------------------------------
 
