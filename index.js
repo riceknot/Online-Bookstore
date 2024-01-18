@@ -14,8 +14,10 @@ mongoose.connect('mongodb+srv://khaiminh2001:minh123@bing-chilling.nrj7j40.mongo
         console.log(error.message);
     });
 
-//Listen to port 3000
-app.listen(3000, () => {
+const port = process.env.PORT || 3000;
+
+//Listen to port
+app.listen(port, () => {
     console.log('Server is running on port 3000');
 });
 
