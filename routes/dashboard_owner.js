@@ -7,7 +7,7 @@ let Order = require('../models/order_model');
 router.route('/').get(async (req, res) => {
     try {
         const owner = await Account.findById(req.userID);
-        const customers = await Account.countDocuments({ role: 'customer' });
+        const customers = await Account.countDocuments({ user_role: 'customer' });
         const orders = await Order.countDocuments({});
 
         const earnings = await Order.aggregate([

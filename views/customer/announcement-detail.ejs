@@ -143,10 +143,9 @@
                                     </path>
                                 </svg>
                             </span>
-                            <input style="min-width: 760px" type="text" class="form-control"
-                                placeholder="You can reply here!" aria-label="Input group example"
-                                aria-describedby="basic-addon1" data-listener-added_005f07cb="true" required
-                                name="text">
+                            <input type="text" class="form-control" placeholder="You can reply here!"
+                                aria-label="Input group example" aria-describedby="basic-addon1"
+                                data-listener-added_005f07cb="true" required name="text">
                             <button type="submit" class="btn btn-primary">Reply</button>
                         </div>
                     </div>
@@ -165,8 +164,7 @@
                             <div class="col-md-11">
                                 <div class="card-body">
                                     <h5 class="card-title">
-                                        <%= announcement.replies[i].username %> (<%= announcement.replies[i].user_role
-                                                %>)
+                                        <%=announcement.replies[i].username%> (<%=announcement.replies[i].user_role%>)
                                     </h5>
                                     <p class="card-text">
                                         <%= announcement.replies[i].text %>
