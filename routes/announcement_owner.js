@@ -47,6 +47,10 @@ router.route('/:announcement_ID/reply').post(async (req, res) => {
 
         announcement.replies.push({
             user_ID: req.userID,
+            pfp: {
+                data: owner.profile_picture.data,
+                mimeType: owner.profile_picture.mimeType,
+            },
             user: owner.username,
             text: req.body.text,
             user_role: 'owner'
