@@ -34,7 +34,6 @@ const accountSchema = new Schema({
     phone: {
         type: String,
         required: true,
-        unique: true,
         trim: true
     },
     home_address: {
