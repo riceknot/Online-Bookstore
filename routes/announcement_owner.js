@@ -4,13 +4,14 @@ let Account = require('../models/account_model');
 
 
 //Render the Announcement (Owner) Page with all announcement data.
-router.route('/').get(async(req, res) => {
+router.route('/').get(async (req, res) => {
     try {
         const owner = await Account.findById(req.userID);
         const announcement = await Announcement.find();
-        res.render("owner/announcement",{owner,announcement});
+        res.render("owner/announcement", { owner, announcement });
     } catch (err) {
         console.log(err.message);
+        res.status(500).send('Internal Server Error');
     }
 });
 router.route('/add').get(async (req, res) => {
@@ -20,6 +21,7 @@ router.route('/add').get(async (req, res) => {
         res.render("owner/add-annoucement", { owner, announcement });
     } catch (err) {
         console.log(err.message);
+        res.status(500).send('Internal Server Error');
     }
 });
 
@@ -28,10 +30,11 @@ router.route('/:announcement_ID').get(async (req, res) => {
     try {
         const owner = await Account.findById(req.userID);
         const announcement = await Announcement.findById(req.params.announcement_ID);
-        res.render("owner/announcement-detail", { announcement,owner });
+        res.render("owner/announcement-detail", { announcement, owner });
 
     } catch (err) {
         console.log(err.message);
+        res.status(500).send('Internal Server Error');
     }
 });
 
@@ -55,6 +58,7 @@ router.route('/:announcement_ID/reply').post(async (req, res) => {
 
     } catch (err) {
         console.log(err.message);
+        res.status(500).send('Internal Server Error');
     }
 });
 
@@ -78,6 +82,7 @@ router.route('/add').post(async (req, res) => {
             .catch(err => console.log(err.message));
     } catch (err) {
         console.log(err.message);
+        res.status(500).send('Internal Server Error');
     }
 });
 
@@ -95,6 +100,7 @@ router.route('/:announcement_ID/edit').post(async (req, res) => {
 
     } catch (err) {
         console.log(err.message);
+        res.status(500).send('Internal Server Error');
     }
 });
 
@@ -108,6 +114,7 @@ router.route('/:announcement_ID/delete').post(async (req, res) => {
 
     } catch (err) {
         console.log(err.message);
+        res.status(500).send('Internal Server Error');
     }
 });
 

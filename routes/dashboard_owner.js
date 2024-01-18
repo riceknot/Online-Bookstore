@@ -40,6 +40,7 @@ router.route('/').get(async (req, res) => {
         res.render('owner/dashboard', { owner, customers, orders, earnings: extractedEarnings, totalBooks: extractedTotalBooks });
     } catch (err) {
         console.log(err.message);
+        res.status(500).send('Internal Server Error');
     }
 });
 
@@ -76,6 +77,7 @@ router.route('/chart').get(async (req, res) => {
 
     } catch (err) {
         console.log(err.message);
+        res.status(500).send('Internal Server Error');
     }
 });
 

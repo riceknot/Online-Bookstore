@@ -14,6 +14,7 @@ router.route('/').get(async (req, res) => {
         res.render("customer/main", { books, customer, genres, authors });
     } catch (err) {
         console.log(err.message);
+        res.status(500).send('Internal Server Error');
     }
 });
 
@@ -63,6 +64,7 @@ router.route('/').post(async (req, res) => {
         res.render('customer/main', { books, customer, genres, authors });
     } catch (err) {
         console.log(err.message);
+        res.status(500).send('Internal Server Error');
     }
 });
 
@@ -86,6 +88,7 @@ router.route('/:book_ID/ordering').get(async (req, res) => {
         res.render('customer/ordering', { customer, book });
     } catch (err) {
         console.log(err.message);
+        res.status(500).send('Internal Server Error');
     }
 });
 
@@ -137,6 +140,7 @@ router.route('/:book_ID/ordering').post(async (req, res) => {
 
     } catch (err) {
         console.log(err.message);
+        res.status(500).send('Internal Server Error');
     }
 });
 

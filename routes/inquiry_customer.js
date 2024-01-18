@@ -11,10 +11,11 @@ router.route('/').get(async (req, res) => {
         const openInquiry = inquiries.filter(inquiry => inquiry.status === 'open');
         const closedInquiry = inquiries.filter(inquiry => inquiry.status === 'closed');
 
-        res.render('customer/inquiry', { openInquiry, closedInquiry,customer,inquiries });
+        res.render('customer/inquiry', { openInquiry, closedInquiry, customer, inquiries });
 
     } catch (err) {
         console.log(err.message);
+        res.status(500).send('Internal Server Error');
     }
 });
 
@@ -25,6 +26,7 @@ router.route('/add').get(async (req, res) => {
         res.render("customer/new-inquiry", { customer, inquiry });
     } catch (err) {
         console.log(err.message);
+        res.status(500).send('Internal Server Error');
     }
 });
 
@@ -33,10 +35,11 @@ router.route('/:inquiry_ID').get(async (req, res) => {
     try {
         const customer = await Account.findById(req.userID);
         const inquiry = await Inquiry.findById(req.params.inquiry_ID);
-        res.render('customer/inquiry-detail', { inquiry,customer });
+        res.render('customer/inquiry-detail', { inquiry, customer });
 
     } catch (err) {
         console.log(err.message);
+        res.status(500).send('Internal Server Error');
     }
 });
 
@@ -62,6 +65,7 @@ router.route('/add').post(async (req, res) => {
             .catch(err => console.log(err.message));
     } catch (err) {
         console.log(err.message);
+        res.status(500).send('Internal Server Error');
     }
 });
 
@@ -85,6 +89,7 @@ router.route('/:inquiry_ID/reply').post(async (req, res) => {
 
     } catch (err) {
         console.log(err.message);
+        res.status(500).send('Internal Server Error');
     }
 });
 

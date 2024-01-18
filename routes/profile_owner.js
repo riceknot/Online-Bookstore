@@ -10,6 +10,7 @@ router.route('/').get(async (req, res) => {
         res.render('owner/profile', { owner });
     } catch (err) {
         console.log(err.message);
+        res.status(500).send('Internal Server Error');
     }
 });
 
@@ -31,6 +32,7 @@ router.route('/edit').post(async (req, res) => {
 
     } catch (err) {
         console.log(err.message);
+        res.status(500).send('Internal Server Error');
     }
 });
 

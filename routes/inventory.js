@@ -13,6 +13,7 @@ router.route('/').get(async (req, res) => {
         res.render('owner/inventory', { books, owner, genres, authors });
     } catch (err) {
         console.log(err.message);
+        res.status(500).send('Internal Server Error');
     }
 });
 
@@ -62,6 +63,7 @@ router.route('/').post(async (req, res) => {
         res.render('owner/inventory', { books, owner, genres, authors });
     } catch (err) {
         console.log(err.message);
+        res.status(500).send('Internal Server Error');
     }
 });
 
@@ -75,6 +77,8 @@ router.route('/:bookID').get(async (req, res) => {
         res.render('owner/edit2', { book, owner });
     } catch (err) {
         console.log(err.message);
+        res.status(500).send('Internal Server Error');
+
     }
 });
 
@@ -99,7 +103,10 @@ router.route('/add').post((req, res) => {
             console.log('New book added!');
             res.redirect(`/owner/${req.userID}/inventory#product-page`)
         })
-        .catch(err => console.log(err.message));
+        .catch(err => {
+            console.log(err.message);
+            res.status(500).send('Internal Server Error');
+        });
 });
 
 //Updating a book.
@@ -126,7 +133,10 @@ router.route('/:bookID/update').post((req, res) => {
             console.log('Update book successfully!');
             res.redirect(`/owner/${req.userID}/inventory#product-page`);
         })
-        .catch(err => console.log(err.message));
+        .catch(err => {
+            console.log(err.message);
+            res.status(500).send('Internal Server Error');
+        });
 });
 
 
@@ -137,7 +147,10 @@ router.route('/:bookID/delete').post((req, res) => {
             console.log('Deleted book successfully!');
             res.redirect(`/owner/${req.userID}/inventory#product-page`);
         })
-        .catch(err => { console.log(err.message) });
+        .catch(err => {
+            console.log(err.message);
+            res.status(500).send('Internal Server Error');
+        });
 });
 
 module.exports = router;

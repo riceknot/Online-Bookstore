@@ -10,9 +10,10 @@ router.route('/').get(async (req, res) => {
         const closedInquiry = inquiries.filter(inquiry => inquiry.status === 'closed');
         const owner = await Account.findById(req.userID);
 
-        res.render('owner/inquiry', { inquiries, openInquiry, closedInquiry, owner});
+        res.render('owner/inquiry', { inquiries, openInquiry, closedInquiry, owner });
     } catch (err) {
         console.log(err.message);
+        res.status(500).send('Internal Server Error');
     }
 });
 
@@ -24,6 +25,7 @@ router.route('/:inquiry_ID').get(async (req, res) => {
         res.render('owner/inquiry-details', { inquiry, owner });
     } catch (err) {
         console.log(err.message);
+        res.status(500).send('Internal Server Error');
     }
 });
 
@@ -47,6 +49,7 @@ router.route('/:inquiry_ID/reply').post(async (req, res) => {
 
     } catch (err) {
         console.log(err.message);
+        res.status(500).send('Internal Server Error');
     }
 });
 
@@ -71,6 +74,7 @@ router.route('/:inquiry_ID/change_status').post(async (req, res) => {
 
     } catch (err) {
         console.log(err.message);
+        res.status(500).send('Internal Server Error');
     }
 });
 

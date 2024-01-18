@@ -47,6 +47,7 @@ router.route('/register-owner').post(async (req, res) => {
 
     } catch (error) {
         console.log(error.message);
+        res.status(500).send('Internal Server Error');
     }
 });
 
@@ -81,6 +82,7 @@ router.route('/register-customer').post(async (req, res) => {
 
     } catch (error) {
         console.log(error.message);
+        res.status(500).send('Internal Server Error');
     }
 });
 
@@ -100,13 +102,16 @@ router.route('/login').post(async (req, res) => {
                     return res.redirect(`/${account.user_role}/${account.id}/book_search`); //Redirect user to URL based on their role and ID.
                 }
             } else {
-                return console.log('Invalid credentials!');
+                console.log('Invalid credentials!');
+                return res.status(401).send('Invalid credentials!');
             }
         } else {
-            return console.log('Invalid credentials!');
+            console.log('Invalid credentials!');
+            return res.status(401).send('Invalid credentials!');
         }
     } catch (error) {
         console.log(error.message);
+        res.status(500).send('Internal Server Error');
     }
 });
 
