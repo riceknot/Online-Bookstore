@@ -106,12 +106,13 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content" id="width-content-edit">
                 <div style="width: 80%;" class="py-5 text-center">
-                    <img class="d-block mx-auto mb-4 rounded-circle shadow-1-strong" src="/asset/image/foxy.jpg" alt=""
-                        width="72" height="72">
-                    <h2>ThienMinh123</h2>
-                    <p class="lead">You're in control! Feel free to edit your announcement to make any updates or
-                        changes. Simply locate your announcement and use the provided editing options to refine your
-                        message.
+                    <img class="d-block mx-auto mb-4 rounded-circle shadow-1-strong"
+                        src="data:<%= owner.profile_picture.mimeType %>;base64,<%= owner.profile_picture.data.toString('base64') %>"
+                        alt="" width="72" height="72">
+                    <h2>
+                        <%= owner.username %>
+                    </h2>
+                    <p class="lead">Create an Announcement for everyone to see what your bookstore is up to!
                     </p>
                 </div>
 
