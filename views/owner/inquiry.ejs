@@ -115,8 +115,9 @@
                     <a onclick="location.href='/owner/<%= owner.id %>/inquiry/<%= inquiries[i].id %>';">
                         <div class="row g-0" style="align-items: top; flex-direction: row;">
                             <div class="col-md-1">
-                                <img src="/asset/image/foxy.jpg" width="85px" style="margin:10px"
-                                    class="img-fluid rounded-circle shadow-1-strong" alt=".">
+                                <img src="data:<%= inquiries[i].customer_pfp.mimeType %>;base64,<%= inquiries[i].customer_pfp.data.toString('base64') %>"
+                                    width="85px" style="margin:10px" class="img-fluid rounded-circle shadow-1-strong"
+                                    alt=".">
                             </div>
                             <div class="col-md-11"
                                 style="display: flex; flex-direction: column; justify-content: space-between;">

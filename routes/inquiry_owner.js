@@ -6,8 +6,6 @@ let Account = require('../models/account_model');
 router.route('/').get(async (req, res) => {
     try {
         const inquiries = await Inquiry.find();
-        const openInquiry = inquiries.filter(inquiry => inquiry.status === 'open');
-        const closedInquiry = inquiries.filter(inquiry => inquiry.status === 'closed');
         const owner = await Account.findById(req.userID);
 
         res.render('owner/inquiry', { inquiries, openInquiry, closedInquiry, owner });

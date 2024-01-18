@@ -5,13 +5,10 @@ let Account = require('../models/account_model');
 //Render the Inquiry (Customer) Page with all Inquiry data.
 router.route('/').get(async (req, res) => {
     try {
-        const inquiries = await Inquiry.find();
-
         const customer = await Account.findById(req.userID);
-        const openInquiry = inquiries.filter(inquiry => inquiry.status === 'open');
-        const closedInquiry = inquiries.filter(inquiry => inquiry.status === 'closed');
+        const inquiries = await Inquiry.find({ customer_ID: req.userID });
 
-        res.render('customer/inquiry', { openInquiry, closedInquiry, customer, inquiries });
+        res.render('customer/inquiry', { customer, inquiries });
 
     } catch (err) {
         console.log(err.message);
