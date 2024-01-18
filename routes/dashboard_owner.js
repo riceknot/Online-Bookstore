@@ -49,6 +49,11 @@ router.route('/chart').get(async (req, res) => {
     try {
         const chartData = await Order.aggregate([
             {
+                $match: {
+                    status: 'Accepted'
+                }
+            },
+            {
                 $group: {
                     _id: {
                         month: { $month: "$createdAt" },
