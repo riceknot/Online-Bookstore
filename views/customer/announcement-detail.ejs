@@ -118,8 +118,9 @@
                 <form action="#" method="post">
                     <div style="width: 75%;" class="mb-3" style="position: relative;">
                         <label for="exampleFormControlInput1" class="form-label">Title</label>
-                        <input type="title" class="form-control editable" id="exampleFormControlInput1" readonly
-                            placeholder="Title" value='<%= announcement.title %>' disabled>
+                        <input style="min-width: 760px" type="title" class="form-control editable"
+                            id="exampleFormControlInput1" readonly placeholder="Title" value='<%= announcement.title %>'
+                            disabled>
                     </div>
 
                     <div style="width: 75%;" class="mb-3">
@@ -142,9 +143,10 @@
                                     </path>
                                 </svg>
                             </span>
-                            <input type="text" class="form-control" placeholder="You can reply here!"
-                                aria-label="Input group example" aria-describedby="basic-addon1"
-                                data-listener-added_005f07cb="true" required name="text">
+                            <input style="min-width: 760px" type="text" class="form-control"
+                                placeholder="You can reply here!" aria-label="Input group example"
+                                aria-describedby="basic-addon1" data-listener-added_005f07cb="true" required
+                                name="text">
                             <button type="submit" class="btn btn-primary">Reply</button>
                         </div>
                     </div>
