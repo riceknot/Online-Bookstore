@@ -78,6 +78,10 @@ router.route('/:inquiry_ID/reply').post(async (req, res) => {
 
         inquiry.replies.push({
             user_ID: req.userID,
+            pfp: {
+                data: customer.profile_picture.data,
+                mimeType: customer.profile_picture.mimeType,
+            },
             username: customer.username,
             user_role: 'customer',
             text: req.body.text
