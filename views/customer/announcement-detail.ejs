@@ -1,172 +1,191 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Announcements</title>
-       
-        <!-- CSS -->
-        <link rel="stylesheet" href="/css/reset.css" />
-        <link
-            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
-            rel="stylesheet"
-            integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
-            crossorigin="anonymous"
-        />
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-        <link rel="stylesheet" href="/css/inventory-management.css" />
 
-        <!-- Favicon -->
-        <link rel="icon" type="image/x-icon" href="/asset/image/falvicon_official-removebg-new.png">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Announcements</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/reset.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/css/inventory-management.css" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/asset/image/falvicon_official-removebg-new.png">
 
 
-        <!-- Google Fonts -->
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@400;500;600;700&family=Roboto+Serif:opsz,wght@8144,400;8144,500;8144,600&display=swap"
-            rel="stylesheet"
-        />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@400;500;600;700&family=Roboto+Serif:opsz,wght@8144,400;8144,500;8144,600&display=swap"
+        rel="stylesheet" />
 
-        <!-- Font Awesome 5 -->
-        <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-            integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-            crossorigin="anonymous"
-            referrerpolicy="no-referrer"
-        />
-    </head>
-    <body>
-        <div class="d-flex main-vp">
-            <!-- Side menu start-->
-            <div class="sidebar d-flex flex-column flex-shrink-0 p-3 bg-light fixed-top" style="width: 280px;">
-                <div class="d-flex justify-content-between align-items-center">
-                    <a href="#" class="d-flex align-items-center link-dark text-decoration-none">
+    <!-- Font Awesome 5 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <div class="d-flex main-vp">
+        <!-- Side menu start-->
+        <div class="sidebar d-flex flex-column flex-shrink-0 p-3 bg-light fixed-top" style="width: 280px;">
+            <div class="d-flex justify-content-between align-items-center">
+                <a href="/customer/<%= customer.id %>/profile"
+                    class="d-flex align-items-center link-dark text-decoration-none">
                     <img src="/asset/image/foxy.jpg" alt="" width="45" height="45" class="rounded-circle me-2">
                     <div>
                         <span class="text-secondary">Hello,</span>
                         <br>
                         <strong class="fs-5">User Name</strong>
                     </div>
-                    </a>
-                    <a href="" class="bi bi-box-arrow-right text-secondary fs-5"></a>
-                </div>
-                <br>
-                <br>
-                <div class="earning">
-                    <span class="text-secondary">Earning</span>
-                    <br>
-                    <span class="fs-2"><strong>$12,560.55</strong></span>
-                </div>
-                <br>
-                <hr>
-                <ul class="nav nav-pills flex-column mb-auto">
-                
+                </a>
+                <a href="/" class="bi bi-box-arrow-right text-secondary fs-5"></a>
+            </div>
+            <br>
+            <hr>
+            <ul class="nav nav-pills flex-column mb-auto">
+
                 <li class="nav-item">
-                    <a href="/view/customer/announcement.html" class="nav-link selected text-black fs-5">
-                        <i class="bi bi-megaphone me-2 fs-4"></i>
-                        <strong>Announcements</strong>
+                <li class="nav-item">
+                    <a href="/customer/<%= customer.id %>/book_search" class="nav-link text-black fs-5">
+                        <i class="bi bi-house-door-fill me-2 fs-4"></i>
+                        <strong>Main page</strong>
                     </a>
                 </li>
+                <a href="/customer/<%= customer.id %>/announcement" class="nav-link selected text-black fs-5">
+                    <i class="bi bi-megaphone me-2 fs-4"></i>
+                    <strong>Announcements</strong>
+                </a>
+                </li>
                 <li class="nav-item">
-                    <a href="/view/customer/inquiry.html" class="nav-link text-black fs-5">
+                    <a href="/customer/<%= customer.id %>/inquiry" class="nav-link text-black fs-5">
                         <i class="bi bi-envelope me-2 fs-4"></i>
                         <strong>Inquiries</strong>
                     </a>
                 </li>
-                </ul>
-                <div class="logo-container ">
-                    <a href="/view/owner/dashboard.html#home-page" class="d-flex justify-content-between align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none" style="width: 250px;">
-                        <img src="/asset/image/logo-strong-text.svg" alt="brand-logo">
+                <li class="nav-item">
+                    <a href="/customer/<%= customer.id %>/order" class="nav-link text-black fs-5">
+                        <i class="bi bi-list-check me-2 fs-4"></i>
+                        <strong>Orders</strong>
                     </a>
+                </li>
+            </ul>
+            <div class="logo-container ">
+                <a href="/customer/<%= customer.id %>/profile"
+                    class="d-flex justify-content-between align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none"
+                    style="width: 250px;">
+                    <img src="/asset/image/logo-strong-text.svg" alt="brand-logo">
+                </a>
+            </div>
+        </div>
+        <div class="sidebar-toggler">
+            <i class="bi bi-caret-right-fill"></i>
+        </div>
+        <!-- Side menu end-->
+
+
+
+
+
+        <!-- Form to edit product start-->
+
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content" id="width-content-edit">
+                <div style="width: 80%;" class="py-5 text-center">
+                    <img class="d-block mx-auto mb-4" src="/asset/image/foxy.jpg" alt="" width="72" height="72">
+                    <h2>ThienMinh123</h2>
+                    <p class="lead">You're in control! Feel free to edit your announcement to make any updates or
+                        changes. Simply locate your announcement and use the provided editing options to refine your
+                        message.
+                    </p>
                 </div>
-            </div>
-            <div class="sidebar-toggler">
-                <i class="bi bi-caret-right-fill"></i>
-            </div>
-            <!-- Side menu end-->
 
 
-            
 
 
-            <!-- Form to edit product start-->
-           
-                <div class="modal-dialog modal-lg">  
-                    <div class="modal-content" id="width-content-edit">
-                        <div style="width: 80%;" class="py-5 text-center">
-                            <img class="d-block mx-auto mb-4" src="/asset/image/foxy.jpg" alt="" width="72" height="72">
-                            <h2>ThienMinh123</h2>
-                            <p class="lead">You're in control! Feel free to edit your announcement to make any updates or changes. Simply locate your announcement and use the provided editing options to refine your message. 
-                            </p>
+
+
+
+                <form action="#" method="post">
+                    <div style="width: 75%;" class="mb-3" style="position: relative;">
+                        <label for="exampleFormControlInput1" class="form-label">Title</label>
+                        <input type="title" class="form-control editable" id="exampleFormControlInput1" readonly
+                            placeholder="Title" value='<%= announcement.title %>' disabled>
+                    </div>
+
+                    <div style="width: 75%;" class="mb-3">
+                        <label for="exampleFormControlTextarea1" class="form-label">Content</label>
+                        <textarea class="form-control editable" disabled id="exampleFormControlTextarea1" readonly
+                            rows="7"><%= announcement.text %></textarea>
+                    </div>
+                </form>
+                <br>
+                <!--Reply form for customer  -->
+                <form method="post" action="/customer/<%= customer._id %>/announcement/<%= announcement.id %>/reply">
+                    <div class="col-md-6">
+                        <div class="input-group">
+                            <span class="input-group-text" id="basic-addon1">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-reply" viewBox="0 0 16 16">
+                                    <!-- Your path data here -->
+                                    <path
+                                        d="M6.598 5.013a.144.144 0 0 1 .202.134V6.3a.5.5 0 0 0 .5.5c.667 0 2.013.005 3.3.822.984.624 1.99 1.76 2.595 3.876-1.02-.983-2.185-1.516-3.205-1.799a8.74 8.74 0 0 0-1.921-.306 7.404 7.404 0 0 0-.798.008h-.013l-.005.001h-.001L7.3 9.9l-.05-.498a.5.5 0 0 0-.45.498v1.153c0 .108-.11.176-.202.134L2.614 8.254a.503.503 0 0 0-.042-.028.147.147 0 0 1 0-.252.499.499 0 0 0 .042-.028zM7.8 10.386c.068 0 .143.003.223.006.434.02 1.034.086 1.7.271 1.326.368 2.896 1.202 3.94 3.08a.5.5 0 0 0 .933-.305c-.464-3.71-1.886-5.662-3.46-6.66-1.245-.79-2.527-.942-3.336-.971v-.66a1.144 1.144 0 0 0-1.767-.96l-3.994 2.94a1.147 1.147 0 0 0 0 1.946l3.994 2.94a1.144 1.144 0 0 0 1.767-.96v-.667z">
+                                    </path>
+                                </svg>
+                            </span>
+                            <input type="text" class="form-control" placeholder="You can reply here!"
+                                aria-label="Input group example" aria-describedby="basic-addon1"
+                                data-listener-added_005f07cb="true" required name="text">
+                            <button type="submit" class="btn btn-primary">Reply</button>
                         </div>
-                          
-                        
-                        
-                        
-                        
-                        
-                        
-                        <form action="#" method="post" >
-                            <div style="width: 75%;" class="mb-3" style="position: relative;">
-                                <label for="exampleFormControlInput1" class="form-label">Title</label>
-                                <input type="title" class="form-control editable" id="exampleFormControlInput1" readonly placeholder="Title"  value='<%= announcement.title %>'  disabled>
+                    </div>
+                </form>
+                <!-- End reply form for customer -->
+                <br>
+                <%for(let i=0; i < announcement.replies.length ; i++){%>
+                    <div style="width: 75%; margin: 0.5rem!important; display: flex; min-width: 760px; align-items: stretch"
+                        class="card mb-2">
+                        <div class="row g-0" style="align-items: flex-start; flex-direction: row;">
+                            <div class="col-md-1 ">
+                                <img class="rounded-circle shadow-1-strong" src="/asset/image/foxy.jpg" height="65px"
+                                    width="65px" style="margin:10px" class=" " alt=".">
                             </div>
-                        
-                            <div style="width: 75%;" class="mb-3">
-                                <label for="exampleFormControlTextarea1" class="form-label">Content</label>
-                                <textarea class="form-control editable" disabled id="exampleFormControlTextarea1" readonly rows="7"><%= announcement.text %></textarea>
-                            </div>
-                        </form>
-                            <br>
-                                                <!--Reply form for customer  -->
-                                                <form method="post" action="/customer/<%= customer._id %>/announcement/<%= announcement.id %>/reply">
-                                                    <div class="col-md-6">
-                                                        <div class="input-group">
-                                                            <span class="input-group-text" id="basic-addon1">
-                                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-reply" viewBox="0 0 16 16" >
-                                                                    <!-- Your path data here --> <path d="M6.598 5.013a.144.144 0 0 1 .202.134V6.3a.5.5 0 0 0 .5.5c.667 0 2.013.005 3.3.822.984.624 1.99 1.76 2.595 3.876-1.02-.983-2.185-1.516-3.205-1.799a8.74 8.74 0 0 0-1.921-.306 7.404 7.404 0 0 0-.798.008h-.013l-.005.001h-.001L7.3 9.9l-.05-.498a.5.5 0 0 0-.45.498v1.153c0 .108-.11.176-.202.134L2.614 8.254a.503.503 0 0 0-.042-.028.147.147 0 0 1 0-.252.499.499 0 0 0 .042-.028zM7.8 10.386c.068 0 .143.003.223.006.434.02 1.034.086 1.7.271 1.326.368 2.896 1.202 3.94 3.08a.5.5 0 0 0 .933-.305c-.464-3.71-1.886-5.662-3.46-6.66-1.245-.79-2.527-.942-3.336-.971v-.66a1.144 1.144 0 0 0-1.767-.96l-3.994 2.94a1.147 1.147 0 0 0 0 1.946l3.994 2.94a1.144 1.144 0 0 0 1.767-.96v-.667z"></path>
-                                                                </svg>
-                                                            </span>
-                                                            <input type="text" class="form-control" placeholder="You can reply here!" aria-label="Input group example" aria-describedby="basic-addon1" data-listener-added_005f07cb="true" required name="text">
-                                                            <button type="submit" class="btn btn-primary">Reply</button>
-                                                        </div>
-                                                    </div>
-                                                </form>
-                                                <!-- End reply form for customer -->
-                        <br>
-                        <%for(let i=0; i < announcement.replies.length ; i++){%>
-                            <div style="width: 75%; margin: 0.5rem!important; display: flex; min-width: 760px; align-items: stretch" class= "card mb-2">
-                                <div class="row g-0" style="align-items: flex-start; flex-direction: row;">
-                                    <div class="col-md-1 ">
-                                    <img class="rounded-circle shadow-1-strong" src="/asset/image/foxy.jpg" height="65px" width="65px" style="margin:10px" class=" " alt=".">
-                                    </div>
-                                    <div class="col-md-11" >
-                                        <div class="card-body">
-                                            <h5 class="card-title"><%= announcement.replies[i].user %> (<%= announcement.replies[i].user_role %>)</h5>
-                                            <p class="card-text"><%= announcement.replies[i].text %></p>
-                                            <p class="card-text"><small class="text-body-secondary"><%= announcement.replies[i].createdAt%></small></p>
-                                        </div>
-                                    </div>
+                            <div class="col-md-11">
+                                <div class="card-body">
+                                    <h5 class="card-title">
+                                        <%= announcement.replies[i].user %> (<%= announcement.replies[i].user_role %>)
+                                    </h5>
+                                    <p class="card-text">
+                                        <%= announcement.replies[i].text %>
+                                    </p>
+                                    <p class="card-text"><small class="text-body-secondary">
+                                            <%= announcement.replies[i].createdAt%>
+                                        </small></p>
                                 </div>
                             </div>
-                        <% }; %>
+                        </div>
                     </div>
-                </div>
-               
-            
-            <!-- Form to edit product end-->
-            
+                    <% }; %>
+            </div>
+        </div>
+
+
+        <!-- Form to edit product end-->
+
         <!-- JavaScript -->
-        <script
-            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
-            crossorigin="anonymous"
-        ></script>
+            crossorigin="anonymous"></script>
         <script src="/js/index.js" defer></script>
         <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
-    </body>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
+</body>
+
 </html>
