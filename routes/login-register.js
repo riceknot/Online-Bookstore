@@ -39,7 +39,7 @@ router.route('/register-owner').post(async (req, res) => {
         await account.save()  //Save the data into the Account collection.
             .then(() => {
                 console.log('New owner registered!');
-                res.redirect('/login'); //Redirect the user to the login page.
+                res.redirect('/'); //Redirect the user to the login page.
             })
             .catch((error) => {
                 console.log(error.message);
@@ -74,7 +74,7 @@ router.route('/register-customer').post(async (req, res) => {
         await account.save()  //Save the data into the Account collection.
             .then(() => {
                 console.log('New customer registered!');
-                res.redirect('/login'); //Redirect the user to the login page.
+                res.redirect('/'); //Redirect the user to the login page.
             })
             .catch((error) => {
                 console.log(error.message);
