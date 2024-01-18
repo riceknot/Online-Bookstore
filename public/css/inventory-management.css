@@ -88,6 +88,30 @@ tbody>tr:nth-child(odd) {
     color: chocolate;
 }
 
+
+
+
+.fixed-width-form {
+    width: 750px;
+    /* Adjust the width as needed */
+    margin: 0;
+    /* This centers the form in the parent container */
+}
+
+@media screen and (max-width: 600px) {
+    .fixed-width-form {
+        width: 100%;
+        /* Full width on smaller screens */
+    }
+}
+
+
+
+
+
+
+
+
 /* Delete button */
 .delete-btn {
     width: 150px;
@@ -691,11 +715,6 @@ tr:hover .order-id {
 
 .order-id {
     vertical-align: middle;
-    word-break: break-all;
-}
-
-.order-date {
-    word-break: break-all;
 }
 
 .order-table tr {
