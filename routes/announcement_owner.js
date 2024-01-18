@@ -104,7 +104,7 @@ router.route('/:announcement_ID/edit').post(async (req, res) => {
         }, { new: true });
 
         console.log('Announcement edited!')
-        res.redirect(`/owner/${req.user_ID}/announcement`);
+        res.redirect(`/owner/${req.userID}/announcement`);
 
     } catch (err) {
         console.log(err.message);
