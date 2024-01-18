@@ -117,8 +117,9 @@
                     <div class="card mb-3">
                         <div class="row g-0" style="align-items: flex-start; flex-direction: row;">
                             <div class="col-md-1">
-                                <img src="/asset/image/foxy.jpg" width="85px" style="margin:10px"
-                                    class="img-fluid rounded-circle shadow-1-strong" alt=".">
+                                <img src="data:<%= announcement[i].owner_pfp.mimeType %>;base64,<%= announcement[i].owner_pfp.data.toString('base64') %>"
+                                    width="85px" style="margin:10px" class="img-fluid rounded-circle shadow-1-strong"
+                                    alt=".">
                             </div>
                             <div class="col-md-11">
                                 <div class="card-body">
