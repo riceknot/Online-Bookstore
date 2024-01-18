@@ -44,7 +44,7 @@ router.route('/:announcement_ID/reply').post(async (req, res) => {
                 data: customer.profile_picture.data,
                 mimeType: customer.profile_picture.mimeType,
             },
-            user: customer.username,
+            username: customer.username,
             user_role: 'customer',
             text: req.body.text
         });

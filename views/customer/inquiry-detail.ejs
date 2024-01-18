@@ -100,8 +100,9 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content" id="width-content-edit">
                 <div style="width: 80%;" class="py-5 text-center">
-                    <img class="d-block mx-auto mb-4 rounded-circle shadow-1-strong" src="/asset/image/foxy.jpg" alt=""
-                        width="72" height="72">
+                    <img class="d-block mx-auto mb-4 rounded-circle shadow-1-strong"
+                        src="data:<%= customer.profile_picture.mimeType %>;base64,<%= customer.profile_picture.data.toString('base64') %>"
+                        alt="" width="72" height="72">
                     <h2>
                         <%= customer.username %>
                     </h2>
@@ -163,8 +164,9 @@
                         class="card mb-2">
                         <div class="row g-0" style="align-items: flex-start; flex-direction: row;">
                             <div class="col-md-1 ">
-                                <img class="rounded-circle shadow-1-strong" src="/asset/image/foxy.jpg" height="65px"
-                                    width="65px" style="margin:10px" class=" " alt=".">
+                                <img class="rounded-circle shadow-1-strong"
+                                    src="data:<%= inquiry.replies[i].pfp.mimeType %>;base64,<%= inquiry.replies[i].pfp.data.toString('base64') %>"
+                                    height="65px" width="65px" style="margin:10px" class=" " alt=".">
                             </div>
                             <div class="col-md-11">
                                 <div class="card-body">

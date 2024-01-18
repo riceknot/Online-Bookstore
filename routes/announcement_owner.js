@@ -51,7 +51,7 @@ router.route('/:announcement_ID/reply').post(async (req, res) => {
                 data: owner.profile_picture.data,
                 mimeType: owner.profile_picture.mimeType,
             },
-            user: owner.username,
+            username: owner.username,
             text: req.body.text,
             user_role: 'owner'
         });
@@ -72,6 +72,10 @@ router.route('/add').post(async (req, res) => {
     try {
         const owner = await Account.findById(req.userID);
         const announcement = new Announcement({
+            owner_pfp: {
+                data: owner.profile_picture.data,
+                mimeType: owner.profile_picture.mimeType,
+            },
             owner_username: owner.username,
             title: req.body.title,
             text: req.body.text,
