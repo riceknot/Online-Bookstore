@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 
 const AnnouceReplySchema = new Schema({
     user_ID: String,
-    profile_picture: {
+    pfp: {
         data: Buffer,
         mimeType: String,
     },
