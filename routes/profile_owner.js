@@ -25,6 +25,13 @@ router.route('/edit').post(async (req, res) => {
             home_address: req.body.home_address
         };
 
+        if (req.files && req.files.pfp) {
+            newData.profile_picture = {
+                data: req.files.pfp.data,
+                mimeType: req.files.pfp.mimeType
+            }
+        };
+
         const updatedOwner = await Account.findByIdAndUpdate(req.userID, newData, { new: true });
 
         console.log('Successfully updated owner profle!');

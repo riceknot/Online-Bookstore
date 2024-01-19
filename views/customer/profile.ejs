@@ -97,7 +97,7 @@
             <nav class="d-flex justify-content-center align-items-center" style="padding: 2.5% 5% 0;">
                 <a class="navbar-brand"><strong class="fs-1">Profile Page</strong></a>
             </nav>
-            
+
             <form action="/customer/<%= customer.id %>/profile/edit" method="post" enctype="multipart/form-data"
                 class="tab-pane fade show active" id="account" role="tabpanel" aria-labelledby="account-tab"
                 style="padding: 12px;">
@@ -105,8 +105,9 @@
                 <div class="p-4">
                     <div class="img-circle text-center mb-3">
                         <img src="data:<%= customer.profile_picture.mimeType %>;base64,<%= customer.profile_picture.data.toString('base64') %>"
-                            alt="Image" id="preview" width="170px" height="170px" class="rounded-circle shadow-1-strong">
-                        <input type="file" id="filetag" accept="image/*" class="d-none">
+                            alt="Image" id="preview" width="170px" height="170px"
+                            class="rounded-circle shadow-1-strong">
+                        <input type="file" id="filetag" accept="image/*" class="d-none" name="pfp">
                     </div>
                     <h5 style="text-align: center; font-weight: 50;">You can Edit your Profile here!</h5>
                     <div class="username">
