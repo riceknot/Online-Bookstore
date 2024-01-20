@@ -6,7 +6,7 @@ let Inventory = require('../models/inventory_model');
 //Render the Order (Owner) page.
 router.route('/').get(async (req, res) => {
     try {
-        const orders = await Order.find({ status: 'Pending' }).sort({ createdAt: -1 }); //Filter only 'Pending' orders.
+        const orders = await Order.find({ status: 'Pending' }) //Filter only 'Pending' orders.
         const owner = await Account.findById(req.userID);
 
         res.render('owner/order', { orders, owner });
@@ -19,7 +19,7 @@ router.route('/').get(async (req, res) => {
 //Render the Order History (Owner) page.
 router.route('/history').get(async (req, res) => {
     try {
-        const orders = await Order.find({ status: { $ne: 'Pending' } }).sort({ createdAt: -1 }); //Filter orders without the status 'Pending'
+        const orders = await Order.find({ status: { $ne: 'Pending' } }) //Filter orders without the status 'Pending'
         const owner = await Account.findById(req.userID);
 
         res.render('owner/order-history', { orders, owner });
