@@ -112,7 +112,7 @@ router.route('/add').post((req, res) => {
 //Updating a book.
 router.route('/:bookID/update').post((req, res) => {
     const updateBook = {
-        book_title: req.body.book_title,
+        book_title: req.body.title,
         genre: req.body.genre,
         author: req.body.author,
         publisher: req.body.publisher,
