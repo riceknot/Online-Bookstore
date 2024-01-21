@@ -1,1 +1,20 @@
-b
+Prerequesites: Visual Studio Code (VSC) https://code.visualstudio.com/download
+
+Installation: 
+1. Extract the ZIP folder into your desired location.
+
+2. Open Visual Studio Code (VSC).
+
+3. On the top left of Visual Studio Code, click ‘File’, and then click ‘Open Folder’, then find the extracted folder and open it.
+If opened correctly, the VSC screen should display folders such as ‘public’, ‘routes’, and ‘views’, along with the index.js file. 
+
+4. On the top left of VSC, click ‘Terminal’ and click ‘New Terminal’. A ‘terminal’ should appear on the bottom of the screen, showing the path of the folder. 
+
+5. In the terminal, type “npm install” in order to install all of the necessary dependencies for the application to work. After pressing enter, a loading bar should appear showing the progress of downloading the dependencies.
+The process is done if the loading bar disappears and an additional folder called ‘node-modules’ appears in the left side of the screen.
+
+6. In the terminal, to run the application, type “node index”. The application will run normally if you see ‘Server is running on port 3000’ and ‘Connection established!’ appears in the terminal.
+
+7. Open any browser of your choice and type on the URL bar: localhost:3000 
+
+If you see the application’s login page. Then the installation process is completed.
